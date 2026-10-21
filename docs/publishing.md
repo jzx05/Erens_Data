@@ -2,8 +2,8 @@
 
 ## Repository
 
-- Intended repository: `Erens_Data` (GitHub repository names cannot contain apostrophes, so
-  `Eren's_Data` is written as `Erens_Data`).
+- Repository: <https://github.com/jzx05/Erens_Data> (private).
+- GitHub repository names cannot contain apostrophes, so `Eren's_Data` is written as `Erens_Data`.
 - Visibility: **private**. The working tree includes candidate artifacts, seed-derived material,
   and `internal_only` tasks; these must not be published publicly.
 - GitHub CLI: `gh` is installed at `~/.local/bin/gh` (or install with
