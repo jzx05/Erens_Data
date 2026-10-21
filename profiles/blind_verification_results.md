@@ -38,10 +38,10 @@ The workflow skill now runs both tracks:
 
 | Candidate | Blind score | Seed baseline | Calibration | Notes |
 |---|---:|---:|---|---|
-| `bf-compliance-02` | **1.0** | 0.667 | too easy relative to seed | Document forensics; all three questions accepted; accepted before the rule |
+| `bf-compliance-02` | **1.0** | 0.667 | too easy relative to seed | Document forensics; all three questions accepted; reopened as `REVISE` under the corrected calibration |
 | `bf-sales-marketing-02` | **1.0** | 0.942 | parity | Audience segmentation; exact contract followed |
 | `bf-sales-marketing-01` | **0.706** | 1.0 | harder but above floor | Numeric values correct; TSV used `opened` instead of `opened_rate`, report used `3,116` |
-| `bf-enterprise-analytics-02` | **1.0** | missing | absolute fallback | SQLite BI metrics; ran with `--python` |
+| `bf-enterprise-analytics-02` | **1.0** | missing | absolute fallback | SQLite BI metrics; ran with `--python`; reopened as `REVISE` (`SEED_BASELINE_MISSING`, `TOO_EASY`) |
 | `bf-quant-finance-01` | **1.0** | 1.0 | parity | CRR American option pricing |
 | `bf-actuarial-risk-01` | **1.0** (fresh) | 0.0 (degenerate) | too easy; target 0.3–0.7 | Basel BIA capital; 60-event classification added; rerun 22:44 with `--python --model deepseek-flash` after the 22:22 revision; only OR046 business-line mismatch, score still 1.0 |
 | `bf-accounting-01` | **1.0** | missing | absolute fallback; `SEED_BASELINE_MISSING` | Corporate/deferred tax computation |
@@ -56,7 +56,9 @@ The paired seed/synthetic blind results are in `profiles/blind_seed_vs_synthetic
 automatically too easy. `bf-quant-finance-01` and `bf-sales-marketing-03` are parity and were moved
 to `REVIEWED`. `bf-actuarial-risk-01` remains `REVISE` against a degenerate 0.0 seed; it should
 target 0.3–0.7, not the seed's 0.0. `bf-accounting-01` and `bf-hr-pm-01` remain `REVISE` under the
-absolute fallback because their anchors have no baseline.
+absolute fallback because their anchors have no baseline. `bf-compliance-02` (1.0 vs seed 0.667)
+and `bf-enterprise-analytics-02` (1.0, no seed baseline) were reopened as `REVISE`; their previous
+human sign-off is cleared in `review.json`.
 
 For `bf-sales-marketing-01`, the evaluator rejected only the metric-name strings and the
 thousands-separator format. The SRM, rates, 90% CIs, z-tests, Holm decisions, power sample size,
@@ -92,6 +94,6 @@ not a data/answer error.
 2. Build a baseline for `taxform_4_1` or `internal_employee_agent_instance_1` if a runnable adapter
    can be added; otherwise keep the absolute fallback and `SEED_BASELINE_MISSING`.
 3. Calibrate `bf-actuarial-risk-01` into 0.3–0.7 without an all-or-nothing 100% gate.
-4. Re-review `bf-compliance-02` only if strict relative difficulty is required; it was accepted
-   before the rule.
+4. `bf-compliance-02` and `bf-enterprise-analytics-02` are reopened as `REVISE`; add one
+   hard-but-unambiguous requirement, rerun Track B, and re-review before a new sign-off.
 5. Rerun seed and synthetic tracks with the same model whenever the model changes.

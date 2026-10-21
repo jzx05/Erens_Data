@@ -8,8 +8,9 @@ are both blind-tested before review, so difficulty is always compared against a 
 The GitHub repository is private and named `Erens_Data` (GitHub repository names cannot contain
 apostrophes).
 
-The full manual is in [`docs/usage.md`](docs/usage.md). The blind-verification threat model and
-troubleshooting are in [`docs/blind-verification.md`](docs/blind-verification.md).
+New collaborators should start with [`docs/onboarding.md`](docs/onboarding.md). The full manual is
+in [`docs/usage.md`](docs/usage.md). The blind-verification threat model and troubleshooting are in
+[`docs/blind-verification.md`](docs/blind-verification.md).
 
 ## What is in the repo
 

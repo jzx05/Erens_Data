@@ -1,7 +1,8 @@
 # Eren's Data — Full Usage Manual
 
 This manual covers the complete workflow: install, seed profiling, candidate authoring, deterministic
-gates, blind verification of the seed and the synthetic task, review, and safe publishing.
+gates, blind verification of the seed and the synthetic task, review, and safe publishing. If you
+are a new collaborator, start with [`onboarding.md`](onboarding.md) for the shortest path.
 
 ## 1. Concepts
 

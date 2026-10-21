@@ -29,10 +29,10 @@ synthetic score is at `~/ale-blind/<id>/eval/score.json`.
 
 | Candidate | Score | Anchor | Seed baseline | Relative verdict |
 |---|---:|---|---:|---|
-| `bf-compliance-02` | **1.0** | SSE document forensics | 0.667 | too easy relative to seed (accepted before rule) |
+| `bf-compliance-02` | **1.0** | SSE document forensics | 0.667 | too easy relative to seed; reopened as REVISE |
 | `bf-sales-marketing-01` | **0.706** | A/B test | 1.0 | harder than seed but above floor; acceptable |
 | `bf-sales-marketing-02` | **1.0** | audience segmentation | 0.942 | parity; acceptable |
-| `bf-enterprise-analytics-02` | **1.0** | Metabase BI | missing | absolute fallback says too easy |
+| `bf-enterprise-analytics-02` | **1.0** | Metabase BI | missing | absolute fallback says too easy; reopened as REVISE |
 | `bf-quant-finance-01` | **1.0** | American option | 1.0 | parity; acceptable |
 | `bf-actuarial-risk-01` | **1.0** (fresh) | Basel BIA | 0.0 (degenerate) | too easy; target 0.3–0.7; rerun 22:44 after the 22:22 revision |
 | `bf-accounting-01` | **1.0** | taxform | missing | absolute fallback says too easy |
@@ -63,7 +63,7 @@ synthetic score is at `~/ale-blind/<id>/eval/score.json`.
    absolute 0.4–0.9 fallback and flagged `SEED_BASELINE_MISSING`; a baseline or a different anchor
    would make the comparison stronger.
 4. `bf-compliance-02` was accepted before relative calibration; its 1.0 is above its 0.667 seed.
-   Reopen it only if the human wants strict relative difficulty.
+   It has been reopened as `REVISE` under the corrected rule.
 5. The seed tasks have real ambiguities:
    - SSE q3 has no explicit `Yes/No/Unknown` semantics.
    - Segmentation overlap differs on PII-removed columns and the high-overlap threshold.
@@ -81,12 +81,12 @@ synthetic score is at `~/ale-blind/<id>/eval/score.json`.
 | `bf-actuarial-risk-01` | 0.0 | 1.0 (fresh) | degenerate-seed | **REVISE** (`TOO_EASY`, target 0.3–0.7) |
 | `bf-accounting-01` | missing | 1.0 | absolute-fallback | **REVISE** (`SEED_BASELINE_MISSING`, 1.0 above 0.9) |
 | `bf-hr-pm-01` | missing | 1.0 | absolute-fallback | **REVISE** (`SEED_BASELINE_MISSING`, 1.0 above 0.9) |
+| `bf-compliance-02` | 0.667 | 1.0 | relative-to-seed | **REVISE** (`TOO_EASY`, reopened) |
+| `bf-enterprise-analytics-02` | missing | 1.0 | absolute-fallback | **REVISE** (`TOO_EASY`, `SEED_BASELINE_MISSING`, reopened) |
 
-Earlier accepted tasks (not retroactively changed):
+Still accepted (review says parity/acceptable):
 `bf-sales-marketing-01` 0.706 vs seed 1.0 (harder, acceptable);
-`bf-sales-marketing-02` 1.0 vs seed 0.942 (parity);
-`bf-compliance-02` 1.0 vs seed 0.667 (too easy relative; accepted before the rule);
-`bf-enterprise-analytics-02` 1.0 with no seed baseline (absolute fallback; accepted before the rule).
+`bf-sales-marketing-02` 1.0 vs seed 0.942 (parity).
 
 ## Recommended actions
 
@@ -97,9 +97,11 @@ Earlier accepted tasks (not retroactively changed):
 3. **Accounting and HR**: either build a blind baseline for their anchors (if feasible) or accept
    the absolute fallback with `SEED_BASELINE_MISSING` recorded in review. Do not pretend the seed is
    1.0.
-4. **Compliance**: if strict relative difficulty is required, reopen `bf-compliance-02` and add one
-   hard-but-unambiguous requirement; otherwise keep the human sign-off and note the exception.
-5. **Use the same model** for seed and synthetic runs; record `run_meta` in both score files.
-6. **Mimic the seed's speaking style**: section structure, tone, terminology, detail level, and
+4. **Compliance**: `bf-compliance-02` has been reopened as `REVISE`; add one hard-but-unambiguous
+   requirement, rerun Track B, and re-review before asking for a new sign-off.
+5. **BI**: `bf-enterprise-analytics-02` has been reopened as `REVISE`; either build a seed baseline
+   for the Metabase anchor or add a hard-but-unambiguous requirement under the absolute fallback.
+6. **Use the same model** for seed and synthetic runs; record `run_meta` in both score files.
+7. **Mimic the seed's speaking style**: section structure, tone, terminology, detail level, and
    output-contract phrasing.
-7. Human sign-off only after the calibration pass.
+8. Human sign-off only after the calibration pass.

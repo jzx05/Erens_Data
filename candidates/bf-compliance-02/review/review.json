@@ -16,7 +16,9 @@
     "evidence": true,
     "difficulty": true,
     "dedup": true,
-    "solvability": true
+    "solvability": true,
+    "blind_current": true,
+    "model_parity": true
   },
   "gate_details": {
     "schema_errors": [],
@@ -39,15 +41,27 @@
     "learnable_ceiling": 0.9,
     "degenerate_seed_ceiling": 0.7,
     "too_easy": true,
-    "too_hard": false
+    "too_hard": false,
+    "blind_score_stale": false,
+    "blind_score_mtime": 1792588320.54494,
+    "newest_task_mtime": 1792584507.76804,
+    "newest_task_path": "/home/erejin/ale-task-factory/candidates/bf-compliance-02/base/reference/verification_contract.json",
+    "seed_model": null,
+    "synthetic_model": null,
+    "model_parity": "unknown",
+    "dry_run": false
   },
   "recommendation": "REVISE",
   "reasons": [
     "blind score 1.000 is above the seed baseline 0.667 by 0.333 (margin 0.20); add one hard-but-unambiguous requirement"
   ],
-  "human_signoff": {
-    "decision": "ACCEPT",
-    "at": "2026-10-21T12:11:51.074066+00:00",
-    "by": "user"
+  "reason_codes": [
+    "TOO_EASY"
+  ],
+  "human_signoff": null,
+  "reopened": {
+    "at": "2026-10-21T14:49:32.832480+00:00",
+    "by": "user",
+    "reason": "seed-relative calibration recommends REVISE"
   }
 }

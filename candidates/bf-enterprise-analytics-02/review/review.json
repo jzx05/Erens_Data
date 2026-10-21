@@ -16,7 +16,9 @@
     "evidence": true,
     "difficulty": true,
     "dedup": true,
-    "solvability": true
+    "solvability": true,
+    "blind_current": true,
+    "model_parity": true
   },
   "gate_details": {
     "schema_errors": [],
@@ -39,16 +41,29 @@
     "learnable_ceiling": 0.9,
     "degenerate_seed_ceiling": 0.7,
     "too_easy": true,
-    "too_hard": false
+    "too_hard": false,
+    "blind_score_stale": false,
+    "blind_score_mtime": 1792589199.1445296,
+    "newest_task_mtime": 1792585721.110517,
+    "newest_task_path": "/home/erejin/ale-task-factory/candidates/bf-enterprise-analytics-02/base/reference/verification_contract.json",
+    "seed_model": null,
+    "synthetic_model": null,
+    "model_parity": "unknown",
+    "dry_run": false
   },
   "recommendation": "REVISE",
   "reasons": [
     "seed blind baseline missing (missing /home/erejin/ale-blind/seed-metabase_bi_dashboard_01/eval/score.json); absolute fallback band 0.40-0.90 used",
     "blind score 1.000 is above the absolute learnable band (max 0.90); add one hard-but-unambiguous requirement"
   ],
-  "human_signoff": {
-    "decision": "ACCEPT",
-    "at": "2026-10-21T12:34:26.858488+00:00",
-    "by": "user"
+  "reason_codes": [
+    "TOO_EASY",
+    "SEED_BASELINE_MISSING"
+  ],
+  "human_signoff": null,
+  "reopened": {
+    "at": "2026-10-21T14:49:32.832690+00:00",
+    "by": "user",
+    "reason": "seed-relative calibration recommends REVISE"
   }
 }
