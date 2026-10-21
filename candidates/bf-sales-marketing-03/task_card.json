@@ -1,0 +1,115 @@
+{
+  "taskId": "business_finance/multi_channel_campaign_roi_reallocation_01",
+  "title": "Multi-Channel Campaign ROI Review and Budget Reallocation",
+  "summary": "Consolidate eight weeks of daily data for six marketing channels into a channel performance table with CTR, lead rate, CVR, CPA, and ROAS, rank channels by ROAS, and recommend a capped budget reallocation from the lowest-ROAS channel to the highest-ROAS channel.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12",
+    "pandas",
+    "NumPy",
+    "polars",
+    "uv"
+  ],
+  "taskPrompt": "You are a marketing analyst at an e-commerce retailer. Marketing operations has exported\neight weeks of daily performance data for six channels, and finance has asked for a channel-level\nperformance table plus a budget reallocation recommendation.\n\n## Task Directory\n\n`base`\n\n## Inputs\n\n- `base/input/campaign_data.csv` — one row per channel per day: 6 channels across 56 consecutive\ndays (2026-07-06 through 2026-08-30). Columns: `date`, `channel`, `impressions`, `clicks`, `leads`,\n`conversions`, `spend_usd`, `revenue_usd`.\n- `base/input/analysis_policy.md` — the normative metric, rounding, ranking, and reallocation policy.\n- `base/input/output_contract.json` — required files, columns, and JSON keys.\n- `base/input/channel_registry.yaml`, `base/input/prior_quarter_benchmarks.csv`, and\n`base/input/weekly_budget_baseline.csv` are context files only; do not use them in any calculation.\n\n## Required Outputs\n\nWrite exactly these files under `base/output`:\n\n1. `channel_performance.csv` — a header row plus exactly six data rows, in `roas_rank` ascending\norder (rank 1 first). Columns, in order: `channel`, `impressions`, `clicks`, `leads`,\n`conversions`, `spend_usd`, `revenue_usd`, `ctr_pct`, `lead_rate_pct`, `cvr_pct`, `cpa_usd`,\n`roas`, `roas_rank`.\n2. `budget_recommendation.json` — a JSON object with exactly these keys: `total_spend_usd`,\n`total_revenue_usd`, `blended_roas`, `lowest_roas_channel`, `lowest_roas`, `highest_roas_channel`,\n`highest_roas`, `reallocation_amount_usd`, `reallocation_cap_usd`, and `recommended_budgets`.\n`recommended_budgets` is a list of six objects ordered by `roas_rank` ascending, each with keys\n`channel`, `current_spend_usd`, and `recommended_budget_usd`.\n\n## Method\n\n- For each channel, sum `impressions`, `clicks`, `leads`, `conversions`, `spend_usd`, and\n`revenue_usd` over all 56 daily rows. Compute every metric from those channel totals; never average\nthe daily ratios.\n- `ctr_pct = clicks / impressions * 100` (denominator: impressions).\n- `lead_rate_pct = leads / clicks * 100` (denominator: clicks; leads are never a denominator).\n- `cvr_pct = conversions / clicks * 100` (denominator: clicks; not leads, not impressions).\n- `cpa_usd = spend_usd / conversions` (denominator: conversions).\n- `roas = revenue_usd / spend_usd` (denominator: spend); `roas` is a ratio, not a percentage.\n- Round every reported metric and every reported money amount to exactly 2 decimal places using\nround-half-up (half away from zero). Round only the final value; never round intermediate sums or\nintermediate ratios.\n- Rank the six channels by full-precision ROAS in descending order: `roas_rank` 1 is the highest\nROAS and `roas_rank` 6 is the lowest. If two channels have the same full-precision ROAS, the\nchannel with the alphabetically smaller name (ASCII order) receives the better rank.\n- Reallocation: `raw_move_usd = 0.20 * current spend of the rank-6 channel`;\n`cap_usd = 0.25 * current spend of the rank-1 channel`;\n`reallocation_amount_usd = min(raw_move_usd, cap_usd)`, rounded to 2 decimals. The rank-6 channel's\n`recommended_budget_usd` is its current spend minus `reallocation_amount_usd`; the rank-1 channel's\n`recommended_budget_usd` is its current spend plus `reallocation_amount_usd`; every other channel\nkeeps its current spend. The six recommended budgets must sum to the same total as the six current\nspends.\n- `total_spend_usd` and `total_revenue_usd` are the sums of the six channel totals;\n`blended_roas = total_revenue_usd / total_spend_usd`, rounded to 2 decimals.\n- `reallocation_cap_usd` is `0.25 * current spend of the rank-1 channel`, rounded to 2 decimals.\n\n## Constraints\n\n- Use only the staged files under `base/input`; do not use network access or any external data.\n- Do not read or copy outputs from any other task.\n",
+  "agentMustDo": [
+    "Read campaign_data.csv, analysis_policy.md, and output_contract.json.",
+    "Aggregate all 56 daily rows per channel into channel totals before computing any ratio.",
+    "Compute ctr_pct, lead_rate_pct, cvr_pct, cpa_usd, and roas with the exact denominators and 2-decimal half-up rounding.",
+    "Rank the six channels by full-precision ROAS descending with channel-name tie-break.",
+    "Compute the capped 20%/25% reallocation from the lowest-ROAS channel to the highest-ROAS channel.",
+    "Write channel_performance.csv and budget_recommendation.json exactly as contracted."
+  ],
+  "inputFiles": [
+    {
+      "name": "campaign_data.csv",
+      "format": "CSV",
+      "path": "input/campaign_data.csv",
+      "description": "Daily campaign rows for 6 channels across 56 days (8 complete weeks)."
+    },
+    {
+      "name": "analysis_policy.md",
+      "format": "Markdown",
+      "path": "input/analysis_policy.md",
+      "description": "Normative metric formulas, denominators, rounding, ranking, and reallocation rules."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output files, columns, and JSON keys."
+    },
+    {
+      "name": "channel_registry.yaml",
+      "format": "YAML",
+      "path": "input/channel_registry.yaml",
+      "description": "Channel metadata: group, owner, and reporting status."
+    },
+    {
+      "name": "prior_quarter_benchmarks.csv",
+      "format": "CSV",
+      "path": "input/prior_quarter_benchmarks.csv",
+      "description": "Prior-quarter ROAS benchmarks, context only."
+    },
+    {
+      "name": "weekly_budget_baseline.csv",
+      "format": "CSV",
+      "path": "input/weekly_budget_baseline.csv",
+      "description": "Pre-campaign planned weekly budgets, context only."
+    },
+    {
+      "name": "task_brief.md",
+      "format": "Markdown",
+      "path": "input/task_brief.md",
+      "description": "Task narrative and consolidated method summary."
+    },
+    {
+      "name": "runtime_env",
+      "format": "TOML directory",
+      "path": "input/runtime_env/pyproject.toml",
+      "description": "Runtime metadata."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "channel_performance.csv",
+      "format": "CSV",
+      "path": "gold/channel_performance.csv",
+      "description": "Gold channel performance table with ranks and metrics."
+    },
+    {
+      "name": "budget_recommendation.json",
+      "format": "JSON",
+      "path": "gold/budget_recommendation.json",
+      "description": "Gold budget reallocation recommendation."
+    }
+  ],
+  "evaluation": "Hard gates: missing or unparsable output; wrong file set; wrong column set, row count, or row order; any channel total or metric outside the 0.005 absolute tolerance; wrong roas_rank; wrong report keys, totals, blended ROAS, extremity channels, reallocation amount, or cap; or wrong recommended budgets. The score is the fraction of the two required files passed; only a fully correct submission scores 1.0.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.6",
+    "subdomain_code": "sales_marketing",
+    "subdomain_name": "Sales & Marketing",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task computes multi-channel marketing performance metrics and recommends a ROAS-based budget reallocation."
+    }
+  },
+  "requiredSystemPackages": []
+}

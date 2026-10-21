@@ -1,0 +1,487 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-sales-marketing-02",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "passed": true,
+    "checks_passed": 61,
+    "checks_total": 61,
+    "checks": [
+      {
+        "name": "segment_definition parses",
+        "passed": true,
+        "expected": "object",
+        "actual": "dict"
+      },
+      {
+        "name": "definition segment_name",
+        "passed": true,
+        "expected": "High-Value Lapsed App Users — Win-Back Push/SMS",
+        "actual": "High-Value Lapsed App Users — Win-Back Push/SMS"
+      },
+      {
+        "name": "definition created_date",
+        "passed": true,
+        "expected": "2026-10-21",
+        "actual": "2026-10-21"
+      },
+      {
+        "name": "definition version",
+        "passed": true,
+        "expected": "1.0",
+        "actual": "1.0"
+      },
+      {
+        "name": "definition filter_predicates",
+        "passed": true,
+        "expected": [
+          "('app_sessions_30d', '>=', 2.0)",
+          "('email_opens_30d', '<=', 2.0)",
+          "('has_app', '==', 1.0)",
+          "('last_email_open_days_ago', '>', 30.0)",
+          "('ltv', '>=', 1500.0)",
+          "('recency_days', '>=', 45.0)"
+        ],
+        "actual": [
+          "('app_sessions_30d', '>=', 2.0)",
+          "('email_opens_30d', '<=', 2.0)",
+          "('has_app', '==', 1.0)",
+          "('last_email_open_days_ago', '>', 30.0)",
+          "('ltv', '>=', 1500.0)",
+          "('recency_days', '>=', 45.0)"
+        ]
+      },
+      {
+        "name": "definition suppression_rules",
+        "passed": true,
+        "expected": [
+          "('support_tickets_90d', '>', 0.0, 'Active support ticket suppression')"
+        ],
+        "actual": [
+          "('support_tickets_90d', '>', 0.0, 'Active support ticket suppression')"
+        ]
+      },
+      {
+        "name": "definition activation_channels",
+        "passed": true,
+        "expected": {
+          "sms": {
+            "eligibility_field": "sms_opt_in",
+            "required_value": 1
+          },
+          "push": {
+            "eligibility_field": "push_opt_in",
+            "required_value": 1
+          }
+        },
+        "actual": {
+          "sms": {
+            "eligibility_field": "sms_opt_in",
+            "required_value": 1
+          },
+          "push": {
+            "eligibility_field": "push_opt_in",
+            "required_value": 1
+          }
+        }
+      },
+      {
+        "name": "definition pii_fields_removed",
+        "passed": true,
+        "expected": [
+          "age",
+          "gender",
+          "city",
+          "state"
+        ],
+        "actual": [
+          "age",
+          "gender",
+          "city",
+          "state"
+        ]
+      },
+      {
+        "name": "definition opt_out_compliance",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "name": "definition support_suppression",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "name": "stats total_qualifying",
+        "passed": true,
+        "expected": 71,
+        "actual": 71
+      },
+      {
+        "name": "stats sms_eligible",
+        "passed": true,
+        "expected": 45,
+        "actual": 45
+      },
+      {
+        "name": "stats push_eligible",
+        "passed": true,
+        "expected": 36,
+        "actual": 36
+      },
+      {
+        "name": "stats any_channel_eligible",
+        "passed": true,
+        "expected": 58,
+        "actual": 58
+      },
+      {
+        "name": "stats pct_of_total_profiles",
+        "passed": true,
+        "expected": 0.71,
+        "actual": 0.71
+      },
+      {
+        "name": "governance minimum audience",
+        "passed": true,
+        "expected": ">= 50",
+        "actual": 71
+      },
+      {
+        "name": "roster header",
+        "passed": true,
+        "expected": [
+          "any_channel_eligible",
+          "app_sessions_30d",
+          "avg_order_value",
+          "customer_id",
+          "engagement_score",
+          "has_app",
+          "loyalty_tier",
+          "ltv",
+          "purchase_count_30d",
+          "purchase_count_90d",
+          "push_eligible",
+          "recency_days",
+          "sms_eligible",
+          "tenure_months",
+          "total_purchases"
+        ],
+        "actual": [
+          "any_channel_eligible",
+          "app_sessions_30d",
+          "avg_order_value",
+          "customer_id",
+          "engagement_score",
+          "has_app",
+          "loyalty_tier",
+          "ltv",
+          "purchase_count_30d",
+          "purchase_count_90d",
+          "push_eligible",
+          "recency_days",
+          "sms_eligible",
+          "tenure_months",
+          "total_purchases"
+        ]
+      },
+      {
+        "name": "roster no PII",
+        "passed": true,
+        "expected": "no PII",
+        "actual": []
+      },
+      {
+        "name": "roster customer_id set",
+        "passed": true,
+        "expected": 71,
+        "actual": 71
+      },
+      {
+        "name": "roster row count",
+        "passed": true,
+        "expected": 71,
+        "actual": 71
+      },
+      {
+        "name": "roster column tenure_months",
+        "passed": true,
+        "expected": "all tenure_months values match",
+        "actual": null
+      },
+      {
+        "name": "roster column loyalty_tier",
+        "passed": true,
+        "expected": "all loyalty_tier values match",
+        "actual": null
+      },
+      {
+        "name": "roster column total_purchases",
+        "passed": true,
+        "expected": "all total_purchases values match",
+        "actual": null
+      },
+      {
+        "name": "roster column purchase_count_30d",
+        "passed": true,
+        "expected": "all purchase_count_30d values match",
+        "actual": null
+      },
+      {
+        "name": "roster column purchase_count_90d",
+        "passed": true,
+        "expected": "all purchase_count_90d values match",
+        "actual": null
+      },
+      {
+        "name": "roster column avg_order_value",
+        "passed": true,
+        "expected": "all avg_order_value values match",
+        "actual": null
+      },
+      {
+        "name": "roster column ltv",
+        "passed": true,
+        "expected": "all ltv values match",
+        "actual": null
+      },
+      {
+        "name": "roster column recency_days",
+        "passed": true,
+        "expected": "all recency_days values match",
+        "actual": null
+      },
+      {
+        "name": "roster column has_app",
+        "passed": true,
+        "expected": "all has_app values match",
+        "actual": null
+      },
+      {
+        "name": "roster column app_sessions_30d",
+        "passed": true,
+        "expected": "all app_sessions_30d values match",
+        "actual": null
+      },
+      {
+        "name": "roster column engagement_score",
+        "passed": true,
+        "expected": "all engagement_score values match",
+        "actual": null
+      },
+      {
+        "name": "roster column sms_eligible",
+        "passed": true,
+        "expected": "all sms_eligible values match",
+        "actual": null
+      },
+      {
+        "name": "roster column push_eligible",
+        "passed": true,
+        "expected": "all push_eligible values match",
+        "actual": null
+      },
+      {
+        "name": "roster column any_channel_eligible",
+        "passed": true,
+        "expected": "all any_channel_eligible values match",
+        "actual": null
+      },
+      {
+        "name": "overlap header",
+        "passed": true,
+        "expected": "required columns",
+        "actual": [
+          "existing_audience_id",
+          "existing_audience_name",
+          "overlap_count",
+          "overlap_pct",
+          "flag_high_overlap"
+        ]
+      },
+      {
+        "name": "overlap audience set",
+        "passed": true,
+        "expected": [
+          "AUD-101",
+          "AUD-102",
+          "AUD-103",
+          "AUD-104",
+          "AUD-105",
+          "AUD-106"
+        ],
+        "actual": [
+          "AUD-101",
+          "AUD-102",
+          "AUD-103",
+          "AUD-104",
+          "AUD-105",
+          "AUD-106"
+        ]
+      },
+      {
+        "name": "overlap row count",
+        "passed": true,
+        "expected": 6,
+        "actual": 6
+      },
+      {
+        "name": "AUD-101 name",
+        "passed": true,
+        "expected": "High LTV",
+        "actual": "High LTV"
+      },
+      {
+        "name": "AUD-101 count",
+        "passed": true,
+        "expected": 6,
+        "actual": "6"
+      },
+      {
+        "name": "AUD-101 pct",
+        "passed": true,
+        "expected": 8.45,
+        "actual": "8.45"
+      },
+      {
+        "name": "AUD-101 flag",
+        "passed": true,
+        "expected": "False",
+        "actual": "False"
+      },
+      {
+        "name": "AUD-102 name",
+        "passed": true,
+        "expected": "Recent Buyers",
+        "actual": "Recent Buyers"
+      },
+      {
+        "name": "AUD-102 count",
+        "passed": true,
+        "expected": 0,
+        "actual": "0"
+      },
+      {
+        "name": "AUD-102 pct",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0"
+      },
+      {
+        "name": "AUD-102 flag",
+        "passed": true,
+        "expected": "False",
+        "actual": "False"
+      },
+      {
+        "name": "AUD-103 name",
+        "passed": true,
+        "expected": "App Power Users",
+        "actual": "App Power Users"
+      },
+      {
+        "name": "AUD-103 count",
+        "passed": true,
+        "expected": 52,
+        "actual": "52"
+      },
+      {
+        "name": "AUD-103 pct",
+        "passed": true,
+        "expected": 73.24,
+        "actual": "73.24"
+      },
+      {
+        "name": "AUD-103 flag",
+        "passed": true,
+        "expected": "True",
+        "actual": "True"
+      },
+      {
+        "name": "AUD-104 name",
+        "passed": true,
+        "expected": "Email Engaged",
+        "actual": "Email Engaged"
+      },
+      {
+        "name": "AUD-104 count",
+        "passed": true,
+        "expected": 0,
+        "actual": "0"
+      },
+      {
+        "name": "AUD-104 pct",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0"
+      },
+      {
+        "name": "AUD-104 flag",
+        "passed": true,
+        "expected": "False",
+        "actual": "False"
+      },
+      {
+        "name": "AUD-105 name",
+        "passed": true,
+        "expected": "Support Contacts",
+        "actual": "Support Contacts"
+      },
+      {
+        "name": "AUD-105 count",
+        "passed": true,
+        "expected": 0,
+        "actual": "0"
+      },
+      {
+        "name": "AUD-105 pct",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0"
+      },
+      {
+        "name": "AUD-105 flag",
+        "passed": true,
+        "expected": "False",
+        "actual": "False"
+      },
+      {
+        "name": "AUD-106 name",
+        "passed": true,
+        "expected": "Platinum Loyalty",
+        "actual": "Platinum Loyalty"
+      },
+      {
+        "name": "AUD-106 count",
+        "passed": true,
+        "expected": 2,
+        "actual": "2"
+      },
+      {
+        "name": "AUD-106 pct",
+        "passed": true,
+        "expected": 2.82,
+        "actual": "2.82"
+      },
+      {
+        "name": "AUD-106 flag",
+        "passed": true,
+        "expected": "False",
+        "actual": "False"
+      }
+    ],
+    "expected_stats": {
+      "total_qualifying": 71,
+      "sms_eligible": 45,
+      "push_eligible": 36,
+      "any_channel_eligible": 58,
+      "pct_of_total_profiles": 0.71
+    }
+  },
+  "stdout_tail": "rue,\n      \"expected\": \"App Power Users\",\n      \"actual\": \"App Power Users\"\n    },\n    {\n      \"name\": \"AUD-103 count\",\n      \"passed\": true,\n      \"expected\": 52,\n      \"actual\": \"52\"\n    },\n    {\n      \"name\": \"AUD-103 pct\",\n      \"passed\": true,\n      \"expected\": 73.24,\n      \"actual\": \"73.24\"\n    },\n    {\n      \"name\": \"AUD-103 flag\",\n      \"passed\": true,\n      \"expected\": \"True\",\n      \"actual\": \"True\"\n    },\n    {\n      \"name\": \"AUD-104 name\",\n      \"passed\": true,\n      \"expected\": \"Email Engaged\",\n      \"actual\": \"Email Engaged\"\n    },\n    {\n      \"name\": \"AUD-104 count\",\n      \"passed\": true,\n      \"expected\": 0,\n      \"actual\": \"0\"\n    },\n    {\n      \"name\": \"AUD-104 pct\",\n      \"passed\": true,\n      \"expected\": 0.0,\n      \"actual\": \"0.0\"\n    },\n    {\n      \"name\": \"AUD-104 flag\",\n      \"passed\": true,\n      \"expected\": \"False\",\n      \"actual\": \"False\"\n    },\n    {\n      \"name\": \"AUD-105 name\",\n      \"passed\": true,\n      \"expected\": \"Support Contacts\",\n      \"actual\": \"Support Contacts\"\n    },\n    {\n      \"name\": \"AUD-105 count\",\n      \"passed\": true,\n      \"expected\": 0,\n      \"actual\": \"0\"\n    },\n    {\n      \"name\": \"AUD-105 pct\",\n      \"passed\": true,\n      \"expected\": 0.0,\n      \"actual\": \"0.0\"\n    },\n    {\n      \"name\": \"AUD-105 flag\",\n      \"passed\": true,\n      \"expected\": \"False\",\n      \"actual\": \"False\"\n    },\n    {\n      \"name\": \"AUD-106 name\",\n      \"passed\": true,\n      \"expected\": \"Platinum Loyalty\",\n      \"actual\": \"Platinum Loyalty\"\n    },\n    {\n      \"name\": \"AUD-106 count\",\n      \"passed\": true,\n      \"expected\": 2,\n      \"actual\": \"2\"\n    },\n    {\n      \"name\": \"AUD-106 pct\",\n      \"passed\": true,\n      \"expected\": 2.82,\n      \"actual\": \"2.82\"\n    },\n    {\n      \"name\": \"AUD-106 flag\",\n      \"passed\": true,\n      \"expected\": \"False\",\n      \"actual\": \"False\"\n    }\n  ],\n  \"expected_stats\": {\n    \"total_qualifying\": 71,\n    \"sms_eligible\": 45,\n    \"push_eligible\": 36,\n    \"any_channel_eligible\": 58,\n    \"pct_of_total_profiles\": 0.71\n  }\n}\n",
+  "stderr_tail": ""
+}

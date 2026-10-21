@@ -1,0 +1,47 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-compliance-02",
+  "threshold": 0.85,
+  "internal_variant": true,
+  "matches": [],
+  "warnings": [
+    {
+      "kind": "seed",
+      "name": "sse_northbound_programmatic_trading_01",
+      "text_similarity": 0.4629,
+      "file_hash_overlap": 0.875
+    }
+  ],
+  "passed": true,
+  "top_similar": [
+    {
+      "kind": "seed",
+      "name": "sse_northbound_programmatic_trading_01",
+      "text_similarity": 0.4629,
+      "file_hash_overlap": 0.875
+    },
+    {
+      "kind": "seed",
+      "name": "llm_ecosystem_privacy_audit_realdata_1",
+      "text_similarity": 0.289,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "legal_ma_consistency_audit_01",
+      "text_similarity": 0.2767,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "digital_marketing_ab_test_analysis_1",
+      "text_similarity": 0.2574,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "sec_10k_financial_parsing",
+      "text_similarity": 0.2546,
+      "file_hash_overlap": 0.0
+    }
+  ]
+}

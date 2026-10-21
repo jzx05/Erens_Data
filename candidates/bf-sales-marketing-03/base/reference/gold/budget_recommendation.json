@@ -1,0 +1,43 @@
+{
+  "total_spend_usd": 734073.27,
+  "total_revenue_usd": 3216336.14,
+  "blended_roas": 4.38,
+  "lowest_roas_channel": "Display",
+  "lowest_roas": 1.18,
+  "highest_roas_channel": "Email",
+  "highest_roas": 11.87,
+  "reallocation_amount_usd": 31204.46,
+  "reallocation_cap_usd": 31204.46,
+  "recommended_budgets": [
+    {
+      "channel": "Email",
+      "current_spend_usd": 124817.84,
+      "recommended_budget_usd": 156022.3
+    },
+    {
+      "channel": "Paid Search",
+      "current_spend_usd": 175271.94,
+      "recommended_budget_usd": 175271.94
+    },
+    {
+      "channel": "Affiliate",
+      "current_spend_usd": 51925.22,
+      "recommended_budget_usd": 51925.22
+    },
+    {
+      "channel": "Paid Social",
+      "current_spend_usd": 104409.81,
+      "recommended_budget_usd": 104409.81
+    },
+    {
+      "channel": "Podcast",
+      "current_spend_usd": 35138.17,
+      "recommended_budget_usd": 35138.17
+    },
+    {
+      "channel": "Display",
+      "current_spend_usd": 242510.29,
+      "recommended_budget_usd": 211305.83
+    }
+  ]
+}

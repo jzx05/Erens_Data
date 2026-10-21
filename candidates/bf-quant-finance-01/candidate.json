@@ -1,0 +1,18 @@
+{
+  "id": "bf-quant-finance-01",
+  "status": "AUTHORED",
+  "stratum": "quant_finance",
+  "seed_anchor": "american_option_pricing_ls",
+  "seed_refs": [
+    "american_option_pricing_ls",
+    "ff5_public_reconstruction"
+  ],
+  "difficulty_target": 100.0,
+  "task_family": "data-analysis",
+  "source_policy": "synthetic",
+  "internal_only": false,
+  "synthetic_data": true,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

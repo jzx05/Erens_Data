@@ -1,0 +1,27 @@
+dataset_id=multi_channel_campaign_roi_reallocation_01
+random_seed=20261021
+generator=scripts/generate_dataset.py
+start_date=2026-07-06
+end_date=2026-08-30
+days=56
+weeks=8
+channels=Paid Search,Paid Social,Display,Email,Affiliate,Podcast
+rows=336
+columns=date,channel,impressions,clicks,leads,conversions,spend_usd,revenue_usd
+weekday_factors=0.92,1.03,1.05,1.04,1.02,0.90,0.84
+weekly_growth=0.02
+impressions_noise=uniform(0.90,1.10)
+clicks_noise=uniform(0.92,1.08)
+leads_noise=uniform(0.85,1.15)
+conversions_noise=uniform(0.85,1.15)
+spend_noise=uniform(0.94,1.06)
+revenue_noise=uniform(0.90,1.10)
+channel_params=name|base_daily_impressions|ctr|lead_rate|cvr|cpm_usd|aov_usd
+Paid Search|66700|0.0450|0.100|0.0500|45.00|110.00
+Paid Social|100000|0.0120|0.080|0.0350|18.00|95.00
+Display|525000|0.0050|0.040|0.0200|8.00|95.00
+Email|238000|0.0250|0.120|0.0700|9.00|60.00
+Affiliate|36000|0.0200|0.150|0.0600|25.00|85.00
+Podcast|30000|0.0100|0.050|0.0300|20.00|130.00
+derived_files=weekly_budget_baseline.csv (actual weekly spend x per-channel planning factor, rounded to 100); prior_quarter_benchmarks.csv (static context table)
+generated_by=ale-task-factory

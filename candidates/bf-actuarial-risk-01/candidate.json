@@ -1,0 +1,19 @@
+{
+  "id": "bf-actuarial-risk-01",
+  "status": "AUTHORED",
+  "stratum": "actuarial_risk",
+  "seed_anchor": "basel_operational_risk_bia_cn",
+  "seed_refs": [
+    "basel_operational_risk_bia_cn",
+    "bpmn_supply_disruption_l3"
+  ],
+  "difficulty_target": 100.0,
+  "task_family": "data-analysis",
+  "source_policy": "synthetic",
+  "synthetic_data": true,
+  "internal_only": false,
+  "redistributable": true,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

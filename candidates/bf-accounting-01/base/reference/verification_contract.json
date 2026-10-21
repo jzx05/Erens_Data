@@ -1,0 +1,31 @@
+{
+  "task_id": "business_finance/corporate_income_tax_deferred_tax_01",
+  "variant_name": "base",
+  "required_outputs": [
+    "tax_computation.csv",
+    "tax_summary.json"
+  ],
+  "tolerance": 1e-6,
+  "json_outputs": [
+    "tax_summary.json"
+  ],
+  "table_outputs": [
+    {
+      "file": "tax_computation.csv",
+      "delimiter": ","
+    }
+  ],
+  "hard_checks": [
+    "tax_computation.csv has exactly the six contracted columns in order",
+    "one row per entity, sorted by entity ascending",
+    "current_tax_usd = (pretax_income_usd + permanent_differences_usd) * statutory_tax_rate",
+    "deferred_tax_expense_usd = temporary_differences_usd * statutory_tax_rate",
+    "total_tax_expense_usd = current_tax_usd + deferred_tax_expense_usd",
+    "effective_tax_rate_pct = total_tax_expense_usd / pretax_income_usd * 100",
+    "deferred_tax_balance_usd = prior_deferred_tax_balance_usd + deferred_tax_expense_usd",
+    "all values rounded to 2 decimals with ROUND_HALF_UP",
+    "tax_summary.json contains exactly the five contracted keys",
+    "summary totals equal the sums of the rounded per-entity values",
+    "weighted_effective_tax_rate_pct = total_tax_expense_usd / sum(pretax_income_usd) * 100"
+  ]
+}

@@ -1,0 +1,6 @@
+{"claim_id": "dataset_generation", "source_id": "src-dataset-manifest", "locator": "generation parameters", "exact_quote": "random_seed=20261021", "used_in": ["task_card.json"]}
+{"claim_id": "primary_metric_definition", "source_id": "src-brief", "locator": "Primary Metric", "exact_quote": "Email open rate (opens / delivered emails)", "used_in": ["task_card.json"]}
+{"claim_id": "srm_protocol", "source_id": "src-brief", "locator": "Statistical Protocol", "exact_quote": "SRM: Pearson chi-square with 1 degree of freedom, no continuity correction; pass if p > 0.05.", "used_in": ["task_card.json"]}
+{"claim_id": "holm_protocol", "source_id": "src-brief", "locator": "Statistical Protocol", "exact_quote": "Holm-Bonferroni step-down at family-wise error rate 0.05 for the three secondary metrics.", "used_in": ["task_card.json"]}
+{"claim_id": "guardrail", "source_id": "src-brief", "locator": "Guardrail", "exact_quote": "Unsubscribe rate must not increase by more than 0.3 percentage points in treatment.", "used_in": ["task_card.json"]}
+{"claim_id": "power_analysis", "source_id": "src-brief", "locator": "Power Analysis", "exact_quote": "Baseline = arithmetic mean of historical open_rate; MDE = 3 percentage points absolute.", "used_in": ["task_card.json"]}

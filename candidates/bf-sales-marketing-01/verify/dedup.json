@@ -1,0 +1,40 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-sales-marketing-01",
+  "threshold": 0.85,
+  "internal_variant": false,
+  "matches": [],
+  "warnings": [],
+  "passed": true,
+  "top_similar": [
+    {
+      "kind": "seed",
+      "name": "digital_marketing_ab_test_analysis_1",
+      "text_similarity": 0.4884,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "llm_ecosystem_privacy_audit_realdata_1",
+      "text_similarity": 0.2378,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "digital_marketing_audience_segmentation_1",
+      "text_similarity": 0.2298,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "sec_10k_financial_parsing",
+      "text_similarity": 0.2223,
+      "file_hash_overlap": 0.0
+    },
+    {
+      "kind": "seed",
+      "name": "sse_northbound_programmatic_trading_01",
+      "text_similarity": 0.2189,
+      "file_hash_overlap": 0.0
+    }
+  ]
+}

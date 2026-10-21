@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+candidates/*/base/output/
+candidates/*/verify/independent_solver/
+exports/
+
+# Local blind workspaces and run artifacts (normally outside the repo)
+ale-blind/
+.ale-blind/
+*.log
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.credentials.yaml
+settings.local.json
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Local tool caches
+node_modules/
+.dsh-home/
+run/
+eval/

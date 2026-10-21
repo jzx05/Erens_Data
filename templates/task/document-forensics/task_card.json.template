@@ -1,0 +1,36 @@
+{
+  "taskId": "business_finance/{{TASK_SLUG}}",
+  "title": "{{TASK_TITLE}}",
+  "summary": "{{ONE_SENTENCE_SUMMARY}}",
+  "category": "business_finance",
+  "software": ["Python"],
+  "taskPrompt": "{{TASK_PROMPT_DERIVED_FROM_GOLD_AND_CONTRACT}}",
+  "agentMustDo": [
+    "Read the staged task brief, question set, output contract, document manifest, and extracted text mirrors.",
+    "Answer all questions using only the staged source materials.",
+    "Write exactly one JSON file to the contracted output path.",
+    "For each question, provide a conclusion, an accepted citation, an exact evidence excerpt, and a short English explanation.",
+    "Stay closed-book and do not use outside search or external knowledge."
+  ],
+  "inputFiles": [
+    {"name": "task_brief.md", "format": "Markdown", "path": "input/task_brief.md", "description": "Scenario, questions, and closed-book rule."},
+    {"name": "question_set.json", "format": "JSON", "path": "input/question_set.json", "description": "Structured questions and allowed labels."},
+    {"name": "output_contract.json", "format": "JSON", "path": "input/output_contract.json", "description": "Required output filename and fields."},
+    {"name": "document_manifest.json", "format": "JSON", "path": "input/document_manifest.json", "description": "Citation aliases for staged sources."},
+    {"name": "extracted_text", "format": "UTF-8 text directory", "path": "input/extracted_text", "description": "Search-friendly text mirrors."}
+  ],
+  "referenceFiles": [
+    {"name": "research_answers.json", "format": "JSON", "path": "output/research_answers.json", "description": "Required structured answer file."}
+  ],
+  "evaluation": "Hard gates: missing output, invalid JSON, missing question keys, invalid conclusion, unsupported citation, non-exact evidence, or missing English explanation. Score each question 1.0 only when every check passes, then average.",
+  "vm": {"machineType": "c4-standard-4", "snapshot": "cpu-free-ubuntu", "timeout": 7200},
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "{{SUBDOMAIN_ID}}",
+    "subdomain_code": "{{SUBDOMAIN_CODE}}",
+    "subdomain_name": "{{SUBDOMAIN_NAME}}",
+    "classifier": {"model": "manual", "classified_at": "{{ISO_DATE}}", "source": {"submission_id": "factory", "fields": ["taskPrompt", "title", "summary", "software"], "mode": "manual"}, "rationale": "{{RATIONALE}}"}
+  },
+  "requiredSystemPackages": []
+}

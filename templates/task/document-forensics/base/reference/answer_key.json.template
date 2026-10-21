@@ -1,0 +1,29 @@
+{
+  "q1_{{SLUG}}": {
+    "question": "{{QUESTION_1}}",
+    "expected_conclusion": "Yes",
+    "accepted_citations": ["{{DOC_1_CANONICAL_NAME}}"],
+    "accepted_doc_ids": ["doc_01"],
+    "evidence_anchors": ["{{EXACT_ANCHOR_1}}"],
+    "positive_evidence": "{{EXACT_QUOTE_FROM_SOURCE}}",
+    "positive_answer_text": "Yes. {{SHORT_ENGLISH_EXPLANATION}}"
+  },
+  "q2_{{SLUG}}": {
+    "question": "{{QUESTION_2}}",
+    "expected_conclusion": "No",
+    "accepted_citations": ["{{DOC_2_CANONICAL_NAME}}"],
+    "accepted_doc_ids": ["doc_02"],
+    "evidence_anchors": ["{{EXACT_ANCHOR_2}}"],
+    "positive_evidence": "{{EXACT_QUOTE_FROM_SOURCE}}",
+    "positive_answer_text": "No. {{SHORT_ENGLISH_EXPLANATION}}"
+  },
+  "q3_{{SLUG}}": {
+    "question": "{{QUESTION_3}}",
+    "expected_conclusion": "Unknown",
+    "accepted_citations": ["{{DOC_2_CANONICAL_NAME}}"],
+    "accepted_doc_ids": ["doc_02"],
+    "evidence_anchors": ["{{EXACT_ANCHOR_3}}"],
+    "positive_evidence": "{{EXACT_QUOTE_FROM_SOURCE}}",
+    "positive_answer_text": "Unknown. {{SHORT_ENGLISH_EXPLANATION}}"
+  }
+}

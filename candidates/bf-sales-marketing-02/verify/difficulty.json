@@ -1,0 +1,52 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-sales-marketing-02",
+  "anchor": "digital_marketing_audience_segmentation_1",
+  "anchor_subdomain": "sales_marketing",
+  "candidate_stratum": "sales_marketing",
+  "stratum_ok": true,
+  "anchor_distance": 0.4965,
+  "max_distance": 2.0,
+  "nearest_seeds": [
+    {
+      "slug": "digital_marketing_audience_segmentation_1",
+      "distance": 0.4965
+    },
+    {
+      "slug": "basel_operational_risk_bia_cn",
+      "distance": 0.7834
+    },
+    {
+      "slug": "bpmn_supply_disruption_l3",
+      "distance": 0.8476
+    }
+  ],
+  "candidate_features": {
+    "software_count": 3,
+    "input_file_count": 6,
+    "base_input_file_count": 7,
+    "log_input_bytes": 13.789,
+    "reference_file_count": 1,
+    "prompt_kchars": 1.105,
+    "must_do_count": 6,
+    "evaluation_kchars": 0.289,
+    "timeout_units": 1.0,
+    "modality_count": 6
+  },
+  "seed_means": {
+    "software_count": 2.5263,
+    "base_input_file_count": 12.2105,
+    "log_input_bytes": 10.5649,
+    "reference_file_count": 13.6316,
+    "timeout_units": 1.0,
+    "modality_count": 3.5263
+  },
+  "seed_stds": {
+    "software_count": 1.4279,
+    "base_input_file_count": 24.9622,
+    "log_input_bytes": 5.2466,
+    "reference_file_count": 44.9212,
+    "timeout_units": 1.0,
+    "modality_count": 2.2093
+  },
+  "passed": true
+}

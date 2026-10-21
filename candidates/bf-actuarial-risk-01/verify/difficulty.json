@@ -1,0 +1,52 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-actuarial-risk-01",
+  "anchor": "basel_operational_risk_bia_cn",
+  "anchor_subdomain": "actuarial_risk",
+  "candidate_stratum": "actuarial_risk",
+  "stratum_ok": true,
+  "anchor_distance": 0.039,
+  "max_distance": 2.0,
+  "nearest_seeds": [
+    {
+      "slug": "basel_operational_risk_bia_cn",
+      "distance": 0.039
+    },
+    {
+      "slug": "ff5_public_reconstruction",
+      "distance": 0.501
+    },
+    {
+      "slug": "bpmn_supply_disruption_l3",
+      "distance": 0.854
+    }
+  ],
+  "candidate_features": {
+    "software_count": 3,
+    "input_file_count": 8,
+    "base_input_file_count": 8,
+    "log_input_bytes": 10.6172,
+    "reference_file_count": 4,
+    "prompt_kchars": 9.622,
+    "must_do_count": 5,
+    "evaluation_kchars": 0.67,
+    "timeout_units": 1.0,
+    "modality_count": 5
+  },
+  "seed_means": {
+    "software_count": 2.5263,
+    "base_input_file_count": 12.2105,
+    "log_input_bytes": 10.5649,
+    "reference_file_count": 13.6316,
+    "timeout_units": 1.0,
+    "modality_count": 3.5263
+  },
+  "seed_stds": {
+    "software_count": 1.4279,
+    "base_input_file_count": 24.9622,
+    "log_input_bytes": 5.2466,
+    "reference_file_count": 44.9212,
+    "timeout_units": 1.0,
+    "modality_count": 2.2093
+  },
+  "passed": true
+}

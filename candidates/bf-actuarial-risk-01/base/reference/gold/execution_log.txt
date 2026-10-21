@@ -1,0 +1,21 @@
+Huachen Bank - operational risk classification and BIA capital
+==================================================================
+
+Inputs inspected
+- operational_risk_events.csv: 60 loss events read and checked against the ledger.
+- risk_taxonomy_policy.md and business_line_guide.csv: EL and BL definitions applied.
+- gross_income.csv: 6 fiscal years read.
+
+Classification method
+1. For each event, assign the loss-event category from the proximate cause using the EL1-EL7 precedence order.
+2. Assign the business line from the product, customer or activity that generated the loss; the recorded department is corroborating evidence only.
+3. Copy the loss amount from the ledger without any adjustment.
+
+BIA capital steps
+1. Include only fiscal years whose gross income is strictly greater than zero.
+2. Sum the included gross income values and divide by the count of positive years.
+3. Multiply the unrounded average by alpha = 0.15.
+4. Round the average and the capital charge to two decimals using round-half-up.
+
+Result
+- The positive-year count, the positive gross-income sum, the rounded average and the capital charge are recorded in capital_calculation.json.

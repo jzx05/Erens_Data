@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "total_revenue",
+    "average_order_value",
+    "conversion_rate",
+    "total_completed_orders",
+    "unique_purchasing_customers",
+    "revenue_by_category",
+    "monthly_revenue",
+    "orders_by_device",
+    "orders_by_channel",
+    "event_funnel",
+    "top_10_customers"
+  ],
+  "properties": {
+    "total_revenue": {
+      "type": "number"
+    },
+    "average_order_value": {
+      "type": "number"
+    },
+    "conversion_rate": {
+      "type": "number"
+    },
+    "total_completed_orders": {
+      "type": "integer"
+    },
+    "unique_purchasing_customers": {
+      "type": "integer"
+    },
+    "revenue_by_category": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "monthly_revenue": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "orders_by_device": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "orders_by_channel": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "event_funnel": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "top_10_customers": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "customer_id",
+          "customer_name",
+          "total_spend"
+        ],
+        "properties": {
+          "customer_id": {
+            "type": "string"
+          },
+          "customer_name": {
+            "type": "string"
+          },
+          "total_spend": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

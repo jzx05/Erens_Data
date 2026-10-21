@@ -1,0 +1,7 @@
+{
+  "base_case_price": 11.3305,
+  "base_case_delta": -0.5043,
+  "base_case_gamma": 0.0177,
+  "scenario_count": 8,
+  "highest_price_scenario": "S1"
+}

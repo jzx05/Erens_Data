@@ -1,0 +1,6 @@
+[project]
+name = "huachen-operational-risk-classification"
+version = "0.1.0"
+description = "Basel loss-event classification and BIA capital benchmark"
+requires-python = ">=3.12"
+dependencies = []

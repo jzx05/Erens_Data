@@ -1,0 +1,15 @@
+{
+  "task_id": "business_finance/sqlite_bi_dashboard_metrics_01",
+  "variant_name": "base",
+  "required_outputs": [
+    "dashboard_metrics.json"
+  ],
+  "hard_checks": [
+    "all 11 top-level keys present with correct types",
+    "revenue and order metrics use completed orders only",
+    "all monetary values and rates rounded to 2 decimals",
+    "monthly_revenue is zero-filled across the full month range",
+    "top_10_customers is sorted by total_spend desc then customer_id asc",
+    "scalars within 0.5% relative tolerance; integers exact"
+  ]
+}

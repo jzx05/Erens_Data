@@ -1,0 +1,49 @@
+{
+  "candidate_id": "bf-quant-finance-01",
+  "scores": {
+    "seed_fidelity": 20,
+    "capability_match": 15,
+    "difficulty_proximity": 15,
+    "correctness_reproducibility": 25,
+    "evidence_integrity": 15,
+    "solvability_clarity": 10
+  },
+  "total": 100,
+  "hard_gates": {
+    "schema": true,
+    "gold_run": true,
+    "mutation": true,
+    "evidence": true,
+    "difficulty": true,
+    "dedup": true,
+    "solvability": true
+  },
+  "gate_details": {
+    "schema_errors": [],
+    "gold_score": 1.0,
+    "mutation_rejected": 3,
+    "evidence_errors": [],
+    "difficulty_distance": 0.5212,
+    "dedup_matches": [],
+    "blind_score": 1.0,
+    "blind_score_source": "/home/erejin/ale-blind/bf-quant-finance-01/eval/score.json",
+    "blind_score_kind": "dsh-blind",
+    "independent_solver_score": 1.0,
+    "independent_solver_source": "/home/erejin/ale-task-factory/candidates/bf-quant-finance-01/verify/independent_solver/score.json",
+    "seed_blind_score": 1.0,
+    "seed_blind_source": "/home/erejin/ale-blind/seed-american_option_pricing_ls/eval/score.json",
+    "calibration_mode": "relative-to-seed",
+    "calibration_note": "seed baseline 1.000 and blind score 1.000 are both ~1.0 (parity); 1.0 alone is not too easy",
+    "seed_margin": 0.2,
+    "learnable_floor": 0.3,
+    "learnable_ceiling": 0.9,
+    "degenerate_seed_ceiling": 0.7,
+    "too_easy": false,
+    "too_hard": false
+  },
+  "recommendation": "ACCEPT",
+  "reasons": [
+    "all hard gates passed and total score >= 85"
+  ],
+  "human_signoff": null
+}

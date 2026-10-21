@@ -1,0 +1,18 @@
+{
+  "id": "bf-enterprise-analytics-02",
+  "status": "AUTHORED",
+  "stratum": "enterprise_analytics",
+  "seed_anchor": "metabase_bi_dashboard_01",
+  "seed_refs": [
+    "metabase_bi_dashboard_01",
+    "internal_employee_agent_instance_1"
+  ],
+  "difficulty_target": 94.28,
+  "task_family": "data-analysis",
+  "source_policy": "synthetic",
+  "internal_only": false,
+  "synthetic_data": true,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

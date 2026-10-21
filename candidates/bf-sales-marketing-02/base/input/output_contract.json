@@ -1,0 +1,47 @@
+{
+  "required_outputs": [
+    "segment_definition.json",
+    "audience_roster.csv",
+    "overlap_report.tsv"
+  ],
+  "roster_columns": [
+    "customer_id",
+    "tenure_months",
+    "loyalty_tier",
+    "total_purchases",
+    "purchase_count_30d",
+    "purchase_count_90d",
+    "avg_order_value",
+    "ltv",
+    "recency_days",
+    "has_app",
+    "app_sessions_30d",
+    "engagement_score",
+    "sms_eligible",
+    "push_eligible",
+    "any_channel_eligible"
+  ],
+  "pii_fields_removed": [
+    "age",
+    "gender",
+    "city",
+    "state"
+  ],
+  "segment_definition_required_keys": [
+    "segment_name",
+    "created_date",
+    "version",
+    "filter_predicates",
+    "suppression_rules",
+    "activation_channels",
+    "governance_applied",
+    "audience_stats"
+  ],
+  "overlap_columns": [
+    "existing_audience_id",
+    "existing_audience_name",
+    "overlap_count",
+    "overlap_pct",
+    "flag_high_overlap"
+  ]
+}

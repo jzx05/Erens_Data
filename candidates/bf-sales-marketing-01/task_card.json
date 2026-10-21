@@ -1,0 +1,120 @@
+{
+  "taskId": "business_finance/email_ab_test_90ci_holm_01",
+  "title": "Email Campaign A/B Test: 90% CI and Holm Re-analysis",
+  "summary": "Re-analyze a two-arm email subject-line experiment with a 90% Wald interval, Holm-Bonferroni correction for secondary metrics, a power analysis, and a 0.3pp unsubscribe guardrail.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12",
+    "pandas",
+    "scipy",
+    "statsmodels",
+    "uv"
+  ],
+  "taskPrompt": "You are a growth analytics engineer at an e-commerce company. The team has\npre-registered a re-analysis of a two-arm email subject-line experiment under a 90% confidence\ninterval and a Holm-Bonferroni multiple-testing protocol.\n\n## Data Rule\n\n- Use only the staged files under `base/input`.\n- Do not use external data or any reference output from another task.\n\n## Inputs\n\n- Experiment brief: `base/input/experiment_brief.md`\n- Raw experiment results: `base/input/experiment_results_raw.csv`\n- Historical metrics: `base/input/historical_metrics.csv`\n- Eligible population: `base/input/eligible_population.csv`\n- Active experiment customers: `base/input/active_experiment_customers.csv`\n- Exclusion rules (operational only; do not apply): `base/input/exclusion_rules.yaml`\n- Output contract: `base/input/output_contract.json`\n\n## Required Outputs\n\nWrite exactly these files under `base/output`:\n\n1. `randomization_assignment.csv` — columns `metric,value`; rows `n_control`, `n_treatment`,\n   `ratio`, `srm_chi2`, `srm_pvalue`, `srm_pass`.\n2. `experiment_results.tsv` — tab-separated; exactly four rows, one per metric:\n   `opened_rate`, `clicked_rate`, `converted_rate`, `unsubscribed_rate`. Columns:\n   `metric`, `is_primary`, `control_rate`, `treatment_rate`, `absolute_lift`,\n   `relative_lift_pct`, `ci_lower_90`, `ci_upper_90`, `z_statistic`, `p_value_raw`,\n   `significant_at_05`, `holm_rank`, `holm_threshold`, `holm_significant`.\n   Leave the three Holm columns blank for the primary metric.\n3. `experiment_report.md` — Markdown report with the required sample size, a\n   `## Recommendation` section containing `ship` or `hold`, and the observed absolute lift on the\n   primary metric formatted as `X.XX percentage points`.\n\n## Method\n\n- Use every row in the raw file for the SRM check; do not apply exclusion rules.\n- For every metric rate, the denominator is delivered emails (`delivered == \"1\"`).\n- SRM: Pearson chi-square with 1 degree of freedom, no continuity correction; pass if p > 0.05.\n- Two-proportion z test: pooled, two-sided, no continuity correction.\n- 90% CI: unpooled Wald interval, z = 1.6448536269514722.\n- `significant_at_05` is True exactly when the raw p-value is below 0.05.\n- Holm-Bonferroni step-down at family-wise error rate 0.05 for the three secondary metrics.\n- Power: equal 1:1, two-sided alpha 0.05, 80% power, baseline = mean historical open_rate,\n  MDE = 3 percentage points, normal approximation, round up.\n- Recommend Ship only if the primary metric is significant at 0.05 and the unsubscribe lift is at\n  most 0.3 percentage points; otherwise recommend Hold.\n",
+  "agentMustDo": [
+    "Read the experiment brief, raw results, historical metrics, and output contract.",
+    "Use every raw row for the SRM check; compute each metric rate over delivered emails; do not apply exclusion rules.",
+    "Compute the SRM chi-square test, two-proportion z tests, 90% Wald intervals, and Holm-Bonferroni decisions.",
+    "Run the normal-approximation power analysis on the historical open rate.",
+    "Write the two data files and the Markdown report exactly as contracted."
+  ],
+  "inputFiles": [
+    {
+      "name": "experiment_brief.md",
+      "format": "Markdown",
+      "path": "input/experiment_brief.md",
+      "description": "Protocol, metrics, guardrail, and decision policy."
+    },
+    {
+      "name": "experiment_results_raw.csv",
+      "format": "CSV",
+      "path": "input/experiment_results_raw.csv",
+      "description": "Raw per-customer experiment results."
+    },
+    {
+      "name": "historical_metrics.csv",
+      "format": "CSV",
+      "path": "input/historical_metrics.csv",
+      "description": "Historical weekly metrics for the power analysis."
+    },
+    {
+      "name": "eligible_population.csv",
+      "format": "CSV",
+      "path": "input/eligible_population.csv",
+      "description": "Eligible population attributes."
+    },
+    {
+      "name": "active_experiment_customers.csv",
+      "format": "CSV",
+      "path": "input/active_experiment_customers.csv",
+      "description": "Customers active during the experiment."
+    },
+    {
+      "name": "exclusion_rules.yaml",
+      "format": "YAML",
+      "path": "input/exclusion_rules.yaml",
+      "description": "Operational exclusions; do not apply to this analysis."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output files, columns, and metrics."
+    },
+    {
+      "name": "runtime_env",
+      "format": "TOML directory",
+      "path": "input/runtime_env",
+      "description": "Runtime metadata."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "randomization_assignment.csv",
+      "format": "CSV",
+      "path": "output/randomization_assignment.csv",
+      "description": "SRM and allocation results."
+    },
+    {
+      "name": "experiment_results.tsv",
+      "format": "TSV",
+      "path": "output/experiment_results.tsv",
+      "description": "Per-metric rates, intervals, tests, and Holm decisions."
+    },
+    {
+      "name": "experiment_report.md",
+      "format": "Markdown",
+      "path": "output/experiment_report.md",
+      "description": "Power analysis and ship/hold recommendation."
+    }
+  ],
+  "evaluation": "Hard gates: missing output files, malformed tables, wrong row or column sets, wrong SRM values, wrong rates/intervals/tests/Holm decisions, a wrong recommendation, a missing required sample size, or a missing observed-lift string. The score is the fraction of checks passed; only a fully correct submission scores 1.0.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.6",
+    "subdomain_code": "sales_marketing",
+    "subdomain_name": "Sales & Marketing",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task analyzes a marketing email A/B test with a pre-registered statistical protocol."
+    }
+  },
+  "requiredSystemPackages": []
+}

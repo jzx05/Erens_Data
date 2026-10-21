@@ -1,0 +1,11 @@
+{
+  "output_file": "research_answers.json",
+  "output_dir": "base/output",
+  "top_level_keys": ["q1_{{SLUG}}", "q2_{{SLUG}}", "q3_{{SLUG}}"],
+  "per_question_fields": {
+    "conclusion": "exactly one of Yes, No, Unknown",
+    "citation_document": "accepted citation alias from document_manifest.json",
+    "evidence_snippet": "exact excerpt copied from the staged source",
+    "answer_text": "short English explanation"
+  }
+}

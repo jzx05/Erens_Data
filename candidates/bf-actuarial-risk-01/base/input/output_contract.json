@@ -1,0 +1,55 @@
+{
+  "required_outputs": [
+    "classified_events.csv",
+    "capital_calculation.json",
+    "execution_log.txt"
+  ],
+  "classified_events": {
+    "format": "CSV, UTF-8, comma delimiter",
+    "header": [
+      "Event_ID",
+      "Loss_Event_Category",
+      "Business_Line",
+      "Loss_Amount_CNY"
+    ],
+    "row_count": 60,
+    "rules": [
+      "one data row per ledger event, Event_ID exactly as in operational_risk_events.csv",
+      "Loss_Event_Category is one of EL1, EL2, EL3, EL4, EL5, EL6, EL7",
+      "Business_Line is one of BL1, BL2, BL3, BL4, BL5, BL6, BL7, BL8",
+      "Loss_Amount_CNY is the exact integer amount from the ledger"
+    ]
+  },
+  "capital_calculation": {
+    "format": "JSON object",
+    "keys": [
+      "alpha",
+      "gross_income_years",
+      "positive_year_count",
+      "positive_gi_sum_cny",
+      "average_positive_gi_cny",
+      "or_capital_cny"
+    ],
+    "key_types": {
+      "alpha": "number (0.15)",
+      "gross_income_years": "object mapping each four-digit year as a string to a number",
+      "positive_year_count": "integer",
+      "positive_gi_sum_cny": "number, sum of the strictly positive years",
+      "average_positive_gi_cny": "number rounded to 2 decimals",
+      "or_capital_cny": "number rounded to 2 decimals"
+    }
+  },
+  "execution_log": {
+    "format": "plain text, UTF-8",
+    "requirement": "non-empty; briefly state the classification method and the BIA capital steps"
+  },
+  "rounding": {
+    "decimal_places": 2,
+    "mode": "round-half-up (ties away from zero)",
+    "applies_to": [
+      "average_positive_gi_cny",
+      "or_capital_cny"
+    ]
+  },
+  "monetary_tolerance_cny": 0.01
+}

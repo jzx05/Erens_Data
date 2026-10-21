@@ -1,0 +1,9 @@
+BL_Code,BL_Name_EN,BL_Name_CN,Scope,Typical_Products_And_Customers,Typical_Owner_Departments
+BL1,Corporate Finance,公司金融,Advisory and capital raising for large corporates,M&A advisory; equity and debt underwriting; IPO; syndicated and acquisition loans to large corporates,公司金融部; 投资银行部
+BL2,Trading and Sales,交易和销售,Proprietary trading and institutional sales of traded instruments,Fixed income; FX; derivatives; commodities; market making; proprietary positions,交易部; 外汇交易部
+BL3,Retail Banking,零售银行,Banking and product distribution for individual customers,Deposits; personal loans; mortgages; credit cards; consumer finance; branch distribution of investment and wealth products,零售银行部; 信用卡中心
+BL4,Commercial Banking,商业银行,Lending and services to SMEs and mid-market corporates,Working capital loans; SME loans; trade finance; letters of credit; factoring; supply-chain finance,商业银行部; 供应链金融部; 国际结算部 (trade finance only)
+BL5,Payment and Settlement,支付和结算,Payment, clearing and settlement services,Remittances; clearing; settlement; fund transfers; cash management; cross-border payments; payment-related AML monitoring,支付清算部; 运营管理部 (central operations); 国际结算部 (remittances only)
+BL6,Agency Services,代理服务,Asset servicing for clients,Custody; escrow; corporate trust; registrar; securities lending; custody valuation,资产托管部
+BL7,Asset Management,资产管理,Discretionary management of client assets,Discretionary portfolios; fund management; fund accounting and valuation; pension mandates,资产管理部; 基金管理部; 财富管理部 (discretionary mandates)
+BL8,Retail Brokerage,零售经纪,Execution and clearing for retail securities clients,Securities and futures execution; online brokerage; margin financing; retail investment research,证券营业部; 经纪业务部

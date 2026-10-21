@@ -1,0 +1,394 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-quant-finance-01",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "passed": true,
+    "checks_passed": 58,
+    "checks_total": 58,
+    "tolerance": 0.0001,
+    "checks": [
+      {
+        "name": "pricing_results.csv exists",
+        "passed": true,
+        "expected": "present",
+        "actual": "present"
+      },
+      {
+        "name": "pricing_results.csv header",
+        "passed": true,
+        "expected": [
+          "scenario_id",
+          "price",
+          "delta",
+          "gamma",
+          "intrinsic_value",
+          "early_exercise_premium"
+        ],
+        "actual": [
+          "scenario_id",
+          "price",
+          "delta",
+          "gamma",
+          "intrinsic_value",
+          "early_exercise_premium"
+        ]
+      },
+      {
+        "name": "pricing_results.csv row count",
+        "passed": true,
+        "expected": 8,
+        "actual": 8
+      },
+      {
+        "name": "S1 scenario_id",
+        "passed": true,
+        "expected": "S1",
+        "actual": "S1"
+      },
+      {
+        "name": "S1 price",
+        "passed": true,
+        "expected": 44.68,
+        "actual": "44.6800"
+      },
+      {
+        "name": "S1 delta",
+        "passed": true,
+        "expected": -1.0,
+        "actual": "-1.0000"
+      },
+      {
+        "name": "S1 gamma",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0000"
+      },
+      {
+        "name": "S1 intrinsic_value",
+        "passed": true,
+        "expected": 44.68,
+        "actual": "44.6800"
+      },
+      {
+        "name": "S1 early_exercise_premium",
+        "passed": true,
+        "expected": 3.7222,
+        "actual": "3.7222"
+      },
+      {
+        "name": "S2 scenario_id",
+        "passed": true,
+        "expected": "S2",
+        "actual": "S2"
+      },
+      {
+        "name": "S2 price",
+        "passed": true,
+        "expected": 26.5753,
+        "actual": "26.5753"
+      },
+      {
+        "name": "S2 delta",
+        "passed": true,
+        "expected": -0.8464,
+        "actual": "-0.8464"
+      },
+      {
+        "name": "S2 gamma",
+        "passed": true,
+        "expected": 0.018,
+        "actual": "0.0180"
+      },
+      {
+        "name": "S2 intrinsic_value",
+        "passed": true,
+        "expected": 25.92,
+        "actual": "25.9200"
+      },
+      {
+        "name": "S2 early_exercise_premium",
+        "passed": true,
+        "expected": 1.5168,
+        "actual": "1.5168"
+      },
+      {
+        "name": "S3 scenario_id",
+        "passed": true,
+        "expected": "S3",
+        "actual": "S3"
+      },
+      {
+        "name": "S3 price",
+        "passed": true,
+        "expected": 13.1464,
+        "actual": "13.1464"
+      },
+      {
+        "name": "S3 delta",
+        "passed": true,
+        "expected": -0.617,
+        "actual": "-0.6170"
+      },
+      {
+        "name": "S3 gamma",
+        "passed": true,
+        "expected": 0.0214,
+        "actual": "0.0214"
+      },
+      {
+        "name": "S3 intrinsic_value",
+        "passed": true,
+        "expected": 9.85,
+        "actual": "9.8500"
+      },
+      {
+        "name": "S3 early_exercise_premium",
+        "passed": true,
+        "expected": 0.6948,
+        "actual": "0.6948"
+      },
+      {
+        "name": "S4 scenario_id",
+        "passed": true,
+        "expected": "S4",
+        "actual": "S4"
+      },
+      {
+        "name": "S4 price",
+        "passed": true,
+        "expected": 7.8383,
+        "actual": "7.8383"
+      },
+      {
+        "name": "S4 delta",
+        "passed": true,
+        "expected": -0.3304,
+        "actual": "-0.3304"
+      },
+      {
+        "name": "S4 gamma",
+        "passed": true,
+        "expected": 0.012,
+        "actual": "0.0120"
+      },
+      {
+        "name": "S4 intrinsic_value",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0000"
+      },
+      {
+        "name": "S4 early_exercise_premium",
+        "passed": true,
+        "expected": 0.2346,
+        "actual": "0.2346"
+      },
+      {
+        "name": "S5 scenario_id",
+        "passed": true,
+        "expected": "S5",
+        "actual": "S5"
+      },
+      {
+        "name": "S5 price",
+        "passed": true,
+        "expected": 8.3783,
+        "actual": "8.3783"
+      },
+      {
+        "name": "S5 delta",
+        "passed": true,
+        "expected": -0.2741,
+        "actual": "-0.2741"
+      },
+      {
+        "name": "S5 gamma",
+        "passed": true,
+        "expected": 0.0082,
+        "actual": "0.0082"
+      },
+      {
+        "name": "S5 intrinsic_value",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0000"
+      },
+      {
+        "name": "S5 early_exercise_premium",
+        "passed": true,
+        "expected": 0.191,
+        "actual": "0.1910"
+      },
+      {
+        "name": "S6 scenario_id",
+        "passed": true,
+        "expected": "S6",
+        "actual": "S6"
+      },
+      {
+        "name": "S6 price",
+        "passed": true,
+        "expected": 6.131,
+        "actual": "6.1310"
+      },
+      {
+        "name": "S6 delta",
+        "passed": true,
+        "expected": -0.4963,
+        "actual": "-0.4963"
+      },
+      {
+        "name": "S6 gamma",
+        "passed": true,
+        "expected": 0.0307,
+        "actual": "0.0307"
+      },
+      {
+        "name": "S6 intrinsic_value",
+        "passed": true,
+        "expected": 2.42,
+        "actual": "2.4200"
+      },
+      {
+        "name": "S6 early_exercise_premium",
+        "passed": true,
+        "expected": 0.4428,
+        "actual": "0.4428"
+      },
+      {
+        "name": "S7 scenario_id",
+        "passed": true,
+        "expected": "S7",
+        "actual": "S7"
+      },
+      {
+        "name": "S7 price",
+        "passed": true,
+        "expected": 13.8607,
+        "actual": "13.8607"
+      },
+      {
+        "name": "S7 delta",
+        "passed": true,
+        "expected": -0.3763,
+        "actual": "-0.3763"
+      },
+      {
+        "name": "S7 gamma",
+        "passed": true,
+        "expected": 0.0093,
+        "actual": "0.0093"
+      },
+      {
+        "name": "S7 intrinsic_value",
+        "passed": true,
+        "expected": 0.0,
+        "actual": "0.0000"
+      },
+      {
+        "name": "S7 early_exercise_premium",
+        "passed": true,
+        "expected": 0.3303,
+        "actual": "0.3303"
+      },
+      {
+        "name": "S8 scenario_id",
+        "passed": true,
+        "expected": "S8",
+        "actual": "S8"
+      },
+      {
+        "name": "S8 price",
+        "passed": true,
+        "expected": 17.2897,
+        "actual": "17.2897"
+      },
+      {
+        "name": "S8 delta",
+        "passed": true,
+        "expected": -0.8437,
+        "actual": "-0.8437"
+      },
+      {
+        "name": "S8 gamma",
+        "passed": true,
+        "expected": 0.027,
+        "actual": "0.0270"
+      },
+      {
+        "name": "S8 intrinsic_value",
+        "passed": true,
+        "expected": 16.84,
+        "actual": "16.8400"
+      },
+      {
+        "name": "S8 early_exercise_premium",
+        "passed": true,
+        "expected": 1.3892,
+        "actual": "1.3892"
+      },
+      {
+        "name": "summary.json exists",
+        "passed": true,
+        "expected": "present",
+        "actual": "present"
+      },
+      {
+        "name": "summary.json keys",
+        "passed": true,
+        "expected": [
+          "base_case_delta",
+          "base_case_gamma",
+          "base_case_price",
+          "highest_price_scenario",
+          "scenario_count"
+        ],
+        "actual": [
+          "base_case_delta",
+          "base_case_gamma",
+          "base_case_price",
+          "highest_price_scenario",
+          "scenario_count"
+        ]
+      },
+      {
+        "name": "summary base_case_price",
+        "passed": true,
+        "expected": 11.3305,
+        "actual": 11.3305
+      },
+      {
+        "name": "summary base_case_delta",
+        "passed": true,
+        "expected": -0.5043,
+        "actual": -0.5043
+      },
+      {
+        "name": "summary base_case_gamma",
+        "passed": true,
+        "expected": 0.0177,
+        "actual": 0.0177
+      },
+      {
+        "name": "summary scenario_count",
+        "passed": true,
+        "expected": 8,
+        "actual": 8
+      },
+      {
+        "name": "summary highest_price_scenario",
+        "passed": true,
+        "expected": "S1",
+        "actual": "S1"
+      }
+    ],
+    "notes": [
+      "Numeric values are compared with an absolute tolerance of 0.0001; structure and identifiers are exact."
+    ]
+  },
+  "stdout_tail": "3303\"\n    },\n    {\n      \"name\": \"S8 scenario_id\",\n      \"passed\": true,\n      \"expected\": \"S8\",\n      \"actual\": \"S8\"\n    },\n    {\n      \"name\": \"S8 price\",\n      \"passed\": true,\n      \"expected\": 17.2897,\n      \"actual\": \"17.2897\"\n    },\n    {\n      \"name\": \"S8 delta\",\n      \"passed\": true,\n      \"expected\": -0.8437,\n      \"actual\": \"-0.8437\"\n    },\n    {\n      \"name\": \"S8 gamma\",\n      \"passed\": true,\n      \"expected\": 0.027,\n      \"actual\": \"0.0270\"\n    },\n    {\n      \"name\": \"S8 intrinsic_value\",\n      \"passed\": true,\n      \"expected\": 16.84,\n      \"actual\": \"16.8400\"\n    },\n    {\n      \"name\": \"S8 early_exercise_premium\",\n      \"passed\": true,\n      \"expected\": 1.3892,\n      \"actual\": \"1.3892\"\n    },\n    {\n      \"name\": \"summary.json exists\",\n      \"passed\": true,\n      \"expected\": \"present\",\n      \"actual\": \"present\"\n    },\n    {\n      \"name\": \"summary.json keys\",\n      \"passed\": true,\n      \"expected\": [\n        \"base_case_delta\",\n        \"base_case_gamma\",\n        \"base_case_price\",\n        \"highest_price_scenario\",\n        \"scenario_count\"\n      ],\n      \"actual\": [\n        \"base_case_delta\",\n        \"base_case_gamma\",\n        \"base_case_price\",\n        \"highest_price_scenario\",\n        \"scenario_count\"\n      ]\n    },\n    {\n      \"name\": \"summary base_case_price\",\n      \"passed\": true,\n      \"expected\": 11.3305,\n      \"actual\": 11.3305\n    },\n    {\n      \"name\": \"summary base_case_delta\",\n      \"passed\": true,\n      \"expected\": -0.5043,\n      \"actual\": -0.5043\n    },\n    {\n      \"name\": \"summary base_case_gamma\",\n      \"passed\": true,\n      \"expected\": 0.0177,\n      \"actual\": 0.0177\n    },\n    {\n      \"name\": \"summary scenario_count\",\n      \"passed\": true,\n      \"expected\": 8,\n      \"actual\": 8\n    },\n    {\n      \"name\": \"summary highest_price_scenario\",\n      \"passed\": true,\n      \"expected\": \"S1\",\n      \"actual\": \"S1\"\n    }\n  ],\n  \"notes\": [\n    \"Numeric values are compared with an absolute tolerance of 0.0001; structure and identifiers are exact.\"\n  ]\n}\n",
+  "stderr_tail": ""
+}

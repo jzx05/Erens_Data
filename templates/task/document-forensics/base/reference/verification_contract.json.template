@@ -1,0 +1,14 @@
+{
+  "task_id": "business_finance/{{TASK_SLUG}}",
+  "variant_name": "base",
+  "required_outputs": ["research_answers.json"],
+  "hard_checks": [
+    "all required question keys present",
+    "each conclusion matches the canonical answer",
+    "each citation is an accepted alias in the document manifest",
+    "each evidence snippet is an exact excerpt from the cited source",
+    "each evidence snippet contains its required anchor text",
+    "each answer_text is a short English explanation",
+    "score is 1.0 only when every question passes all checks"
+  ]
+}

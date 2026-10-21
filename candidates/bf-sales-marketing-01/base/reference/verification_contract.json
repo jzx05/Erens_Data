@@ -1,0 +1,19 @@
+{
+  "task_id": "business_finance/email_ab_test_90ci_holm_01",
+  "variant_name": "base",
+  "required_outputs": [
+    "randomization_assignment.csv",
+    "experiment_results.tsv",
+    "experiment_report.md"
+  ],
+  "hard_checks": [
+    "SRM pass flag matches p > 0.05",
+    "all rates use the full raw population and delivered emails",
+    "90% unpooled Wald intervals match within 1e-6",
+    "pooled two-sided z tests match within 1e-6",
+    "Holm step-down applies only to the three secondary metrics",
+    "recommendation is hold because the unsubscribe guardrail fails",
+    "required per-arm sample size uses the historical mean open_rate and 3pp MDE"
+  ],
+  "expected_decision": "hold"
+}

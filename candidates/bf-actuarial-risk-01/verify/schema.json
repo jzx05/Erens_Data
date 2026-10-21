@@ -1,0 +1,10 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-actuarial-risk-01",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/classified_events.csv",
+    "declared reference output does not exist yet: output/capital_calculation.json",
+    "declared reference output does not exist yet: output/execution_log.txt"
+  ]
+}

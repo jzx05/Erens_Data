@@ -1,0 +1,27 @@
+{
+  "task_id": "business_finance/multi_channel_campaign_roi_reallocation_01",
+  "variant_name": "base",
+  "required_outputs": [
+    "channel_performance.csv",
+    "budget_recommendation.json"
+  ],
+  "tolerance": 0.005,
+  "table_outputs": [
+    {
+      "file": "channel_performance.csv",
+      "delimiter": ","
+    }
+  ],
+  "json_outputs": [
+    "budget_recommendation.json"
+  ],
+  "hard_checks": [
+    "both contracted files exist and parse",
+    "channel table has one header row plus six data rows with the exact columns in order",
+    "channel rows are ordered by roas_rank ascending",
+    "channel totals and all five metrics match the policy to two decimals",
+    "roas_rank follows ROAS descending with channel-name tie-break",
+    "report totals, blended ROAS, extremity channels, and reallocation amount match",
+    "recommended budgets list six channels in roas_rank order and conserve the total budget"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-quant-finance-01",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/pricing_results.csv",
+    "declared reference output does not exist yet: output/summary.json"
+  ]
+}

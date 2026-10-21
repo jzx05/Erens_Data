@@ -1,0 +1,65 @@
+{
+  "task_id": "business_finance/operational_risk_el_bl_classification_bia_01",
+  "variant_name": "base",
+  "required_outputs": [
+    "classified_events.csv",
+    "capital_calculation.json",
+    "execution_log.txt"
+  ],
+  "tolerance": 0.01,
+  "event_count": 60,
+  "category_accuracy_min": 0.9,
+  "business_line_accuracy_min": 0.9,
+  "loss_amount_accuracy_required": 1.0,
+  "classified_events": {
+    "columns": [
+      "Event_ID",
+      "Loss_Event_Category",
+      "Business_Line",
+      "Loss_Amount_CNY"
+    ],
+    "valid_el_codes": [
+      "EL1",
+      "EL2",
+      "EL3",
+      "EL4",
+      "EL5",
+      "EL6",
+      "EL7"
+    ],
+    "valid_bl_codes": [
+      "BL1",
+      "BL2",
+      "BL3",
+      "BL4",
+      "BL5",
+      "BL6",
+      "BL7",
+      "BL8"
+    ]
+  },
+  "capital_keys": [
+    "alpha",
+    "gross_income_years",
+    "positive_year_count",
+    "positive_gi_sum_cny",
+    "average_positive_gi_cny",
+    "or_capital_cny"
+  ],
+  "hard_checks": [
+    "all three required output files exist and parse",
+    "classified_events.csv contains every ledger Event_ID exactly once and no others",
+    "every loss-event category is a valid EL1-EL7 code and every business line is a valid BL1-BL8 code",
+    "loss-event category accuracy is at least 0.90 over the 60 ledger events",
+    "business-line accuracy is at least 0.90 over the 60 ledger events",
+    "loss amounts match the ledger exactly for all 60 events",
+    "capital_calculation.json has exactly the six contracted keys and the correct BIA values",
+    "alpha equals 0.15; only strictly positive gross-income years enter the average",
+    "average_positive_gi_cny and or_capital_cny are rounded to 2 decimals with round-half-up"
+  ],
+  "method_notes": [
+    "The averaging set is every fiscal year in gross_income.csv; no three-year window is applied",
+    "Years with zero or negative gross income are excluded from both the numerator and the denominator",
+    "Capital is alpha times the unrounded positive-year average, then rounded to 2 decimals"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "underlying": "SYNTH-EQ-100",
+  "option_type": "put",
+  "spot": 100.0,
+  "strike": 105.0,
+  "risk_free_rate": 0.045,
+  "volatility": 0.25,
+  "maturity_years": 1.0,
+  "steps": 500,
+  "dividend_yield": 0.015
+}

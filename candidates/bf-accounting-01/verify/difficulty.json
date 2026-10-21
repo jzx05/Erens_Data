@@ -1,0 +1,52 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-accounting-01",
+  "anchor": "taxform_4_1",
+  "anchor_subdomain": "accounting",
+  "candidate_stratum": "accounting",
+  "stratum_ok": true,
+  "anchor_distance": 1.9905,
+  "max_distance": 2.0,
+  "nearest_seeds": [
+    {
+      "slug": "metabase_bi_dashboard_01",
+      "distance": 0.2674
+    },
+    {
+      "slug": "internal_employee_agent_instance_1",
+      "distance": 0.8097
+    },
+    {
+      "slug": "ar_full_300",
+      "distance": 0.9735
+    }
+  ],
+  "candidate_features": {
+    "software_count": 2,
+    "input_file_count": 4,
+    "base_input_file_count": 4,
+    "log_input_bytes": 7.5812,
+    "reference_file_count": 3,
+    "prompt_kchars": 2.69,
+    "must_do_count": 5,
+    "evaluation_kchars": 0.446,
+    "timeout_units": 1.0,
+    "modality_count": 3
+  },
+  "seed_means": {
+    "software_count": 2.5263,
+    "base_input_file_count": 12.2105,
+    "log_input_bytes": 10.5649,
+    "reference_file_count": 13.6316,
+    "timeout_units": 1.0,
+    "modality_count": 3.5263
+  },
+  "seed_stds": {
+    "software_count": 1.4279,
+    "base_input_file_count": 24.9622,
+    "log_input_bytes": 5.2466,
+    "reference_file_count": 44.9212,
+    "timeout_units": 1.0,
+    "modality_count": 2.2093
+  },
+  "passed": true
+}

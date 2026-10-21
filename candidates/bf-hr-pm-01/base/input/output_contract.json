@@ -1,0 +1,10 @@
+{
+  "required_outputs": ["department_attrition.csv", "attrition_report.json"],
+  "department_attrition_csv": {
+    "columns": ["department", "average_headcount", "terminations", "attrition_pct", "regrettable_terminations", "replacement_cost_usd"],
+    "sort": "department ascending"
+  },
+  "attrition_report_json": {
+    "keys": ["overall_attrition_pct", "regrettable_terminations", "total_replacement_cost_usd", "highest_attrition_department", "engagement_risk_headcount", "departments"]
+  }
+}

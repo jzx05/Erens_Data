@@ -1,0 +1,28 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-accounting-01",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "files": [
+      {
+        "file": "tax_computation.csv",
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "file": "tax_summary.json",
+        "passed": true,
+        "reason": ""
+      }
+    ],
+    "required_outputs": [
+      "tax_computation.csv",
+      "tax_summary.json"
+    ],
+    "tolerance": 1e-06
+  },
+  "stdout_tail": "{\n  \"score\": 1.0,\n  \"files\": [\n    {\n      \"file\": \"tax_computation.csv\",\n      \"passed\": true,\n      \"reason\": \"\"\n    },\n    {\n      \"file\": \"tax_summary.json\",\n      \"passed\": true,\n      \"reason\": \"\"\n    }\n  ],\n  \"required_outputs\": [\n    \"tax_computation.csv\",\n    \"tax_summary.json\"\n  ],\n  \"tolerance\": 1e-06\n}\n",
+  "stderr_tail": ""
+}

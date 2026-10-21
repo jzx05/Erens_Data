@@ -1,0 +1,9 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-accounting-01",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/tax_computation.csv",
+    "declared reference output does not exist yet: output/tax_summary.json"
+  ]
+}

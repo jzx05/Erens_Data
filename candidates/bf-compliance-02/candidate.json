@@ -1,0 +1,18 @@
+{
+  "id": "bf-compliance-02",
+  "status": "AUTHORED",
+  "stratum": "compliance",
+  "seed_anchor": "sse_northbound_programmatic_trading_01",
+  "seed_refs": [
+    "sse_northbound_programmatic_trading_01",
+    "legal_ma_consistency_audit_01"
+  ],
+  "difficulty_target": 100.0,
+  "task_family": "document-forensics",
+  "source_policy": "internal_only",
+  "internal_only": true,
+  "variant_of": "sse_northbound_programmatic_trading_01",
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

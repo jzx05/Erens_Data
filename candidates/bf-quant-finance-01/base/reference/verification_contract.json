@@ -1,0 +1,32 @@
+{
+  "task_id": "business_finance/crr_american_option_pricing_01",
+  "variant_name": "base",
+  "required_outputs": [
+    "pricing_results.csv",
+    "summary.json"
+  ],
+  "tolerance": 1e-4,
+  "json_outputs": [
+    "summary.json"
+  ],
+  "table_outputs": [
+    {
+      "file": "pricing_results.csv",
+      "delimiter": ","
+    }
+  ],
+  "hard_checks": [
+    "pricing_results.csv has exactly the six contracted columns and eight data rows in scenario_grid order",
+    "every American price, Delta, Gamma, intrinsic value, and early-exercise premium matches the CRR gold value to 4-decimal precision",
+    "the base-case price, Delta, and Gamma use option_terms.json and are not taken from a scenario row",
+    "scenario_count equals the number of data rows in scenario_grid.csv",
+    "highest_price_scenario is the scenario with the largest rounded price, first row on ties",
+    "summary.json contains exactly the five contracted keys"
+  ],
+  "method_notes": [
+    "CRR tree with u = exp(sigma*sqrt(dt)), d = 1/u, p = (exp((r-q)*dt) - d)/(u - d), df = exp(-r*dt)",
+    "American values take max(continuation, intrinsic) at every node including the root",
+    "early_exercise_premium is the American price minus the European price from the same tree",
+    "Delta and Gamma use the American-tree node values at steps 1 and 2"
+  ]
+}

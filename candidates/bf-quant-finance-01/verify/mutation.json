@@ -1,0 +1,38 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-quant-finance-01",
+  "mutants": [
+    {
+      "mutation": "drop",
+      "applied": true,
+      "rejected": true,
+      "score": 0.8793103448275862,
+      "evaluator_notes": [
+        "Numeric values are compared with an absolute tolerance of 0.0001; structure and identifiers are exact."
+      ],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "scalar",
+      "applied": true,
+      "rejected": true,
+      "score": 0.9827586206896551,
+      "evaluator_notes": [
+        "Numeric values are compared with an absolute tolerance of 0.0001; structure and identifiers are exact."
+      ],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "structure",
+      "applied": true,
+      "rejected": true,
+      "score": 0.9655172413793104,
+      "evaluator_notes": [
+        "Numeric values are compared with an absolute tolerance of 0.0001; structure and identifiers are exact."
+      ],
+      "stderr_tail": ""
+    }
+  ],
+  "rejected": 3,
+  "required": 3,
+  "passed": true
+}

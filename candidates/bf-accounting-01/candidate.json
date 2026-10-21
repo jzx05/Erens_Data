@@ -1,0 +1,18 @@
+{
+  "id": "bf-accounting-01",
+  "status": "AUTHORED",
+  "stratum": "accounting",
+  "seed_anchor": "taxform_4_1",
+  "seed_refs": [
+    "taxform_4_1",
+    "equity_research_summary"
+  ],
+  "difficulty_target": 64.55,
+  "task_family": "data-analysis",
+  "source_policy": "synthetic",
+  "internal_only": false,
+  "synthetic_data": true,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

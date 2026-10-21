@@ -1,0 +1,7 @@
+{
+  "total_current_tax_usd": 1151455.0,
+  "total_deferred_tax_expense_usd": -9460.0,
+  "total_tax_expense_usd": 1141995.0,
+  "weighted_effective_tax_rate_pct": 23.73,
+  "entity_with_largest_deferred_tax_expense": "Crestline"
+}

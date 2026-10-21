@@ -1,0 +1,118 @@
+{
+  "taskId": "business_finance/operational_risk_el_bl_classification_bia_01",
+  "title": "Operational Risk Event Classification and BIA Capital (Huachen Bank)",
+  "summary": "Classify 60 Chinese operational-risk loss events into Basel loss-event categories (EL1-EL7) and business lines (BL1-BL8), preserve every loss amount, and compute Basic Indicator Approach regulatory capital from six fiscal years of gross income using a positive-year average.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12",
+    "csv (standard library)",
+    "json (standard library)"
+  ],
+  "taskPrompt": "You are an operational-risk analyst at Huachen Bank (synthetic). The corporate loss-event ledger contains 60 operational-risk events. Classify each event into exactly one Basel loss-event category (EL1-EL7) and exactly one Basel business line (BL1-BL8), preserve every loss amount, and calculate Basic Indicator Approach (BIA) regulatory capital.\n\n## Task directory and inputs\n\nThe task directory is `base`. Visible inputs are under `base/input`:\n\n- `operational_risk_events.csv` - 60 loss events with columns `Event_ID`, `Event_Description_CN`, `Loss_Amount_CNY`, `Event_Date`, `Involved_Department`.\n- `risk_taxonomy_policy.md` - the binding EL1-EL7 and BL1-BL8 definitions and classification rules.\n- `business_line_guide.csv` - quick-reference business-line scope.\n- `gross_income.csv` - six fiscal years with columns `year`, `gross_income_cny`, `notes`.\n- `output_contract.json` and `output_schema.txt` - exact output layouts.\n- `runtime_env/pyproject.toml` - runtime declaration.\n\nThe task is closed-book: use only these files and the Python 3.12 standard library. Do not modify anything under `base/input`.\n\n## Loss-event categories (EL1-EL7)\n\n- EL1 Internal Fraud: an internal employee or officer acts intentionally to defraud, misappropriate, circumvent policy or gain a personal benefit. Indicators: unauthorized trading, deliberate limit breach, falsified records, embezzlement, theft by staff, bribery, insider dealing, front-running, diversion of funds to an employee-controlled account.\n- EL2 External Fraud: a third party defrauds the bank, or uses the bank to defraud others, through deception, forgery, theft, hacking or intrusion, with no internal intent. Indicators: phishing, social engineering, forged identity or corporate documents, counterfeit cards, ATM skimming, card-not-present fraud, fake financial statements or collateral submitted by a customer, hacking that steals funds, fraudulent trade documents.\n- EL3 Employment Practices and Workplace Safety: loss from an employment relationship, labour law, occupational health and safety, or workplace conditions. Indicators: wrongful termination, discrimination, harassment, workplace injury or occupational illness, unsafe premises, unpaid benefits, labour-arbitration awards.\n- EL4 Clients, Products and Business Practices: failure of a professional obligation to clients, or loss from the nature or design of a product or service. Indicators: unsuitable sales, misleading marketing or expected-return claims, missing risk disclosure, fiduciary breach, deviation from an agreed mandate, privacy breach, KYC or anti-money-laundering screening failure, undisclosed conflicts of interest, improper market conduct.\n- EL5 Damage to Physical Assets: damage to or destruction of physical assets by a natural disaster, accident, vandalism, terrorism or another external physical event. Loss of service alone is not EL5.\n- EL6 Business Disruption and System Failures: interruption of business or systems with no theft and no physical damage. Indicators: hardware failure, software failure, network or leased-line outage, power failure, capacity exhaustion, expired certificate, third-party service-provider outage, cloud outage.\n- EL7 Execution, Delivery and Process Management: failed processing, settlement or delivery, documentation or data-entry errors, reconciliation failures, model or parameter errors, collateral or margin mismanagement, missed deadlines. Indicators: wrong-side trade capture, settlement error, reconciliation break, data-entry error, valuation or monitoring parameter error, collateral or margin failure, documentation error, missed regulatory deadline, incorrect fee or payment computation, unverified counterparty documents, vendor management failure.\n\n### Loss-event precedence rules\n\nApply these in order:\n1. An intentional insider act for personal gain or concealment is EL1, even if it looks like a processing or reporting error.\n2. A third party obtaining the benefit through deception, forgery, theft or intrusion is EL2, even if bank staff were negligent; an intrusion that causes only an outage and no theft is EL6.\n3. An employment-relationship or workplace-safety loss is EL3.\n4. A client-facing suitability, disclosure, marketing, fiduciary, privacy, KYC or AML screening failure is EL4.\n5. Physical damage or destruction by an external physical event is EL5, even if business is also interrupted.\n6. A system, network, certificate, capacity or third-party service outage without theft or physical damage is EL6.\n7. Otherwise, a processing, settlement, documentation, data-entry, reconciliation, model or parameter, collateral or deadline failure is EL7.\n\n## Business lines (BL1-BL8)\n\n- BL1 Corporate Finance: M&A advisory, equity and debt underwriting, IPO, syndicated loans and acquisition financing for large corporates.\n- BL2 Trading and Sales: proprietary trading, market making, fixed income, FX, commodities and derivatives, and institutional sales.\n- BL3 Retail Banking: deposits, personal loans, mortgages, credit cards, consumer finance, branch services, and branch distribution of investment and wealth products to individual clients.\n- BL4 Commercial Banking: SME and mid-market lending, working-capital loans, trade finance, letters of credit, factoring and supply-chain finance.\n- BL5 Payment and Settlement: payment processing, remittances, clearing, settlement, fund transfers, cash management, cross-border payments and payment-related AML monitoring.\n- BL6 Agency Services: custody, escrow, corporate trust, registrar, securities lending and custody valuation.\n- BL7 Asset Management: discretionary portfolio management, fund management, fund accounting and valuation, and pension mandates.\n- BL8 Retail Brokerage: securities and futures execution for retail clients, online brokerage, margin financing and retail investment research.\n\n### Business-line attribution rules\n\n1. `Involved_Department` is corroborating evidence only; it never determines the business line by itself.\n2. Support functions own no business line: 信息技术部, 人力资源部, 合规部, 风险管理部, 内审部, 财务部, 行政部 and the central 运营管理部. For events recorded against them, read the business line from the activity, system, customer or staff group described in the narrative.\n3. Multi-line departments are attributed by activity: 国际结算部 trade finance is BL4 but cross-border remittance is BL5; 财富管理部 discretionary mandates are BL7 but branch product distribution is BL3; 运营管理部 central payment operations are BL5 but branch premises and service issues are BL3.\n4. Corporate account opening and onboarding, including KYC on the corporate entity, are BL4; payment processing and settlement on those accounts are BL5.\n5. Employment-practices and workplace-safety events take the business line of the unit whose staff or premises are affected.\n6. Physical-damage events take the business line of the activity at the damaged site; for a shared data centre or disaster-recovery centre, use the business system named as interrupted. A system described as \"托管在机房内\" or \"托管系统\" that performs asset valuation is a custody/agency valuation system (BL6), not a discretionary asset-management system (BL7), unless the narrative explicitly identifies a fund-accounting or discretionary portfolio-management system.\n7. System-failure events take the business line of the business process or system interrupted.\n\n## Loss amounts\n\nCopy `Loss_Amount_CNY` from the ledger exactly for all 60 events. Do not adjust for recoveries, insurance, provisions or materiality.\n\n## BIA capital rules\n\n- alpha = 0.15.\n- The averaging set is every fiscal year in `gross_income.csv`; do not use a three-year window and do not drop any row.\n- A year is included in the positive-year average if and only if its gross income is strictly greater than zero. Zero and negative years are excluded from both the numerator and the denominator.\n- positive_year_count = number of strictly positive years.\n- positive_gi_sum_cny = sum of the gross income of the included years.\n- average_positive_gi_cny = positive_gi_sum_cny / positive_year_count.\n- or_capital_cny = 0.15 x average_positive_gi_cny.\n- If positive_year_count == 0, report both the average and the capital as 0.00.\n- Round average_positive_gi_cny and or_capital_cny to two decimal places using round-half-up (ties away from zero). Compute from unrounded inputs and round only the reported values.\n\n## Outputs (write under `base/output`)\n\nWrite exactly three files:\n\n1. `classified_events.csv` - UTF-8 CSV with header exactly `Event_ID,Loss_Event_Category,Business_Line,Loss_Amount_CNY` and one data row per ledger event (any order). Category values are EL1-EL7; business-line values are BL1-BL8.\n2. `capital_calculation.json` - a JSON object with exactly six keys: `alpha` (0.15), `gross_income_years` (object mapping each four-digit year as a string to its numeric gross income), `positive_year_count` (integer), `positive_gi_sum_cny` (number), `average_positive_gi_cny` (number, 2 decimals), and `or_capital_cny` (number, 2 decimals).\n3. `execution_log.txt` - non-empty plain text briefly stating the classification method and the BIA capital steps.\n\n## Pass criteria\n\nThe task returns 1.0 only when all three files exist and parse, the classification CSV contains each of the 60 Event_IDs exactly once and no others, every code is valid, loss-event category accuracy is at least 90% (at least 54 of 60), business-line accuracy is at least 90% (at least 54 of 60), loss amounts match the ledger exactly for all 60 events, and the capital values match the gold calculation (monetary tolerance 0.01 CNY). Otherwise the task returns 0.0.",
+  "agentMustDo": [
+    "Read all 60 Chinese operational-risk event narratives in `base/input/operational_risk_events.csv`.",
+    "Assign one Basel loss-event category code from EL1 through EL7 and one Basel business line code from BL1 through BL8 to every event, using the taxonomy and precedence rules.",
+    "Preserve every `Loss_Amount_CNY` exactly as recorded in the ledger.",
+    "Compute the BIA capital from `base/input/gross_income.csv` using alpha = 0.15 and a positive-year-only average, rounded to 2 decimals with round-half-up.",
+    "Write `classified_events.csv`, `capital_calculation.json`, and `execution_log.txt` under `base/output`."
+  ],
+  "inputFiles": [
+    {
+      "name": "task_brief.md",
+      "format": "Markdown",
+      "path": "input/task_brief.md",
+      "description": "Solve-time contract: taxonomy summary, mapping rules, output schema, BIA formula, rounding, and pass criteria."
+    },
+    {
+      "name": "risk_taxonomy_policy.md",
+      "format": "Markdown",
+      "path": "input/risk_taxonomy_policy.md",
+      "description": "Binding EL1-EL7 and BL1-BL8 definitions, precedence rules, and BIA capital policy."
+    },
+    {
+      "name": "operational_risk_events.csv",
+      "format": "CSV",
+      "path": "input/operational_risk_events.csv",
+      "description": "60 Chinese operational-risk loss events with Event_ID, description, loss amount, date, and involved department."
+    },
+    {
+      "name": "business_line_guide.csv",
+      "format": "CSV",
+      "path": "input/business_line_guide.csv",
+      "description": "Quick-reference scope, typical products, and typical owner departments for BL1-BL8."
+    },
+    {
+      "name": "gross_income.csv",
+      "format": "CSV",
+      "path": "input/gross_income.csv",
+      "description": "Six fiscal years of audited gross income in CNY, including a negative year and a zero year."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output files, keys, columns, and rounding rules."
+    },
+    {
+      "name": "output_schema.txt",
+      "format": "Text",
+      "path": "input/output_schema.txt",
+      "description": "Layout examples for the three output files."
+    },
+    {
+      "name": "runtime_env",
+      "format": "TOML directory",
+      "path": "input/runtime_env",
+      "description": "Runtime declaration (Python 3.12, standard library only)."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "classified_events.csv",
+      "format": "CSV",
+      "path": "output/classified_events.csv",
+      "description": "One row per event with Event_ID, Loss_Event_Category, Business_Line, and Loss_Amount_CNY."
+    },
+    {
+      "name": "capital_calculation.json",
+      "format": "JSON",
+      "path": "output/capital_calculation.json",
+      "description": "BIA gross-income ledger, positive-year count and sum, average, and operational-risk capital."
+    },
+    {
+      "name": "execution_log.txt",
+      "format": "Text",
+      "path": "output/execution_log.txt",
+      "description": "Short note on the classification method and the BIA capital steps."
+    }
+  ],
+  "evaluation": "All-or-nothing. The evaluator requires all three output files. The classification CSV must contain all 60 expected Event_IDs exactly once, use valid EL1-EL7 and BL1-BL8 codes, and preserve loss amounts exactly. The task returns 1.0 only when loss-event category accuracy is at least 90%, business-line accuracy is at least 90%, loss amounts are preserved for all 60 events, capital_calculation.json matches the gold BIA values (alpha 0.15, positive-year-only average, 2-decimal round-half-up, monetary tolerance 0.01 CNY), and there are no structural errors. Otherwise it returns 0.0. The evaluator reports per-event category, business-line, and loss-amount correctness.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.2",
+    "subdomain_code": "actuarial_risk",
+    "subdomain_name": "Actuarial & Risk Modeling",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task classifies operational-risk loss events into Basel categories and business lines and computes regulatory capital under the Basic Indicator Approach, which is actuarial and risk modeling."
+    }
+  },
+  "requiredSystemPackages": []
+}

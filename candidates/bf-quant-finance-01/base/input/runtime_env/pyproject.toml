@@ -1,0 +1,6 @@
+[project]
+name = "crr-american-option-pricing"
+version = "0.1.0"
+description = "CRR binomial American option pricing benchmark"
+requires-python = ">=3.12"
+dependencies = []

@@ -1,0 +1,26 @@
+field_name	type	description	permitted_values
+customer_id	string	Unique customer identifier	CUST-NNNNNN format
+age	integer	Customer age in years	18-85
+gender	string	Gender identity	M, F, NB, U
+state	string	US state of residence	2-letter code
+city	string	City of residence	Free text
+tenure_months	integer	Months since first purchase	1-120
+loyalty_tier	string	Loyalty program tier	bronze, silver, gold, platinum
+total_purchases	integer	All-time purchase count	0-50+
+purchase_count_30d	integer	Purchases in last 30 days	0-20
+purchase_count_90d	integer	Purchases in last 90 days	0-40
+avg_order_value	float	Average order value in USD	10-2000
+ltv	float	Customer lifetime value in USD	0-100000+
+recency_days	integer	Days since last purchase	0-365
+email_opens_30d	integer	Email opens in last 30 days	0-30
+email_opens_90d	integer	Email opens in last 90 days	0-60
+email_clicks_30d	integer	Email clicks in last 30 days	0-20
+last_email_open_days_ago	integer	Days since last email open	1-365
+email_opt_out	integer	Email opt-out flag	0 or 1
+sms_opt_in	integer	SMS opt-in flag	0 or 1
+has_app	integer	Has mobile app installed	0 or 1
+app_sessions_30d	integer	App sessions in last 30 days	0-50
+push_opt_in	integer	Push notification opt-in	0 or 1
+page_views_30d	integer	Page views in last 30 days	0-100
+support_tickets_90d	integer	Support tickets in last 90 days	0-10
+engagement_score	float	Composite engagement score	0.0-1.0

@@ -1,0 +1,5 @@
+entity,pretax_income_usd,permanent_differences_usd,temporary_differences_usd,statutory_tax_rate,prior_deferred_tax_balance_usd
+Arcadia,1122000,32500,-71000,0.240,136000
+Bluewater,476000,-35500,44000,0.210,160000
+Crestline,755000,-17000,41000,0.240,72000
+Duneshore,2459000,-40000,-46000,0.250,81000

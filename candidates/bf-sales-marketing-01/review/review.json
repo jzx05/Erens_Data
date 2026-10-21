@@ -1,0 +1,53 @@
+{
+  "candidate_id": "bf-sales-marketing-01",
+  "scores": {
+    "seed_fidelity": 20,
+    "capability_match": 15,
+    "difficulty_proximity": 15,
+    "correctness_reproducibility": 25,
+    "evidence_integrity": 15,
+    "solvability_clarity": 10
+  },
+  "total": 100,
+  "hard_gates": {
+    "schema": true,
+    "gold_run": true,
+    "mutation": true,
+    "evidence": true,
+    "difficulty": true,
+    "dedup": true,
+    "solvability": true
+  },
+  "gate_details": {
+    "schema_errors": [],
+    "gold_score": 1.0,
+    "mutation_rejected": 3,
+    "evidence_errors": [],
+    "difficulty_distance": 0.0779,
+    "dedup_matches": [],
+    "blind_score": 0.7058823529411765,
+    "blind_score_source": "/home/erejin/ale-blind/bf-sales-marketing-01/eval/score.json",
+    "blind_score_kind": "dsh-blind",
+    "independent_solver_score": 1.0,
+    "independent_solver_source": "/home/erejin/ale-task-factory/candidates/bf-sales-marketing-01/verify/independent_solver/score.json",
+    "seed_blind_score": 1.0,
+    "seed_blind_source": "/home/erejin/ale-blind/seed-digital_marketing_ab_test_analysis_1/eval/score.json",
+    "calibration_mode": "relative-to-seed",
+    "calibration_note": "blind score 0.706 is below the seed baseline 1.000 by 0.294; still above the learnable floor 0.30, acceptable",
+    "seed_margin": 0.2,
+    "learnable_floor": 0.3,
+    "learnable_ceiling": 0.9,
+    "degenerate_seed_ceiling": 0.7,
+    "too_easy": false,
+    "too_hard": false
+  },
+  "recommendation": "ACCEPT",
+  "reasons": [
+    "all hard gates passed and total score >= 85"
+  ],
+  "human_signoff": {
+    "decision": "ACCEPT",
+    "at": "2026-10-21T12:22:30.277309+00:00",
+    "by": "user"
+  }
+}

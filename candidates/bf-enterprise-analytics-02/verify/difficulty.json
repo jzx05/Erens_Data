@@ -1,0 +1,52 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-enterprise-analytics-02",
+  "anchor": "metabase_bi_dashboard_01",
+  "anchor_subdomain": "enterprise_analytics",
+  "candidate_stratum": "enterprise_analytics",
+  "stratum_ok": true,
+  "anchor_distance": 0.7452,
+  "max_distance": 2.0,
+  "nearest_seeds": [
+    {
+      "slug": "metabase_bi_dashboard_01",
+      "distance": 0.7452
+    },
+    {
+      "slug": "llm_ecosystem_privacy_audit_realdata_1",
+      "distance": 0.8601
+    },
+    {
+      "slug": "ff5_public_reconstruction",
+      "distance": 0.8763
+    }
+  ],
+  "candidate_features": {
+    "software_count": 2,
+    "input_file_count": 3,
+    "base_input_file_count": 3,
+    "log_input_bytes": 12.8716,
+    "reference_file_count": 1,
+    "prompt_kchars": 0.636,
+    "must_do_count": 5,
+    "evaluation_kchars": 0.283,
+    "timeout_units": 1.0,
+    "modality_count": 3
+  },
+  "seed_means": {
+    "software_count": 2.5263,
+    "base_input_file_count": 12.2105,
+    "log_input_bytes": 10.5649,
+    "reference_file_count": 13.6316,
+    "timeout_units": 1.0,
+    "modality_count": 3.5263
+  },
+  "seed_stds": {
+    "software_count": 1.4279,
+    "base_input_file_count": 24.9622,
+    "log_input_bytes": 5.2466,
+    "reference_file_count": 44.9212,
+    "timeout_units": 1.0,
+    "modality_count": 2.2093
+  },
+  "passed": true
+}

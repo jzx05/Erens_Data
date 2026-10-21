@@ -1,0 +1,14 @@
+{
+  "id": "bf-{{SUBDOMAIN}}-{{NN}}",
+  "status": "AUTHORED",
+  "stratum": "{{SUBDOMAIN_CODE}}",
+  "seed_anchor": "{{SEED_SLUG}}",
+  "seed_refs": ["{{SEED_SLUG}}", "{{NEAREST_SEED_SLUG}}"],
+  "difficulty_target": 0.0,
+  "task_family": "document-forensics",
+  "source_policy": "public",
+  "internal_only": false,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

@@ -1,0 +1,9 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-hr-pm-01",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/department_attrition.csv",
+    "declared reference output does not exist yet: output/attrition_report.json"
+  ]
+}

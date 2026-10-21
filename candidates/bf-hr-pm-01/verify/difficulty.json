@@ -1,0 +1,52 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-hr-pm-01",
+  "anchor": "internal_employee_agent_instance_1",
+  "anchor_subdomain": "hr_pm",
+  "candidate_stratum": "hr_pm",
+  "stratum_ok": true,
+  "anchor_distance": 0.4577,
+  "max_distance": 2.0,
+  "nearest_seeds": [
+    {
+      "slug": "internal_employee_agent_instance_1",
+      "distance": 0.4577
+    },
+    {
+      "slug": "metabase_bi_dashboard_01",
+      "distance": 0.8418
+    },
+    {
+      "slug": "legal_ma_consistency_audit_01",
+      "distance": 0.9073
+    }
+  ],
+  "candidate_features": {
+    "software_count": 1,
+    "input_file_count": 5,
+    "base_input_file_count": 5,
+    "log_input_bytes": 9.384,
+    "reference_file_count": 3,
+    "prompt_kchars": 3.174,
+    "must_do_count": 5,
+    "evaluation_kchars": 0.489,
+    "timeout_units": 1.0,
+    "modality_count": 4
+  },
+  "seed_means": {
+    "software_count": 2.5263,
+    "base_input_file_count": 12.2105,
+    "log_input_bytes": 10.5649,
+    "reference_file_count": 13.6316,
+    "timeout_units": 1.0,
+    "modality_count": 3.5263
+  },
+  "seed_stds": {
+    "software_count": 1.4279,
+    "base_input_file_count": 24.9622,
+    "log_input_bytes": 5.2466,
+    "reference_file_count": 44.9212,
+    "timeout_units": 1.0,
+    "modality_count": 2.2093
+  },
+  "passed": true
+}

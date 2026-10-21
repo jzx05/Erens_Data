@@ -1,0 +1,32 @@
+# Channel registry for the eight-week multi-channel campaign review.
+# Metadata only: this file documents the six reporting channels.
+# Current spend and performance amounts come from campaign_data.csv.
+reporting_currency: USD
+reporting_period:
+  start_date: 2026-07-06
+  end_date: 2026-08-30
+channels:
+  - channel_name: Paid Search
+    channel_group: Search
+    owner: Performance Marketing
+    status: active
+  - channel_name: Paid Social
+    channel_group: Social
+    owner: Brand & Social
+    status: active
+  - channel_name: Display
+    channel_group: Display
+    owner: Programmatic
+    status: active
+  - channel_name: Email
+    channel_group: Owned
+    owner: Lifecycle CRM
+    status: active
+  - channel_name: Affiliate
+    channel_group: Partner
+    owner: Partnerships
+    status: active
+  - channel_name: Podcast
+    channel_group: Audio
+    owner: Brand & Social
+    status: active

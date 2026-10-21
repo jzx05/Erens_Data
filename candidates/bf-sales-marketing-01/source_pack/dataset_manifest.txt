@@ -1,0 +1,14 @@
+dataset_id=email_ab_test_90ci_holm_01
+random_seed=20261021
+n_control=6000
+n_treatment=6050
+delivered_probability=0.98
+control_open_probability=0.215
+treatment_open_probability=0.245
+control_click_given_open=0.18
+treatment_click_given_open=0.20
+control_convert_given_click=0.18
+treatment_convert_given_click=0.20
+control_unsubscribe_probability=0.0015
+treatment_unsubscribe_probability=0.0055
+generated_by=ale-task-factory

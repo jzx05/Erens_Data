@@ -1,0 +1,50 @@
+{
+  "required_outputs": [
+    "pricing_results.csv",
+    "summary.json"
+  ],
+  "pricing_results": {
+    "format": "CSV",
+    "columns": [
+      "scenario_id",
+      "price",
+      "delta",
+      "gamma",
+      "intrinsic_value",
+      "early_exercise_premium"
+    ],
+    "row_order": "same order as the data rows of base/input/scenario_grid.csv",
+    "row_count": 8
+  },
+  "summary": {
+    "format": "JSON object",
+    "keys": [
+      "base_case_price",
+      "base_case_delta",
+      "base_case_gamma",
+      "scenario_count",
+      "highest_price_scenario"
+    ],
+    "key_types": {
+      "base_case_price": "number",
+      "base_case_delta": "number",
+      "base_case_gamma": "number",
+      "scenario_count": "integer",
+      "highest_price_scenario": "string (scenario_id)"
+    }
+  },
+  "rounding": {
+    "decimal_places": 4,
+    "mode": "round-half-up (ties away from zero)",
+    "applies_to": [
+      "price",
+      "delta",
+      "gamma",
+      "intrinsic_value",
+      "early_exercise_premium",
+      "base_case_price",
+      "base_case_delta",
+      "base_case_gamma"
+    ]
+  }
+}

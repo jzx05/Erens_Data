@@ -1,0 +1,31 @@
+{
+  "questions": [
+    {
+      "key": "q1_daily_order_threshold",
+      "question": "A client's single account reached exactly 20,000 order submissions and cancellations in one trading day, but never reached 300 in any single second. Under the staged rules, does the account meet the high-frequency trading definition?",
+      "allowed_conclusions": [
+        "Yes",
+        "No",
+        "Unknown"
+      ]
+    },
+    {
+      "key": "q2_order_splitting_exemption",
+      "question": "A public fund manager uses a pre-set order-splitting algorithm solely to reduce the market impact of large orders and to ensure fair execution across portfolios. It has already submitted the report required by Article 9. Must it also report the additional high-frequency information listed in Article 34 (server location, test report, emergency plan)?",
+      "allowed_conclusions": [
+        "Yes",
+        "No",
+        "Unknown"
+      ]
+    },
+    {
+      "key": "q3_cancellation_ratio_standard",
+      "question": "A client asks for the specific numerical threshold for \"频繁瞬时撤单\" (frequent instant cancellation) — a specific cancellation ratio or count. Do the staged rules provide that number?",
+      "allowed_conclusions": [
+        "Yes",
+        "No",
+        "Unknown"
+      ]
+    }
+  ]
+}

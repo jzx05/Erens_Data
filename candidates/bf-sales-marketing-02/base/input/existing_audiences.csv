@@ -1,0 +1,7 @@
+audience_id,name,definition,size
+AUD-101,High LTV,ltv > 5000,272
+AUD-102,Recent Buyers,recency_days < 30,3878
+AUD-103,App Power Users,app_sessions_30d > 10 AND has_app = 1,5119
+AUD-104,Email Engaged,email_opens_30d >= 3,9073
+AUD-105,Support Contacts,support_tickets_90d > 0,1156
+AUD-106,Platinum Loyalty,loyalty_tier = 'platinum',683

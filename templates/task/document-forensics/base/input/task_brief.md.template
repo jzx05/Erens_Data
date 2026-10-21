@@ -1,0 +1,57 @@
+# {{TASK_TITLE}}
+
+You are acting as a {{ROLE}} working on {{SCENARIO}}.
+
+## Closed-Book Rule
+
+- Use only the staged materials under `base/input`.
+- Do not use outside web search or external knowledge.
+
+## Inputs
+
+- Question set: `base/input/question_set.json`
+- Output contract: `base/input/output_contract.json`
+- Document manifest: `base/input/document_manifest.json`
+- Original source files: `base/input/source_documents`
+- Extracted UTF-8 text mirrors: `base/input/extracted_text`
+
+## Questions
+
+1. {{QUESTION_1}}
+2. {{QUESTION_2}}
+3. {{QUESTION_3}}
+
+## Deliverable
+
+Write exactly one JSON file to `base/output/{{OUTPUT_FILE}}`.
+
+Each top-level question key must contain:
+
+- `conclusion`: exactly `Yes`, `No`, or `Unknown`
+- `citation_document`: the source document name you rely on
+- `evidence_snippet`: an exact excerpt copied from the staged source
+- `answer_text`: a short English explanation
+
+## Evidence rule
+
+- `evidence_snippet` must be a single contiguous excerpt copied from one cited source.
+- Do not concatenate non-adjacent clauses, sections, or articles. Put additional legal reasoning in
+  `answer_text`.
+
+## Label semantics
+
+Use the labels exactly as defined here:
+
+- `Yes`: the staged source explicitly supports the proposition in the question.
+- `No`: the staged source explicitly negates the proposition, or explicitly states that the
+  requested permission/requirement does not apply.
+- `Unknown`: the staged source does not provide the requested information, or says the value/rule
+  will be specified elsewhere. Do not use `No` merely because a number or detail is absent.
+
+If a question asks for a specific value and the source only says it will be prescribed separately,
+the correct label is `Unknown`.
+
+## Constraints
+
+- {{CONSTRAINT_1}}
+- {{CONSTRAINT_2}}

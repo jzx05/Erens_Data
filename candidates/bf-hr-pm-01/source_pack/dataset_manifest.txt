@@ -1,0 +1,12 @@
+dataset_id=employee_attrition_headcount_01
+random_seed=20261028
+employee_count=150
+departments=Engineering:40,Finance:30,Human Resources:20,Marketing:25,Sales:35
+hire_date_range=2022-01-01..2025-12-10
+termination_probability_by_department=Engineering:0.20,Finance:0.23,Human Resources:0.18,Marketing:0.30,Sales:0.36
+termination_year_weights=2023:0.05,2024:0.10,2025:0.55,2026:0.30
+salary_multiplier_range=0.72..1.34
+performance_rating_weights=1:0.05,2:0.10,3:0.45,4:0.28,5:0.12
+engagement_score_range=0.05..0.99
+rounding=ROUND_HALF_UP,2dp
+generated_by=ale-task-factory

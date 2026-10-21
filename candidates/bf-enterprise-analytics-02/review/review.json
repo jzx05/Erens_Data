@@ -1,0 +1,54 @@
+{
+  "candidate_id": "bf-enterprise-analytics-02",
+  "scores": {
+    "seed_fidelity": 20,
+    "capability_match": 15,
+    "difficulty_proximity": 15,
+    "correctness_reproducibility": 25,
+    "evidence_integrity": 15,
+    "solvability_clarity": 5
+  },
+  "total": 95,
+  "hard_gates": {
+    "schema": true,
+    "gold_run": true,
+    "mutation": true,
+    "evidence": true,
+    "difficulty": true,
+    "dedup": true,
+    "solvability": true
+  },
+  "gate_details": {
+    "schema_errors": [],
+    "gold_score": 1.0,
+    "mutation_rejected": 3,
+    "evidence_errors": [],
+    "difficulty_distance": 0.7452,
+    "dedup_matches": [],
+    "blind_score": 1.0,
+    "blind_score_source": "/home/erejin/ale-blind/bf-enterprise-analytics-02/eval/score.json",
+    "blind_score_kind": "dsh-blind",
+    "independent_solver_score": 1.0,
+    "independent_solver_source": "/home/erejin/ale-task-factory/candidates/bf-enterprise-analytics-02/verify/independent_solver/score.json",
+    "seed_blind_score": null,
+    "seed_blind_source": "missing /home/erejin/ale-blind/seed-metabase_bi_dashboard_01/eval/score.json",
+    "calibration_mode": "absolute-fallback",
+    "calibration_note": "seed blind baseline unavailable (missing /home/erejin/ale-blind/seed-metabase_bi_dashboard_01/eval/score.json); using the absolute fallback band 0.40-0.90",
+    "seed_margin": 0.2,
+    "learnable_floor": 0.4,
+    "learnable_ceiling": 0.9,
+    "degenerate_seed_ceiling": 0.7,
+    "too_easy": true,
+    "too_hard": false
+  },
+  "recommendation": "REVISE",
+  "reasons": [
+    "seed blind baseline missing (missing /home/erejin/ale-blind/seed-metabase_bi_dashboard_01/eval/score.json); absolute fallback band 0.40-0.90 used",
+    "blind score 1.000 is above the absolute learnable band (max 0.90); add one hard-but-unambiguous requirement"
+  ],
+  "human_signoff": {
+    "decision": "ACCEPT",
+    "at": "2026-10-21T12:34:26.858488+00:00",
+    "by": "user"
+  }
+}

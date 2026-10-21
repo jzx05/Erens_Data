@@ -1,0 +1,92 @@
+{
+  "taskId": "business_finance/sse_programmatic_trading_compliance_02",
+  "title": "SSE Programmatic Trading Compliance Review",
+  "summary": "Answer three closed-book questions about the high-frequency trading threshold, the order-splitting exemption, and the undefined frequent-cancellation standard using staged Shanghai Stock Exchange rules.",
+  "category": "business_finance",
+  "software": [
+    "Python"
+  ],
+  "taskPrompt": "You are a compliance analyst at a mainland securities firm's programmatic trading\ndesk. A client relationship manager has forwarded three questions from clients. Answer them using\nonly the staged Shanghai Stock Exchange materials.\n\n## Closed-Book Rule\n\n- Use only the staged materials under `base/input`.\n- Do not use outside web search or external regulatory knowledge.\n\n## Inputs\n\n- Task brief: `base/input/task_brief.md`\n- Question set: `base/input/question_set.json`\n- Output contract: `base/input/output_contract.json`\n- Document manifest: `base/input/document_manifest.json`\n- Original source files: `base/input/source_documents`\n- Extracted UTF-8 text mirrors: `base/input/extracted_text`\n\n## Questions\n\n1. A client's single account reached exactly 20,000 order submissions and cancellations in one trading day, but never reached 300 in any single second. Under the staged rules, does the account meet the high-frequency trading definition?\n2. A public fund manager uses a pre-set order-splitting algorithm solely to reduce the market impact of large orders and to ensure fair execution across portfolios. It has already submitted the report required by Article 9. Must it also report the additional high-frequency information listed in Article 34 (server location, test report, emergency plan)?\n3. A client asks for the specific numerical threshold for \"频繁瞬时撤单\" (frequent instant cancellation) — a specific cancellation ratio or count. Do the staged rules provide that number?\n\n## Deliverable\n\nWrite exactly one JSON file here:\n\n- `base/output/research_answers.json`\n\nEach top-level question key must contain:\n\n- `conclusion`: exactly `Yes`, `No`, or `Unknown`\n- `citation_document`: the accepted Simplified Chinese source document name\n- `evidence_snippet`: an exact Chinese excerpt copied from the staged source\n- `answer_text`: a short English explanation\n\n## Evidence Rule\n\n- `evidence_snippet` must be a single contiguous excerpt copied from one cited source.\n- Do not concatenate non-adjacent clauses, sections, or articles. Put additional legal reasoning in\n  `answer_text`.\n\n## Label Semantics\n\n- `Yes`: the staged source explicitly supports the proposition.\n- `No`: the staged source explicitly negates the proposition, or explicitly states that the\n  requested permission/requirement does not apply.\n- `Unknown`: the staged source does not provide the requested information, or says the value/rule\n  will be specified elsewhere. Do not use `No` merely because a number or detail is absent.\n",
+  "agentMustDo": [
+    "Read the staged task brief, question set, output contract, document manifest, and extracted-text mirrors.",
+    "Answer all three questions using only the staged SSE materials.",
+    "Write exactly one JSON file to `base/output/research_answers.json`.",
+    "For each question, provide a Yes/No/Unknown conclusion, an accepted Chinese citation, an exact Chinese evidence excerpt, and a short English explanation.",
+    "Apply the stated label semantics, especially for Unknown."
+  ],
+  "inputFiles": [
+    {
+      "name": "task_brief.md",
+      "format": "Markdown",
+      "path": "input/task_brief.md",
+      "description": "Scenario, questions, closed-book rule, and label semantics."
+    },
+    {
+      "name": "question_set.json",
+      "format": "JSON",
+      "path": "input/question_set.json",
+      "description": "Structured questions and allowed conclusion labels."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output filename and per-question fields."
+    },
+    {
+      "name": "document_manifest.json",
+      "format": "JSON",
+      "path": "input/document_manifest.json",
+      "description": "Maps staged Chinese source files to citation aliases."
+    },
+    {
+      "name": "source_documents",
+      "format": "DOCX/XLSX directory",
+      "path": "input/source_documents",
+      "description": "The ten original staged Shanghai Stock Exchange source files."
+    },
+    {
+      "name": "extracted_text",
+      "format": "UTF-8 text directory",
+      "path": "input/extracted_text",
+      "description": "Search-friendly text mirrors of the staged Chinese source files."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "research_answers.json",
+      "format": "JSON",
+      "path": "output/research_answers.json",
+      "description": "Required structured answer file containing all three responses."
+    }
+  ],
+  "evaluation": "Hard gates: missing output file, invalid JSON root, missing required question keys, or missing per-question fields. For each question, check the conclusion against the canonical answer, the citation against accepted Chinese aliases, the evidence snippet against the cited visible source and its required anchors, and the presence of a short English explanation. Give 1.0 only when all checks pass, then average the three question scores.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.4",
+    "subdomain_code": "compliance",
+    "subdomain_name": "Compliance & Regulatory",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task applies Shanghai Stock Exchange programmatic-trading rules to client compliance questions."
+    }
+  },
+  "requiredSystemPackages": []
+}

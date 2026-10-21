@@ -1,0 +1,196 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-enterprise-analytics-02",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "passed": true,
+    "field_scores": {
+      "total_revenue": 1.0,
+      "average_order_value": 1.0,
+      "conversion_rate": 1.0,
+      "total_completed_orders": 1.0,
+      "unique_purchasing_customers": 1.0,
+      "revenue_by_category": 1.0,
+      "monthly_revenue": 1.0,
+      "orders_by_device": 1.0,
+      "orders_by_channel": 1.0,
+      "event_funnel": 1.0,
+      "top_10_customers": 1.0
+    },
+    "checks": [
+      {
+        "field": "total_revenue",
+        "score": 1.0,
+        "expected": 286726.45,
+        "actual": 286726.45
+      },
+      {
+        "field": "average_order_value",
+        "score": 1.0,
+        "expected": 202.35,
+        "actual": 202.35
+      },
+      {
+        "field": "conversion_rate",
+        "score": 1.0,
+        "expected": 93.8,
+        "actual": 93.8
+      },
+      {
+        "field": "total_completed_orders",
+        "score": 1.0,
+        "expected": 1417,
+        "actual": 1417
+      },
+      {
+        "field": "unique_purchasing_customers",
+        "score": 1.0,
+        "expected": 469,
+        "actual": 469
+      },
+      {
+        "field": "revenue_by_category",
+        "score": 1.0,
+        "expected_keys": 5,
+        "actual_keys": 5
+      },
+      {
+        "field": "monthly_revenue",
+        "score": 1.0,
+        "expected_keys": 12,
+        "actual_keys": 12
+      },
+      {
+        "field": "orders_by_device",
+        "score": 1.0,
+        "expected_keys": 3,
+        "actual_keys": 3
+      },
+      {
+        "field": "orders_by_channel",
+        "score": 1.0,
+        "expected_keys": 4,
+        "actual_keys": 4
+      },
+      {
+        "field": "event_funnel",
+        "score": 1.0,
+        "expected_keys": 4,
+        "actual_keys": 4
+      },
+      {
+        "field": "top_10_customers",
+        "score": 1.0,
+        "expected": [
+          {
+            "customer_id": "CUST-010436",
+            "customer_name": "Customer 0436",
+            "total_spend": 2265.37
+          },
+          {
+            "customer_id": "CUST-010030",
+            "customer_name": "Customer 0030",
+            "total_spend": 2224.92
+          },
+          {
+            "customer_id": "CUST-010106",
+            "customer_name": "Customer 0106",
+            "total_spend": 2125.5
+          },
+          {
+            "customer_id": "CUST-010235",
+            "customer_name": "Customer 0235",
+            "total_spend": 2115.35
+          },
+          {
+            "customer_id": "CUST-010479",
+            "customer_name": "Customer 0479",
+            "total_spend": 2043.21
+          },
+          {
+            "customer_id": "CUST-010045",
+            "customer_name": "Customer 0045",
+            "total_spend": 1853.46
+          },
+          {
+            "customer_id": "CUST-010121",
+            "customer_name": "Customer 0121",
+            "total_spend": 1810.26
+          },
+          {
+            "customer_id": "CUST-010460",
+            "customer_name": "Customer 0460",
+            "total_spend": 1682.55
+          },
+          {
+            "customer_id": "CUST-010243",
+            "customer_name": "Customer 0243",
+            "total_spend": 1637.38
+          },
+          {
+            "customer_id": "CUST-010488",
+            "customer_name": "Customer 0488",
+            "total_spend": 1585.62
+          }
+        ],
+        "actual": [
+          {
+            "customer_id": "CUST-010436",
+            "customer_name": "Customer 0436",
+            "total_spend": 2265.37
+          },
+          {
+            "customer_id": "CUST-010030",
+            "customer_name": "Customer 0030",
+            "total_spend": 2224.92
+          },
+          {
+            "customer_id": "CUST-010106",
+            "customer_name": "Customer 0106",
+            "total_spend": 2125.5
+          },
+          {
+            "customer_id": "CUST-010235",
+            "customer_name": "Customer 0235",
+            "total_spend": 2115.35
+          },
+          {
+            "customer_id": "CUST-010479",
+            "customer_name": "Customer 0479",
+            "total_spend": 2043.21
+          },
+          {
+            "customer_id": "CUST-010045",
+            "customer_name": "Customer 0045",
+            "total_spend": 1853.46
+          },
+          {
+            "customer_id": "CUST-010121",
+            "customer_name": "Customer 0121",
+            "total_spend": 1810.26
+          },
+          {
+            "customer_id": "CUST-010460",
+            "customer_name": "Customer 0460",
+            "total_spend": 1682.55
+          },
+          {
+            "customer_id": "CUST-010243",
+            "customer_name": "Customer 0243",
+            "total_spend": 1637.38
+          },
+          {
+            "customer_id": "CUST-010488",
+            "customer_name": "Customer 0488",
+            "total_spend": 1585.62
+          }
+        ]
+      }
+    ],
+    "parse_error": null
+  },
+  "stdout_tail": "\n        {\n          \"customer_id\": \"CUST-010121\",\n          \"customer_name\": \"Customer 0121\",\n          \"total_spend\": 1810.26\n        },\n        {\n          \"customer_id\": \"CUST-010460\",\n          \"customer_name\": \"Customer 0460\",\n          \"total_spend\": 1682.55\n        },\n        {\n          \"customer_id\": \"CUST-010243\",\n          \"customer_name\": \"Customer 0243\",\n          \"total_spend\": 1637.38\n        },\n        {\n          \"customer_id\": \"CUST-010488\",\n          \"customer_name\": \"Customer 0488\",\n          \"total_spend\": 1585.62\n        }\n      ],\n      \"actual\": [\n        {\n          \"customer_id\": \"CUST-010436\",\n          \"customer_name\": \"Customer 0436\",\n          \"total_spend\": 2265.37\n        },\n        {\n          \"customer_id\": \"CUST-010030\",\n          \"customer_name\": \"Customer 0030\",\n          \"total_spend\": 2224.92\n        },\n        {\n          \"customer_id\": \"CUST-010106\",\n          \"customer_name\": \"Customer 0106\",\n          \"total_spend\": 2125.5\n        },\n        {\n          \"customer_id\": \"CUST-010235\",\n          \"customer_name\": \"Customer 0235\",\n          \"total_spend\": 2115.35\n        },\n        {\n          \"customer_id\": \"CUST-010479\",\n          \"customer_name\": \"Customer 0479\",\n          \"total_spend\": 2043.21\n        },\n        {\n          \"customer_id\": \"CUST-010045\",\n          \"customer_name\": \"Customer 0045\",\n          \"total_spend\": 1853.46\n        },\n        {\n          \"customer_id\": \"CUST-010121\",\n          \"customer_name\": \"Customer 0121\",\n          \"total_spend\": 1810.26\n        },\n        {\n          \"customer_id\": \"CUST-010460\",\n          \"customer_name\": \"Customer 0460\",\n          \"total_spend\": 1682.55\n        },\n        {\n          \"customer_id\": \"CUST-010243\",\n          \"customer_name\": \"Customer 0243\",\n          \"total_spend\": 1637.38\n        },\n        {\n          \"customer_id\": \"CUST-010488\",\n          \"customer_name\": \"Customer 0488\",\n          \"total_spend\": 1585.62\n        }\n      ]\n    }\n  ],\n  \"parse_error\": null\n}\n",
+  "stderr_tail": ""
+}

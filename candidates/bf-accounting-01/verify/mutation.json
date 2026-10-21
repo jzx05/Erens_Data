@@ -1,0 +1,32 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-accounting-01",
+  "mutants": [
+    {
+      "mutation": "drop",
+      "applied": true,
+      "rejected": true,
+      "score": 0.5,
+      "evaluator_notes": [],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "scalar",
+      "applied": true,
+      "rejected": true,
+      "score": 0.5,
+      "evaluator_notes": [],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "structure",
+      "applied": true,
+      "rejected": true,
+      "score": 0.5,
+      "evaluator_notes": [],
+      "stderr_tail": ""
+    }
+  ],
+  "rejected": 3,
+  "required": 3,
+  "passed": true
+}

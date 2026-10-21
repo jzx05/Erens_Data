@@ -1,0 +1,8 @@
+dataset_id=audience_segmentation_app_winback_01
+random_seed=20261022
+profile_count=10000
+target=ltv>=1500,recency_days>=45,has_app=1,app_sessions_30d>=2,email_opens_30d<=2,last_email_open_days_ago>30
+suppression=support_tickets_90d>0
+channels=sms_opt_in,push_opt_in
+pii_removed=age,gender,city,state
+generated_by=ale-task-factory

@@ -1,0 +1,47 @@
+{
+  "q1_daily_order_threshold": {
+    "question": "A client's single account reached exactly 20,000 order submissions and cancellations in one trading day, but never reached 300 in any single second. Under the staged rules, does the account meet the high-frequency trading definition?",
+    "expected_conclusion": "Yes",
+    "accepted_citations": [
+      "上海证券交易所程序化交易管理实施细则"
+    ],
+    "accepted_doc_ids": [
+      "doc_08"
+    ],
+    "evidence_anchors": [
+      "单个账户单日申报、撤单的最高笔数达到20000笔以上"
+    ],
+    "positive_evidence": "第三十三条 投资者交易行为存在下列情形之一的，属于高频交易：\n（一）单个账户每秒申报、撤单的最高笔数达到300笔以上；\n（二）单个账户单日申报、撤单的最高笔数达到20000笔以上；\n（三）本所认定的其他情形。",
+    "positive_answer_text": "Yes. Article 33(2) defines high-frequency trading as a single account reaching 20,000 or more daily order submissions and cancellations; Article 46 provides that “以上” includes the stated number."
+  },
+  "q2_order_splitting_exemption": {
+    "question": "A public fund manager uses a pre-set order-splitting algorithm solely to reduce the market impact of large orders and to ensure fair execution across portfolios. It has already submitted the report required by Article 9. Must it also report the additional high-frequency information listed in Article 34 (server location, test report, emergency plan)?",
+    "expected_conclusion": "No",
+    "accepted_citations": [
+      "上海证券交易所程序化交易管理实施细则"
+    ],
+    "accepted_doc_ids": [
+      "doc_08"
+    ],
+    "evidence_anchors": [
+      "不适用前款要求"
+    ],
+    "positive_evidence": "投资者以减少大额订单对市场冲击或者保障不同投资组合交易公平性为目的,在交易环节按照设定的拆单算法自动执行交易指令，且已按照本细则第九条规定履行报告义务的，不适用前款要求。前述投资者包括公募基金管理人及其子公司、从事资产管理业务的会员、合格境外投资者及本所认定的其他投资者。",
+    "positive_answer_text": "No. Article 34(2) exempts investors, including public fund managers, that use an order-splitting algorithm for those purposes and have already reported under Article 9 from the additional high-frequency reporting."
+  },
+  "q3_cancellation_ratio_standard": {
+    "question": "A client asks for the specific numerical threshold for \"频繁瞬时撤单\" (frequent instant cancellation) — a specific cancellation ratio or count. Do the staged rules provide that number?",
+    "expected_conclusion": "Unknown",
+    "accepted_citations": [
+      "上海证券交易所程序化交易管理实施细则"
+    ],
+    "accepted_doc_ids": [
+      "doc_08"
+    ],
+    "evidence_anchors": [
+      "全日撤单比例达到一定标准"
+    ],
+    "positive_evidence": "（二）频繁瞬时撤单，是指日内频繁出现申报后迅速撤单、全日撤单比例较高，即全日发生多次1秒钟内申报又撤单的情形，且全日撤单比例达到一定标准；",
+    "positive_answer_text": "Unknown. Article 18(2) describes the behavior and refers to “达到一定标准” but does not state a specific cancellation ratio or count."
+  }
+}

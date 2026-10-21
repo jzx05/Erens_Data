@@ -1,0 +1,107 @@
+{
+  "taskId": "business_finance/audience_segmentation_app_winback_01",
+  "title": "High-Value Lapsed App Users — Win-Back Segmentation",
+  "summary": "Segment a synthetic customer base into high-value, lapsed, app-installed, email-disengaged customers; apply support suppression, channel opt-ins, PII removal, and overlap analysis against six existing audiences.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12",
+    "pandas",
+    "pyarrow"
+  ],
+  "taskPrompt": "You are a digital marketing analyst building a re-engagement audience from customer\nprofiles.\n\n## Task Directory\n\n`base`\n\n## Your Task\n\n1. Read `base/input/segmentation_brief.md`, `base/input/governance_policies.yaml`, and\n   `base/input/data_dictionary.tsv`.\n2. Load `base/input/unified_profiles.csv`.\n3. Identify customers matching every target condition in the brief.\n4. Suppress customers with active support tickets, then compute SMS and push eligibility.\n5. Remove `age`, `gender`, `city`, and `state` from the output roster.\n6. Compute overlap against each audience in `base/input/existing_audiences.csv`.\n7. Write exactly the three contracted output files under `base/output`.\n\n## Required Outputs\n\n- `base/output/segment_definition.json`\n- `base/output/audience_roster.csv`\n- `base/output/overlap_report.tsv`\n\nThe exact schemas, target conditions, channel rules, PII rules, overlap formula, and required\nconstant values are in `base/input/segmentation_brief.md`. Follow them exactly.\n\n## Environment\n\nPython 3.12 is available. The standard library is sufficient; pandas and pyarrow are optional.\n",
+  "agentMustDo": [
+    "Read the segmentation brief, governance policies, and data dictionary.",
+    "Filter unified_profiles.csv to the target conditions; suppress active support tickets.",
+    "Compute SMS, push, and any-channel eligibility after suppression.",
+    "Remove age, gender, city, and state from the roster.",
+    "Compute overlaps against all six existing audiences using overlap_count / total_qualifying * 100.",
+    "Write segment_definition.json, audience_roster.csv, and overlap_report.tsv exactly as contracted."
+  ],
+  "inputFiles": [
+    {
+      "name": "unified_profiles.csv",
+      "format": "CSV",
+      "path": "input/unified_profiles.csv",
+      "description": "10,000 synthetic customer profiles."
+    },
+    {
+      "name": "segmentation_brief.md",
+      "format": "Markdown",
+      "path": "input/segmentation_brief.md",
+      "description": "Target conditions, governance, and output contract."
+    },
+    {
+      "name": "governance_policies.yaml",
+      "format": "YAML",
+      "path": "input/governance_policies.yaml",
+      "description": "PII, opt-in, minimum-size, and suppression policies."
+    },
+    {
+      "name": "existing_audiences.csv",
+      "format": "CSV",
+      "path": "input/existing_audiences.csv",
+      "description": "Six existing audience definitions."
+    },
+    {
+      "name": "data_dictionary.tsv",
+      "format": "TSV",
+      "path": "input/data_dictionary.tsv",
+      "description": "Field names, types, and permitted values."
+    },
+    {
+      "name": "runtime_env",
+      "format": "TOML directory",
+      "path": "input/runtime_env",
+      "description": "Runtime metadata."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "segment_definition.json",
+      "format": "JSON",
+      "path": "output/segment_definition.json",
+      "description": "Segment predicates, suppression, channels, governance, and stats."
+    },
+    {
+      "name": "audience_roster.csv",
+      "format": "CSV",
+      "path": "output/audience_roster.csv",
+      "description": "Qualifying roster with PII removed and eligibility flags."
+    },
+    {
+      "name": "overlap_report.tsv",
+      "format": "TSV",
+      "path": "output/overlap_report.tsv",
+      "description": "Overlap counts and percentages against six audiences."
+    }
+  ],
+  "evaluation": "Hard gates: missing or unparsable outputs, PII columns in the roster, audience below the governance minimum, wrong target set, wrong eligibility flags, wrong stats, or wrong overlap counts/percentages. The score is the fraction of checks passed; only a fully correct submission scores 1.0.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.6",
+    "subdomain_code": "sales_marketing",
+    "subdomain_name": "Sales & Marketing",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task performs marketing audience segmentation with governance and overlap analysis."
+    }
+  },
+  "requiredSystemPackages": []
+}

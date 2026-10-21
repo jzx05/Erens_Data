@@ -1,0 +1,18 @@
+{
+  "id": "bf-hr-pm-01",
+  "status": "AUTHORED",
+  "stratum": "hr_pm",
+  "seed_anchor": "internal_employee_agent_instance_1",
+  "seed_refs": [
+    "internal_employee_agent_instance_1",
+    "legal_ma_consistency_audit_01"
+  ],
+  "difficulty_target": 100.0,
+  "task_family": "data-analysis",
+  "source_policy": "synthetic",
+  "internal_only": false,
+  "synthetic_data": true,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

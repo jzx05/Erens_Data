@@ -1,0 +1,8 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-compliance-02",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/research_answers.json"
+  ]
+}

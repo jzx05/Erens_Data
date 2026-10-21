@@ -1,0 +1,1064 @@
+{
+  "generated_at": "2026-10-21T12:15:20.655475+00:00",
+  "seed_root": "/home/erejin/下载/business_finance_extracted/business_finance",
+  "target": 20,
+  "task_count": 19,
+  "subdomains": {
+    "quant_finance": {
+      "name": "Quantitative Finance & Trading",
+      "count": 1,
+      "tier_a": 1,
+      "tier_b": 0
+    },
+    "accounting": {
+      "name": "Accounting & Finance",
+      "count": 4,
+      "tier_a": 1,
+      "tier_b": 3
+    },
+    "actuarial_risk": {
+      "name": "Actuarial & Risk Modeling",
+      "count": 1,
+      "tier_a": 0,
+      "tier_b": 1
+    },
+    "enterprise_analytics": {
+      "name": "Enterprise Analytics & Planning",
+      "count": 5,
+      "tier_a": 0,
+      "tier_b": 5
+    },
+    "sales_marketing": {
+      "name": "Sales & Marketing",
+      "count": 2,
+      "tier_a": 1,
+      "tier_b": 1
+    },
+    "hr_pm": {
+      "name": "HR & Project Management",
+      "count": 1,
+      "tier_a": 1,
+      "tier_b": 0
+    },
+    "litigation": {
+      "name": "Litigation Support & Discovery",
+      "count": 1,
+      "tier_a": 1,
+      "tier_b": 0
+    },
+    "compliance": {
+      "name": "Compliance & Regulatory",
+      "count": 2,
+      "tier_a": 2,
+      "tier_b": 0
+    },
+    "supply_chain": {
+      "name": "Supply Chain & Logistics",
+      "count": 1,
+      "tier_a": 0,
+      "tier_b": 1
+    },
+    "graphic_design": {
+      "name": "Graphic, Visual & Product Design",
+      "count": 1,
+      "tier_a": 0,
+      "tier_b": 1
+    }
+  },
+  "vector_keys": [
+    "software_count",
+    "base_input_file_count",
+    "log_input_bytes",
+    "reference_file_count",
+    "timeout_units",
+    "modality_count"
+  ],
+  "tasks": [
+    {
+      "slug": "ar_full_1500",
+      "task_id": "business_finance/ar_full_1500",
+      "title": "Annual Report Full Extraction (1500 files)",
+      "subdomain_code": "accounting",
+      "subdomain_name": "Accounting & Finance",
+      "domain_code": "business_finance",
+      "software": [
+        "Microsoft Edge",
+        "Python"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 2,
+        "input_file_count": 1,
+        "base_input_file_count": 1,
+        "base_input_bytes": 56730,
+        "reference_file_count": 2,
+        "prompt_chars": 1942,
+        "must_do_count": 4,
+        "evaluation_chars": 523,
+        "timeout": 7200,
+        "modality_count": 1,
+        "has_main_py": 1,
+        "has_scripts": 0,
+        "log_input_bytes": 10.9461,
+        "prompt_kchars": 1.942,
+        "evaluation_kchars": 0.523,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "text"
+      ],
+      "difficulty_score": 65.88,
+      "nearest_seeds": [
+        {
+          "slug": "ar_full_300",
+          "distance": 0.3048
+        },
+        {
+          "slug": "metabase_bi_dashboard_01",
+          "distance": 0.9843
+        },
+        {
+          "slug": "internal_employee_agent_instance_1",
+          "distance": 1.1874
+        }
+      ]
+    },
+    {
+      "slug": "ar_full_300",
+      "task_id": "business_finance/ar_full_300",
+      "title": "Annual Report Full Extraction (300 files)",
+      "subdomain_code": "accounting",
+      "subdomain_name": "Accounting & Finance",
+      "domain_code": "business_finance",
+      "software": [
+        "Google Chrome",
+        "Python"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 2,
+        "input_file_count": 1,
+        "base_input_file_count": 1,
+        "base_input_bytes": 11463,
+        "reference_file_count": 2,
+        "prompt_chars": 2319,
+        "must_do_count": 6,
+        "evaluation_chars": 889,
+        "timeout": 7200,
+        "modality_count": 1,
+        "has_main_py": 1,
+        "has_scripts": 0,
+        "log_input_bytes": 9.347,
+        "prompt_kchars": 2.319,
+        "evaluation_kchars": 0.889,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "text"
+      ],
+      "difficulty_score": 76.64,
+      "nearest_seeds": [
+        {
+          "slug": "ar_full_1500",
+          "distance": 0.3048
+        },
+        {
+          "slug": "metabase_bi_dashboard_01",
+          "distance": 0.9118
+        },
+        {
+          "slug": "internal_employee_agent_instance_1",
+          "distance": 1.1639
+        }
+      ]
+    },
+    {
+      "slug": "sec_10k_financial_parsing",
+      "task_id": "business_finance/sec_10k_financial_parsing",
+      "title": "SEC 10-K Financial Parsing",
+      "subdomain_code": "accounting",
+      "subdomain_name": "Accounting & Finance",
+      "domain_code": "business_finance",
+      "software": [
+        "Python",
+        "uv",
+        "pdfplumber",
+        "pypdf",
+        "pydantic"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 5,
+        "input_file_count": 9,
+        "base_input_file_count": 115,
+        "base_input_bytes": 937078145,
+        "reference_file_count": 204,
+        "prompt_chars": 2576,
+        "must_do_count": 5,
+        "evaluation_chars": 1350,
+        "timeout": 7200,
+        "modality_count": 6,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 20.6583,
+        "prompt_kchars": 2.576,
+        "evaluation_kchars": 1.35,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "json",
+        "lock",
+        "pdf",
+        "python",
+        "text",
+        "toml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "bpmn_category_governance_restructuring_l3",
+          "distance": 6.2249
+        },
+        {
+          "slug": "digital_marketing_ab_test_analysis_1",
+          "distance": 6.3493
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 6.3817
+        }
+      ]
+    },
+    {
+      "slug": "taxform_4_1",
+      "task_id": "business_finance/taxform_4_1",
+      "title": "Taxform 4 1",
+      "subdomain_code": "accounting",
+      "subdomain_name": "Accounting & Finance",
+      "domain_code": "business_finance",
+      "software": [
+        "Python",
+        "Chrome"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 2,
+        "input_file_count": 4,
+        "base_input_file_count": 0,
+        "base_input_bytes": 0,
+        "reference_file_count": 0,
+        "prompt_chars": 1277,
+        "must_do_count": 3,
+        "evaluation_chars": 1857,
+        "timeout": 7200,
+        "modality_count": 0,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 0.0,
+        "prompt_kchars": 1.277,
+        "evaluation_kchars": 1.857,
+        "timeout_units": 1.0
+      },
+      "modalities": [],
+      "difficulty_score": 64.55,
+      "nearest_seeds": [
+        {
+          "slug": "odoo",
+          "distance": 0.0
+        },
+        {
+          "slug": "equity_research_summary",
+          "distance": 0.7004
+        },
+        {
+          "slug": "ar_full_300",
+          "distance": 1.8391
+        }
+      ]
+    },
+    {
+      "slug": "basel_operational_risk_bia_cn",
+      "task_id": "business_finance/basel_operational_risk_bia_cn",
+      "title": "Basel Operational Risk BIA Classification",
+      "subdomain_code": "actuarial_risk",
+      "subdomain_name": "Actuarial & Risk Modeling",
+      "domain_code": "business_finance",
+      "software": [
+        "LibreOffice Calc",
+        "Python",
+        "openpyxl"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 3,
+        "input_file_count": 6,
+        "base_input_file_count": 8,
+        "base_input_bytes": 34515,
+        "reference_file_count": 3,
+        "prompt_chars": 1018,
+        "must_do_count": 5,
+        "evaluation_chars": 458,
+        "timeout": 7200,
+        "modality_count": 5,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 10.4492,
+        "prompt_kchars": 1.018,
+        "evaluation_kchars": 0.458,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "csv",
+        "json",
+        "markdown",
+        "text",
+        "xlsx"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "ff5_public_reconstruction",
+          "distance": 0.5126
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 0.8736
+        },
+        {
+          "slug": "digital_marketing_audience_segmentation_1",
+          "distance": 1.0063
+        }
+      ]
+    },
+    {
+      "slug": "llm_ecosystem_privacy_audit_realdata_1",
+      "task_id": "business_finance/llm_ecosystem_privacy_audit_realdata_1",
+      "title": "GPT Actions Privacy & Policy Audit",
+      "subdomain_code": "compliance",
+      "subdomain_name": "Compliance & Regulatory",
+      "domain_code": "business_finance",
+      "software": [
+        "Python (`software/python`)"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 1,
+        "input_file_count": 4,
+        "base_input_file_count": 4,
+        "base_input_bytes": 5284584,
+        "reference_file_count": 2,
+        "prompt_chars": 2328,
+        "must_do_count": 4,
+        "evaluation_chars": 998,
+        "timeout": 7200,
+        "modality_count": 3,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 15.4803,
+        "prompt_kchars": 2.328,
+        "evaluation_kchars": 0.998,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "csv",
+        "json",
+        "markdown"
+      ],
+      "difficulty_score": 87.66,
+      "nearest_seeds": [
+        {
+          "slug": "legal_ma_consistency_audit_01",
+          "distance": 0.5869
+        },
+        {
+          "slug": "internal_employee_agent_instance_1",
+          "distance": 1.1104
+        },
+        {
+          "slug": "sse_northbound_programmatic_trading_01",
+          "distance": 1.2961
+        }
+      ]
+    },
+    {
+      "slug": "sse_northbound_programmatic_trading_01",
+      "task_id": "business_finance/sse_northbound_programmatic_trading_01",
+      "title": "SSE Northbound Programmatic Trading Research",
+      "subdomain_code": "compliance",
+      "subdomain_name": "Compliance & Regulatory",
+      "domain_code": "business_finance",
+      "software": [
+        "Python"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 1,
+        "input_file_count": 6,
+        "base_input_file_count": 24,
+        "base_input_bytes": 454942,
+        "reference_file_count": 2,
+        "prompt_chars": 1331,
+        "must_do_count": 5,
+        "evaluation_chars": 1249,
+        "timeout": 7200,
+        "modality_count": 5,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 13.0279,
+        "prompt_kchars": 1.331,
+        "evaluation_kchars": 1.249,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "docx",
+        "json",
+        "markdown",
+        "text",
+        "xlsx"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "legal_ma_consistency_audit_01",
+          "distance": 0.7482
+        },
+        {
+          "slug": "saas_onepager_brand_refresh_instance_1",
+          "distance": 0.9797
+        },
+        {
+          "slug": "llm_ecosystem_privacy_audit_realdata_1",
+          "distance": 1.2961
+        }
+      ]
+    },
+    {
+      "slug": "bpmn_category_governance_restructuring_l3",
+      "task_id": "business_finance/bpmn_category_governance_restructuring_l3",
+      "title": "Flowable BPMN Category Governance Restructuring L3",
+      "subdomain_code": "enterprise_analytics",
+      "subdomain_name": "Enterprise Analytics & Planning",
+      "domain_code": "business_finance",
+      "software": [
+        "Flowable 6.5.0",
+        "Docker",
+        "Docker Compose",
+        "Python",
+        "curl"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 5,
+        "input_file_count": 9,
+        "base_input_file_count": 12,
+        "base_input_bytes": 475535,
+        "reference_file_count": 6,
+        "prompt_chars": 1896,
+        "must_do_count": 8,
+        "evaluation_chars": 566,
+        "timeout": 7200,
+        "modality_count": 5,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 13.0722,
+        "prompt_kchars": 1.896,
+        "evaluation_kchars": 0.566,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "image",
+        "json",
+        "markdown",
+        "xml",
+        "yaml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "digital_marketing_ab_test_analysis_1",
+          "distance": 0.1779
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 0.719
+        },
+        {
+          "slug": "american_option_pricing_ls",
+          "distance": 1.3209
+        }
+      ]
+    },
+    {
+      "slug": "bpmn_supply_disruption_l3",
+      "task_id": "business_finance/bpmn_supply_disruption_l3",
+      "title": "Flowable BPMN Supply Disruption L3",
+      "subdomain_code": "enterprise_analytics",
+      "subdomain_name": "Enterprise Analytics & Planning",
+      "domain_code": "business_finance",
+      "software": [
+        "Flowable 6.5.0",
+        "Docker",
+        "Docker Compose",
+        "Python"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 4,
+        "input_file_count": 8,
+        "base_input_file_count": 8,
+        "base_input_bytes": 529146,
+        "reference_file_count": 5,
+        "prompt_chars": 2294,
+        "must_do_count": 5,
+        "evaluation_chars": 816,
+        "timeout": 7200,
+        "modality_count": 5,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 13.179,
+        "prompt_kchars": 2.294,
+        "evaluation_kchars": 0.816,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "image",
+        "json",
+        "markdown",
+        "xml",
+        "yaml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "digital_marketing_ab_test_analysis_1",
+          "distance": 0.7019
+        },
+        {
+          "slug": "bpmn_category_governance_restructuring_l3",
+          "distance": 0.719
+        },
+        {
+          "slug": "basel_operational_risk_bia_cn",
+          "distance": 0.8736
+        }
+      ]
+    },
+    {
+      "slug": "equity_research_summary",
+      "task_id": "business_finance/equity_research_summary",
+      "title": "Equity Research Summary",
+      "subdomain_code": "enterprise_analytics",
+      "subdomain_name": "Enterprise Analytics & Planning",
+      "domain_code": "business_finance",
+      "software": [
+        "Chrome"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 1,
+        "input_file_count": 2,
+        "base_input_file_count": 0,
+        "base_input_bytes": 0,
+        "reference_file_count": 0,
+        "prompt_chars": 1294,
+        "must_do_count": 5,
+        "evaluation_chars": 2607,
+        "timeout": 7200,
+        "modality_count": 0,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 0.0,
+        "prompt_kchars": 1.294,
+        "evaluation_kchars": 2.607,
+        "timeout_units": 1.0
+      },
+      "modalities": [],
+      "difficulty_score": 58.59,
+      "nearest_seeds": [
+        {
+          "slug": "odoo",
+          "distance": 0.7004
+        },
+        {
+          "slug": "taxform_4_1",
+          "distance": 0.7004
+        },
+        {
+          "slug": "ar_full_300",
+          "distance": 1.9679
+        }
+      ]
+    },
+    {
+      "slug": "ff5_public_reconstruction",
+      "task_id": "business_finance/ff5_public_reconstruction",
+      "title": "FF5 Public Reconstruction",
+      "subdomain_code": "enterprise_analytics",
+      "subdomain_name": "Enterprise Analytics & Planning",
+      "domain_code": "business_finance",
+      "software": [
+        "Google Chrome",
+        "Python",
+        "uv"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 3,
+        "input_file_count": 4,
+        "base_input_file_count": 5,
+        "base_input_bytes": 103113,
+        "reference_file_count": 3,
+        "prompt_chars": 1413,
+        "must_do_count": 4,
+        "evaluation_chars": 1800,
+        "timeout": 7200,
+        "modality_count": 4,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 11.5436,
+        "prompt_kchars": 1.413,
+        "evaluation_kchars": 1.8,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "json",
+        "lock",
+        "markdown",
+        "toml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "basel_operational_risk_bia_cn",
+          "distance": 0.5126
+        },
+        {
+          "slug": "american_option_pricing_ls",
+          "distance": 0.8771
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 0.8994
+        }
+      ]
+    },
+    {
+      "slug": "metabase_bi_dashboard_01",
+      "task_id": "business_finance/metabase_bi_dashboard_01",
+      "title": "Metabase BI Dashboard",
+      "subdomain_code": "enterprise_analytics",
+      "subdomain_name": "Enterprise Analytics & Planning",
+      "domain_code": "business_finance",
+      "software": [
+        "Metabase 0.54.3",
+        "Microsoft Edge"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 2,
+        "input_file_count": 3,
+        "base_input_file_count": 3,
+        "base_input_bytes": 7811,
+        "reference_file_count": 2,
+        "prompt_chars": 1140,
+        "must_do_count": 5,
+        "evaluation_chars": 952,
+        "timeout": 7200,
+        "modality_count": 3,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 8.9634,
+        "prompt_kchars": 1.14,
+        "evaluation_kchars": 0.952,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "json",
+        "markdown",
+        "text"
+      ],
+      "difficulty_score": 94.28,
+      "nearest_seeds": [
+        {
+          "slug": "internal_employee_agent_instance_1",
+          "distance": 0.7237
+        },
+        {
+          "slug": "ar_full_300",
+          "distance": 0.9118
+        },
+        {
+          "slug": "ff5_public_reconstruction",
+          "distance": 0.9716
+        }
+      ]
+    },
+    {
+      "slug": "saas_onepager_brand_refresh_instance_1",
+      "task_id": "business_finance/saas_onepager_brand_refresh_instance_1",
+      "title": "SaaS One-Pager Brand Refresh",
+      "subdomain_code": "graphic_design",
+      "subdomain_name": "Graphic, Visual & Product Design",
+      "domain_code": "visual_media",
+      "software": [
+        "LibreOffice Impress"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 1,
+        "input_file_count": 8,
+        "base_input_file_count": 17,
+        "base_input_bytes": 1253373,
+        "reference_file_count": 9,
+        "prompt_chars": 1400,
+        "must_do_count": 4,
+        "evaluation_chars": 1821,
+        "timeout": 7200,
+        "modality_count": 7,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 14.0413,
+        "prompt_kchars": 1.4,
+        "evaluation_kchars": 1.821,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        ".svg",
+        "csv",
+        "image",
+        "json",
+        "markdown",
+        "pdf",
+        "text"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "sse_northbound_programmatic_trading_01",
+          "distance": 0.9797
+        },
+        {
+          "slug": "legal_ma_consistency_audit_01",
+          "distance": 1.3894
+        },
+        {
+          "slug": "digital_marketing_audience_segmentation_1",
+          "distance": 1.4837
+        }
+      ]
+    },
+    {
+      "slug": "internal_employee_agent_instance_1",
+      "task_id": "business_finance/internal_employee_agent_instance_1",
+      "title": "Internal Employee Agent Conversation Replay",
+      "subdomain_code": "hr_pm",
+      "subdomain_name": "HR & Project Management",
+      "domain_code": "business_finance",
+      "software": [
+        "Python"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 1,
+        "input_file_count": 6,
+        "base_input_file_count": 6,
+        "base_input_bytes": 15849,
+        "reference_file_count": 3,
+        "prompt_chars": 1533,
+        "must_do_count": 5,
+        "evaluation_chars": 1334,
+        "timeout": 7200,
+        "modality_count": 3,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 9.6709,
+        "prompt_kchars": 1.533,
+        "evaluation_kchars": 1.334,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "json",
+        "markdown",
+        "python"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "metabase_bi_dashboard_01",
+          "distance": 0.7237
+        },
+        {
+          "slug": "legal_ma_consistency_audit_01",
+          "distance": 0.9591
+        },
+        {
+          "slug": "llm_ecosystem_privacy_audit_realdata_1",
+          "distance": 1.1104
+        }
+      ]
+    },
+    {
+      "slug": "legal_ma_consistency_audit_01",
+      "task_id": "business_finance/legal_ma_consistency_audit_01",
+      "title": "M&A Filing Consistency Audit",
+      "subdomain_code": "litigation",
+      "subdomain_name": "Litigation Support & Discovery",
+      "domain_code": "legal",
+      "software": [
+        "software/python"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 1,
+        "input_file_count": 4,
+        "base_input_file_count": 10,
+        "base_input_bytes": 1228267,
+        "reference_file_count": 5,
+        "prompt_chars": 1077,
+        "must_do_count": 5,
+        "evaluation_chars": 1439,
+        "timeout": 7200,
+        "modality_count": 4,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 14.0211,
+        "prompt_kchars": 1.077,
+        "evaluation_kchars": 1.439,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "json",
+        "markdown",
+        "pdf",
+        "text"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "llm_ecosystem_privacy_audit_realdata_1",
+          "distance": 0.5869
+        },
+        {
+          "slug": "sse_northbound_programmatic_trading_01",
+          "distance": 0.7482
+        },
+        {
+          "slug": "internal_employee_agent_instance_1",
+          "distance": 0.9591
+        }
+      ]
+    },
+    {
+      "slug": "american_option_pricing_ls",
+      "task_id": "business_finance/american_option_pricing_ls",
+      "title": "American Option Pricing via Longstaff-Schwartz",
+      "subdomain_code": "quant_finance",
+      "subdomain_name": "Quantitative Finance & Trading",
+      "domain_code": "business_finance",
+      "software": [
+        "Python",
+        "NumPy",
+        "SciPy",
+        "uv"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 4,
+        "input_file_count": 4,
+        "base_input_file_count": 3,
+        "base_input_bytes": 26504,
+        "reference_file_count": 4,
+        "prompt_chars": 1332,
+        "must_do_count": 5,
+        "evaluation_chars": 1822,
+        "timeout": 7200,
+        "modality_count": 3,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 10.1851,
+        "prompt_kchars": 1.332,
+        "evaluation_kchars": 1.822,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "lock",
+        "markdown",
+        "toml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "ff5_public_reconstruction",
+          "distance": 0.8771
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 1.0888
+        },
+        {
+          "slug": "basel_operational_risk_bia_cn",
+          "distance": 1.1632
+        }
+      ]
+    },
+    {
+      "slug": "digital_marketing_ab_test_analysis_1",
+      "task_id": "business_finance/digital_marketing_ab_test_analysis_1",
+      "title": "Digital Marketing A/B Test Analysis",
+      "subdomain_code": "sales_marketing",
+      "subdomain_name": "Sales & Marketing",
+      "domain_code": "business_finance",
+      "software": [
+        "Python 3.12",
+        "scipy",
+        "statsmodels",
+        "pandas",
+        "GrowthBook"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 5,
+        "input_file_count": 0,
+        "base_input_file_count": 8,
+        "base_input_bytes": 661686,
+        "reference_file_count": 4,
+        "prompt_chars": 3423,
+        "must_do_count": 0,
+        "evaluation_chars": 0,
+        "timeout": 7200,
+        "modality_count": 5,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 13.4025,
+        "prompt_kchars": 3.423,
+        "evaluation_kchars": 0.0,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "csv",
+        "lock",
+        "markdown",
+        "toml",
+        "yaml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "bpmn_category_governance_restructuring_l3",
+          "distance": 0.1779
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 0.7019
+        },
+        {
+          "slug": "american_option_pricing_ls",
+          "distance": 1.3138
+        }
+      ]
+    },
+    {
+      "slug": "digital_marketing_audience_segmentation_1",
+      "task_id": "business_finance/digital_marketing_audience_segmentation_1",
+      "title": "Digital Marketing Audience Segmentation",
+      "subdomain_code": "sales_marketing",
+      "subdomain_name": "Sales & Marketing",
+      "domain_code": "business_finance",
+      "software": [
+        "Python",
+        "pandas",
+        "pyarrow"
+      ],
+      "tier": "A",
+      "features": {
+        "software_count": 3,
+        "input_file_count": 5,
+        "base_input_file_count": 7,
+        "base_input_bytes": 342796,
+        "reference_file_count": 3,
+        "prompt_chars": 2324,
+        "must_do_count": 6,
+        "evaluation_chars": 317,
+        "timeout": 7200,
+        "modality_count": 7,
+        "has_main_py": 1,
+        "has_scripts": 1,
+        "log_input_bytes": 12.7449,
+        "prompt_kchars": 2.324,
+        "evaluation_kchars": 0.317,
+        "timeout_units": 1.0
+      },
+      "modalities": [
+        "csv",
+        "lock",
+        "markdown",
+        "parquet",
+        "toml",
+        "tsv",
+        "yaml"
+      ],
+      "difficulty_score": 100.0,
+      "nearest_seeds": [
+        {
+          "slug": "basel_operational_risk_bia_cn",
+          "distance": 1.0063
+        },
+        {
+          "slug": "bpmn_supply_disruption_l3",
+          "distance": 1.1492
+        },
+        {
+          "slug": "ff5_public_reconstruction",
+          "distance": 1.3794
+        }
+      ]
+    },
+    {
+      "slug": "odoo",
+      "task_id": "business_finance/odoo",
+      "title": "Odoo Supply-Chain End-To-End Workflow",
+      "subdomain_code": "supply_chain",
+      "subdomain_name": "Supply Chain & Logistics",
+      "domain_code": "business_finance",
+      "software": [
+        "Odoo 19",
+        "PostgreSQL 17"
+      ],
+      "tier": "B",
+      "features": {
+        "software_count": 2,
+        "input_file_count": 1,
+        "base_input_file_count": 0,
+        "base_input_bytes": 0,
+        "reference_file_count": 0,
+        "prompt_chars": 5843,
+        "must_do_count": 5,
+        "evaluation_chars": 2206,
+        "timeout": 7200,
+        "modality_count": 0,
+        "has_main_py": 1,
+        "has_scripts": 0,
+        "log_input_bytes": 0.0,
+        "prompt_kchars": 5.843,
+        "evaluation_kchars": 2.206,
+        "timeout_units": 1.0
+      },
+      "modalities": [],
+      "difficulty_score": 66.69,
+      "nearest_seeds": [
+        {
+          "slug": "taxform_4_1",
+          "distance": 0.0
+        },
+        {
+          "slug": "equity_research_summary",
+          "distance": 0.7004
+        },
+        {
+          "slug": "ar_full_300",
+          "distance": 1.8391
+        }
+      ]
+    }
+  ]
+}

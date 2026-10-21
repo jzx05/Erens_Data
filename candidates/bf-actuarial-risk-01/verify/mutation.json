@@ -1,0 +1,38 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-actuarial-risk-01",
+  "mutants": [
+    {
+      "mutation": "drop",
+      "applied": true,
+      "rejected": true,
+      "score": 0.0,
+      "evaluator_notes": [
+        "All-or-nothing scoring: 1.0 only if category accuracy >= 0.90, business-line accuracy >= 0.90, loss-amount accuracy == 1.00, capital correct, and no structural errors. Monetary values use an absolute tolerance of 0.01 CNY."
+      ],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "scalar",
+      "applied": true,
+      "rejected": true,
+      "score": 0.0,
+      "evaluator_notes": [
+        "All-or-nothing scoring: 1.0 only if category accuracy >= 0.90, business-line accuracy >= 0.90, loss-amount accuracy == 1.00, capital correct, and no structural errors. Monetary values use an absolute tolerance of 0.01 CNY."
+      ],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "structure",
+      "applied": true,
+      "rejected": true,
+      "score": 0.0,
+      "evaluator_notes": [
+        "All-or-nothing scoring: 1.0 only if category accuracy >= 0.90, business-line accuracy >= 0.90, loss-amount accuracy == 1.00, capital correct, and no structural errors. Monetary values use an absolute tolerance of 0.01 CNY."
+      ],
+      "stderr_tail": ""
+    }
+  ],
+  "rejected": 3,
+  "required": 3,
+  "passed": true
+}

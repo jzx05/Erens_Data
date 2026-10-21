@@ -1,0 +1,14 @@
+[
+  {
+    "doc_id": "doc_01",
+    "filename": "source_documents/doc_01.docx",
+    "extracted_text": "extracted_text/doc_01.txt",
+    "citation_aliases": ["{{DOC_1_CANONICAL_NAME}}", "{{DOC_1_ALIAS}}"]
+  },
+  {
+    "doc_id": "doc_02",
+    "filename": "source_documents/doc_02.docx",
+    "extracted_text": "extracted_text/doc_02.txt",
+    "citation_aliases": ["{{DOC_2_CANONICAL_NAME}}", "{{DOC_2_ALIAS}}"]
+  }
+]

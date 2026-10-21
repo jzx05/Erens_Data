@@ -1,0 +1,96 @@
+{
+  "taskId": "business_finance/crr_american_option_pricing_01",
+  "title": "CRR Binomial American Option Pricing with Greeks",
+  "summary": "Price an American put with a Cox-Ross-Rubinstein binomial tree for a base case and eight spot/volatility/step scenarios, reporting price, Delta, Gamma, intrinsic value, and early-exercise premium, plus a base-case summary.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12",
+    "math (standard library)",
+    "csv (standard library)",
+    "json (standard library)"
+  ],
+  "taskPrompt": "You are a quantitative analyst pricing an American-style equity option with a Cox-Ross-Rubinstein (CRR) binomial tree.\n\n## Inputs\n\n- Base-case option terms: `base/input/option_terms.json` (one JSON object with `underlying`, `option_type`, `spot`, `strike`, `risk_free_rate`, `volatility`, `maturity_years`, `steps`, `dividend_yield`).\n- Scenario grid: `base/input/scenario_grid.csv` (header `scenario_id,spot,volatility,steps`; eight data rows).\n- Output contract: `base/input/output_contract.json`.\n- Runtime declaration: `base/input/runtime_env/pyproject.toml`.\n\nThe task is closed-book: use only the staged files and the Python 3.12 standard library. Do not use external market data, financial libraries, or any reference output from another task.\n\n## Model\n\nFor spot S0, strike K, continuously compounded annual rate r, volatility sigma, maturity T in years, integer step count N, and continuous dividend yield q:\n\n- dt = T / N\n- u = exp(sigma * sqrt(dt))\n- d = 1 / u\n- p = (exp((r - q) * dt) - d) / (u - d)\n- df = exp(-r * dt)\n- Node spot: S(n, j) = S0 * u^j * d^(n - j) for 0 <= j <= n <= N\n\nAmerican put tree:\n\n- V(N, j) = max(K - S(N, j), 0)\n- For n = N-1, N-2, ..., 0: C(n, j) = df * (p * V(n+1, j+1) + (1 - p) * V(n+1, j)); V(n, j) = max(C(n, j), max(K - S(n, j), 0))\n- American price = V(0, 0); early exercise is allowed at every node, including the root\n\nEuropean benchmark (same dt, u, d, p, df and terminal payoff, no early-exercise max at intermediate nodes):\n\n- B(N, j) = max(K - S(N, j), 0); B(n, j) = df * (p * B(n+1, j+1) + (1 - p) * B(n+1, j))\n- early_exercise_premium = V(0, 0) - B(0, 0)\n\nGreeks from the American tree:\n\n- Delta = (V(1, 1) - V(1, 0)) / (S(1, 1) - S(1, 0))\n- Gamma = ((V(2, 2) - V(2, 1)) / (S(2, 2) - S(2, 1)) - (V(2, 1) - V(2, 0)) / (S(2, 1) - S(2, 0))) / (0.5 * (S(2, 2) - S(2, 0)))\n\nEach scenario row overrides `spot`, `volatility`, and `steps`; `strike`, `risk_free_rate`, `maturity_years`, `dividend_yield`, and `option_type` are inherited from `option_terms.json`.\n\n## Outputs\n\nWrite exactly these files under `base/output`:\n\n1. `pricing_results.csv` — header exactly `scenario_id,price,delta,gamma,intrinsic_value,early_exercise_premium`; one data row per scenario in `scenario_grid.csv` order. `intrinsic_value = max(strike - spot, 0)` using the scenario spot. `early_exercise_premium = American price - European price` from the same tree.\n2. `summary.json` — a JSON object with exactly five keys: `base_case_price`, `base_case_delta`, `base_case_gamma`, `scenario_count`, `highest_price_scenario`. The base case uses `option_terms.json` exactly (not a scenario row). `scenario_count` is the number of data rows in `scenario_grid.csv`. `highest_price_scenario` is the scenario_id with the largest price after rounding to 4 decimals; ties go to the row that appears first.\n\n## Rounding\n\nRound every reported numeric value to exactly 4 decimal places using round-half-up (ties away from zero); do not round intermediate values. Write four digits after the decimal point in the CSV. `scenario_count` is an integer.\n\nThe evaluator compares numeric values with an absolute tolerance of 1e-4 and checks structure exactly. Only a fully correct submission scores 1.0.",
+  "agentMustDo": [
+    "Read option_terms.json, scenario_grid.csv, and output_contract.json.",
+    "Build the CRR tree with u = exp(sigma*sqrt(dt)), d = 1/u, p = (exp((r-q)*dt) - d)/(u - d), and df = exp(-r*dt).",
+    "Apply the early-exercise max at every American-tree node, including the root.",
+    "Compute the European benchmark from the same tree and the early-exercise premium as American minus European.",
+    "Compute Delta and Gamma from the American-tree node values at steps 1 and 2.",
+    "Write pricing_results.csv and summary.json with 4-decimal round-half-up values."
+  ],
+  "inputFiles": [
+    {
+      "name": "task_brief.md",
+      "format": "Markdown",
+      "path": "input/task_brief.md",
+      "description": "Full CRR model specification, scenario rules, output contract, and rounding rules."
+    },
+    {
+      "name": "option_terms.json",
+      "format": "JSON",
+      "path": "input/option_terms.json",
+      "description": "Base-case option terms: spot, strike, rate, volatility, maturity, steps, and dividend yield."
+    },
+    {
+      "name": "scenario_grid.csv",
+      "format": "CSV",
+      "path": "input/scenario_grid.csv",
+      "description": "Eight scenarios overriding spot, volatility, and step count."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output files, columns, keys, and rounding rules."
+    },
+    {
+      "name": "runtime_env",
+      "format": "TOML directory",
+      "path": "input/runtime_env",
+      "description": "Runtime declaration (Python 3.12, no third-party dependencies)."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "pricing_results.csv",
+      "format": "CSV",
+      "path": "output/pricing_results.csv",
+      "description": "Per-scenario price, Delta, Gamma, intrinsic value, and early-exercise premium."
+    },
+    {
+      "name": "summary.json",
+      "format": "JSON",
+      "path": "output/summary.json",
+      "description": "Base-case price, Delta, Gamma, scenario count, and highest-price scenario."
+    }
+  ],
+  "evaluation": "Hard gates: a missing or unparsable output file, a wrong CSV header, a wrong row count, or a wrong summary key set prevents a full score. Each of the six columns in each of the eight scenario rows and each of the five summary fields is checked independently; numeric values use an absolute tolerance of 1e-4 and identifiers, counts, and the highest-price scenario must match exactly. The score is the fraction of checks passed; only a fully correct submission scores 1.0.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.7",
+    "subdomain_code": "quant_finance",
+    "subdomain_name": "Quantitative Finance & Trading",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task prices American options with a binomial tree and reports option Greeks, which is quantitative finance."
+    }
+  },
+  "requiredSystemPackages": []
+}

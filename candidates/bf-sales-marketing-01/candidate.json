@@ -1,0 +1,18 @@
+{
+  "id": "bf-sales-marketing-01",
+  "status": "AUTHORED",
+  "stratum": "sales_marketing",
+  "seed_anchor": "digital_marketing_ab_test_analysis_1",
+  "seed_refs": [
+    "digital_marketing_ab_test_analysis_1",
+    "digital_marketing_audience_segmentation_1"
+  ],
+  "difficulty_target": 100.0,
+  "task_family": "data-analysis",
+  "source_policy": "synthetic",
+  "internal_only": false,
+  "synthetic_data": true,
+  "attempts": 0,
+  "reason_codes": [],
+  "paths": {}
+}

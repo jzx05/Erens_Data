@@ -1,0 +1,15 @@
+{
+  "output_file": "research_answers.json",
+  "output_dir": "base/output",
+  "top_level_keys": [
+    "q1_daily_order_threshold",
+    "q2_order_splitting_exemption",
+    "q3_cancellation_ratio_standard"
+  ],
+  "per_question_fields": {
+    "conclusion": "exactly one of Yes, No, Unknown",
+    "citation_document": "accepted Chinese citation alias from document_manifest.json",
+    "evidence_snippet": "exact Chinese excerpt copied from the staged source",
+    "answer_text": "short English explanation"
+  }
+}

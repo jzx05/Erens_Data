@@ -1,0 +1,45 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-compliance-02",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "question_scores": {
+      "q1_daily_order_threshold": {
+        "score": 1.0,
+        "conclusion_correct": true,
+        "citation_valid": true,
+        "evidence_valid": true,
+        "answer_text_valid": true,
+        "notes": [
+          "accepted"
+        ]
+      },
+      "q2_order_splitting_exemption": {
+        "score": 1.0,
+        "conclusion_correct": true,
+        "citation_valid": true,
+        "evidence_valid": true,
+        "answer_text_valid": true,
+        "notes": [
+          "accepted"
+        ]
+      },
+      "q3_cancellation_ratio_standard": {
+        "score": 1.0,
+        "conclusion_correct": true,
+        "citation_valid": true,
+        "evidence_valid": true,
+        "answer_text_valid": true,
+        "notes": [
+          "accepted"
+        ]
+      }
+    },
+    "all_required_keys_present": true,
+    "unexpected_keys": []
+  },
+  "stdout_tail": "{\n  \"score\": 1.0,\n  \"question_scores\": {\n    \"q1_daily_order_threshold\": {\n      \"score\": 1.0,\n      \"conclusion_correct\": true,\n      \"citation_valid\": true,\n      \"evidence_valid\": true,\n      \"answer_text_valid\": true,\n      \"notes\": [\n        \"accepted\"\n      ]\n    },\n    \"q2_order_splitting_exemption\": {\n      \"score\": 1.0,\n      \"conclusion_correct\": true,\n      \"citation_valid\": true,\n      \"evidence_valid\": true,\n      \"answer_text_valid\": true,\n      \"notes\": [\n        \"accepted\"\n      ]\n    },\n    \"q3_cancellation_ratio_standard\": {\n      \"score\": 1.0,\n      \"conclusion_correct\": true,\n      \"citation_valid\": true,\n      \"evidence_valid\": true,\n      \"answer_text_valid\": true,\n      \"notes\": [\n        \"accepted\"\n      ]\n    }\n  },\n  \"all_required_keys_present\": true,\n  \"unexpected_keys\": []\n}\n",
+  "stderr_tail": ""
+}

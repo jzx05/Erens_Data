@@ -1,0 +1,29 @@
+{
+  "overall_attrition_pct": 12.8,
+  "regrettable_terminations": 9,
+  "total_replacement_cost_usd": 2142900.0,
+  "highest_attrition_department": "Sales",
+  "engagement_risk_headcount": 51,
+  "departments": [
+    {
+      "department": "Sales",
+      "attrition_pct": 21.82
+    },
+    {
+      "department": "Marketing",
+      "attrition_pct": 19.51
+    },
+    {
+      "department": "Human Resources",
+      "attrition_pct": 12.12
+    },
+    {
+      "department": "Engineering",
+      "attrition_pct": 8.96
+    },
+    {
+      "department": "Finance",
+      "attrition_pct": 3.7
+    }
+  ]
+}

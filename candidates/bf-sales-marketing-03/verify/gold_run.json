@@ -1,0 +1,28 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-sales-marketing-03",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "files": [
+      {
+        "file": "channel_performance.csv",
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "file": "budget_recommendation.json",
+        "passed": true,
+        "reason": ""
+      }
+    ],
+    "required_outputs": [
+      "channel_performance.csv",
+      "budget_recommendation.json"
+    ],
+    "tolerance": 0.005
+  },
+  "stdout_tail": "{\n  \"score\": 1.0,\n  \"files\": [\n    {\n      \"file\": \"channel_performance.csv\",\n      \"passed\": true,\n      \"reason\": \"\"\n    },\n    {\n      \"file\": \"budget_recommendation.json\",\n      \"passed\": true,\n      \"reason\": \"\"\n    }\n  ],\n  \"required_outputs\": [\n    \"channel_performance.csv\",\n    \"budget_recommendation.json\"\n  ],\n  \"tolerance\": 0.005\n}\n",
+  "stderr_tail": ""
+}

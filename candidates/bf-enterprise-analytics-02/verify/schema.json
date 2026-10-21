@@ -1,0 +1,8 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-enterprise-analytics-02",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/dashboard_metrics.json"
+  ]
+}

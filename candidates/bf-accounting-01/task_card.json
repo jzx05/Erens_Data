@@ -1,0 +1,87 @@
+{
+  "taskId": "business_finance/corporate_income_tax_deferred_tax_01",
+  "title": "Corporate Income Tax and Deferred Tax Computation",
+  "summary": "Compute current tax, deferred tax expense, total tax expense, effective tax rate, and year-end deferred tax balances for four entities from a synthetic financials file and a written tax policy, then produce a per-entity schedule and a summary JSON.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12",
+    "Python standard library"
+  ],
+  "taskPrompt": "You are a corporate tax analyst. Work only from the staged inputs under `base/input` and write the two required outputs under `base/output`.\n\n## Inputs\n\n- `base/input/financials.csv`: one row per entity with columns `entity`, `pretax_income_usd`, `permanent_differences_usd`, `temporary_differences_usd`, `statutory_tax_rate`, `prior_deferred_tax_balance_usd`.\n- `base/input/tax_policy.md`: formulas, sign conventions, journal-entry lines, and rounding rules.\n- `base/input/output_contract.json`: the required output files.\n\n## Computations\n\nFor each entity, using unrounded inputs:\n\n- `current_tax_usd = (pretax_income_usd + permanent_differences_usd) * statutory_tax_rate`\n- `deferred_tax_expense_usd = temporary_differences_usd * statutory_tax_rate`\n- `total_tax_expense_usd = current_tax_usd + deferred_tax_expense_usd`\n- `effective_tax_rate_pct = total_tax_expense_usd / pretax_income_usd * 100`\n- `deferred_tax_balance_usd = prior_deferred_tax_balance_usd + deferred_tax_expense_usd`\n\nSign conventions: a positive permanent difference increases taxable income and a negative one reduces it. A positive temporary difference is taxable and increases the deferred tax liability; a negative temporary difference is deductible and creates a deferred tax asset. Journal entry per entity: Dr Current tax expense / Cr Current tax payable = `current_tax_usd`; Dr Deferred tax expense / Cr Deferred tax liability = `deferred_tax_expense_usd` (swap the debit and credit when the amount is negative).\n\n## Outputs\n\n`base/output/tax_computation.csv` - columns in this exact order: `entity`, `current_tax_usd`, `deferred_tax_expense_usd`, `total_tax_expense_usd`, `effective_tax_rate_pct`, `deferred_tax_balance_usd`. One row per entity, sorted by `entity` ascending.\n\n`base/output/tax_summary.json` - an object with exactly these five keys:\n\n- `total_current_tax_usd`: sum of the rounded per-entity `current_tax_usd` values.\n- `total_deferred_tax_expense_usd`: sum of the rounded per-entity `deferred_tax_expense_usd` values.\n- `total_tax_expense_usd`: sum of the rounded per-entity `total_tax_expense_usd` values.\n- `weighted_effective_tax_rate_pct`: `total_tax_expense_usd / sum(pretax_income_usd) * 100`.\n- `entity_with_largest_deferred_tax_expense`: the entity with the largest rounded `deferred_tax_expense_usd`; break ties with the lexicographically smallest entity name.\n\n## Rounding\n\nRound every reported value (all USD amounts and all percentages) to 2 decimals using ROUND_HALF_UP. Compute with unrounded inputs; do not round intermediate values.\n\n## Constraints\n\nUse Python 3.12 and the standard library. Do not modify the inputs. Write only the two contracted files under `base/output`.",
+  "agentMustDo": [
+    "Read financials.csv, tax_policy.md, and output_contract.json.",
+    "Apply the current-tax, deferred-tax, total-tax, effective-rate, and deferred-balance formulas with unrounded inputs.",
+    "Respect the sign conventions and journal-entry lines in the policy.",
+    "Round every reported value to 2 decimals with ROUND_HALF_UP.",
+    "Write tax_computation.csv and tax_summary.json exactly as contracted."
+  ],
+  "inputFiles": [
+    {
+      "name": "financials.csv",
+      "format": "CSV",
+      "path": "input/financials.csv",
+      "description": "Synthetic per-entity pretax income, permanent and temporary differences, statutory tax rates, and prior deferred tax balances."
+    },
+    {
+      "name": "tax_policy.md",
+      "format": "Markdown",
+      "path": "input/tax_policy.md",
+      "description": "Formulas, sign conventions, journal-entry lines, and rounding conventions."
+    },
+    {
+      "name": "task_brief.md",
+      "format": "Markdown",
+      "path": "input/task_brief.md",
+      "description": "Short task overview and pointer to the policy."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output file names."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "tax_computation.csv",
+      "format": "CSV",
+      "path": "output/tax_computation.csv",
+      "description": "Per-entity tax computation schedule with six contracted columns."
+    },
+    {
+      "name": "tax_summary.json",
+      "format": "JSON",
+      "path": "output/tax_summary.json",
+      "description": "Totals, weighted effective tax rate, and the entity with the largest deferred tax expense."
+    }
+  ],
+  "evaluation": "Hard gates: missing or unparsable outputs; wrong CSV columns or row order; any per-entity current tax, deferred tax expense, total tax expense, effective rate, or deferred tax balance outside tolerance 1e-6; missing or extra summary keys; wrong totals, weighted effective rate, or largest-deferred entity. The score is the fraction of the two required output files that match the gold within tolerance; only a fully correct submission scores 1.0.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.1",
+    "subdomain_code": "accounting",
+    "subdomain_name": "Accounting & Finance",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task computes corporate income tax, deferred tax expense, effective tax rates, and deferred tax balances from a financials file."
+    }
+  },
+  "requiredSystemPackages": []
+}

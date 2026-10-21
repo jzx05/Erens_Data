@@ -1,0 +1,5 @@
+{"claim_id": "dataset_generation", "source_id": "src-dataset-manifest", "locator": "generation parameters", "exact_quote": "random_seed=20261023", "used_in": ["task_card.json"]}
+{"claim_id": "completed_filter", "source_id": "src-requirements", "locator": "Global Rules", "exact_quote": "- Revenue and order metrics include only orders with `status = 'completed'`.", "used_in": ["task_card.json"]}
+{"claim_id": "rounding", "source_id": "src-requirements", "locator": "Global Rules", "exact_quote": "- Round all monetary values and rates to 2 decimal places.", "used_in": ["task_card.json"]}
+{"claim_id": "monthly_zero_fill", "source_id": "src-requirements", "locator": "Global Rules", "exact_quote": "- `monthly_revenue` covers every month from the earliest to the latest `order_date` in `orders`,", "used_in": ["task_card.json"]}
+{"claim_id": "top10_order", "source_id": "src-requirements", "locator": "Global Rules", "exact_quote": "- `top_10_customers` uses completed orders only. Sort by `total_spend` descending, then", "used_in": ["task_card.json"]}

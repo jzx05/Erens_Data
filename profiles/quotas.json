@@ -1,0 +1,84 @@
+{
+  "target": 20,
+  "strategy": "fixed-20",
+  "quotas": [
+    {
+      "subdomain_code": "accounting",
+      "subdomain_name": "Accounting & Finance",
+      "count": 4,
+      "seed_count": 4,
+      "tier_a_seeds": 1,
+      "tier_b_seeds": 3
+    },
+    {
+      "subdomain_code": "enterprise_analytics",
+      "subdomain_name": "Enterprise Analytics & Planning",
+      "count": 4,
+      "seed_count": 5,
+      "tier_a_seeds": 0,
+      "tier_b_seeds": 5
+    },
+    {
+      "subdomain_code": "compliance",
+      "subdomain_name": "Compliance & Regulatory",
+      "count": 3,
+      "seed_count": 2,
+      "tier_a_seeds": 2,
+      "tier_b_seeds": 0
+    },
+    {
+      "subdomain_code": "sales_marketing",
+      "subdomain_name": "Sales & Marketing",
+      "count": 3,
+      "seed_count": 2,
+      "tier_a_seeds": 1,
+      "tier_b_seeds": 1
+    },
+    {
+      "subdomain_code": "quant_finance",
+      "subdomain_name": "Quantitative Finance & Trading",
+      "count": 2,
+      "seed_count": 1,
+      "tier_a_seeds": 1,
+      "tier_b_seeds": 0
+    },
+    {
+      "subdomain_code": "actuarial_risk",
+      "subdomain_name": "Actuarial & Risk Modeling",
+      "count": 1,
+      "seed_count": 1,
+      "tier_a_seeds": 0,
+      "tier_b_seeds": 1
+    },
+    {
+      "subdomain_code": "hr_pm",
+      "subdomain_name": "HR & Project Management",
+      "count": 1,
+      "seed_count": 1,
+      "tier_a_seeds": 1,
+      "tier_b_seeds": 0
+    },
+    {
+      "subdomain_code": "litigation",
+      "subdomain_name": "Litigation Support & Discovery",
+      "count": 1,
+      "seed_count": 1,
+      "tier_a_seeds": 1,
+      "tier_b_seeds": 0
+    },
+    {
+      "subdomain_code": "supply_chain",
+      "subdomain_name": "Supply Chain & Logistics",
+      "count": 1,
+      "seed_count": 1,
+      "tier_a_seeds": 0,
+      "tier_b_seeds": 1
+    }
+  ],
+  "deferred": [
+    {
+      "subdomain_code": "graphic_design",
+      "reason": "GUI-heavy; verify in a headless environment before scaling"
+    }
+  ]
+}

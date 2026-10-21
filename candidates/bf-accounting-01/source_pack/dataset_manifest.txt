@@ -1,0 +1,11 @@
+dataset_id=corporate_income_tax_deferred_tax_01
+random_seed=20261024
+entity_count=4
+entities=Arcadia,Bluewater,Crestline,Duneshore
+pretax_income_usd_range=400000..2600000 step=1000
+permanent_differences_usd_range=-60000..60000 step=500
+temporary_differences_usd_range=-90000..90000 step=1000
+statutory_tax_rate_choices=0.21,0.215,0.24,0.25
+prior_deferred_tax_balance_usd_range=-30000..200000 step=500
+rounding=ROUND_HALF_UP,2dp
+generated_by=ale-task-factory

@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "key": "q1_{{SLUG}}",
+      "question": "{{QUESTION_1}}",
+      "allowed_conclusions": ["Yes", "No", "Unknown"]
+    },
+    {
+      "key": "q2_{{SLUG}}",
+      "question": "{{QUESTION_2}}",
+      "allowed_conclusions": ["Yes", "No", "Unknown"]
+    },
+    {
+      "key": "q3_{{SLUG}}",
+      "question": "{{QUESTION_3}}",
+      "allowed_conclusions": ["Yes", "No", "Unknown"]
+    }
+  ]
+}

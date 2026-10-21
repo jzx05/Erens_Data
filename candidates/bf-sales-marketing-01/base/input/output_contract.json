@@ -1,0 +1,47 @@
+{
+  "required_outputs": [
+    "randomization_assignment.csv",
+    "experiment_results.tsv",
+    "experiment_report.md"
+  ],
+  "assignment_columns": [
+    "metric",
+    "value"
+  ],
+  "assignment_rows": [
+    "n_control",
+    "n_treatment",
+    "ratio",
+    "srm_chi2",
+    "srm_pvalue",
+    "srm_pass"
+  ],
+  "results_columns": [
+    "metric",
+    "is_primary",
+    "control_rate",
+    "treatment_rate",
+    "absolute_lift",
+    "relative_lift_pct",
+    "ci_lower_90",
+    "ci_upper_90",
+    "z_statistic",
+    "p_value_raw",
+    "significant_at_05",
+    "holm_rank",
+    "holm_threshold",
+    "holm_significant"
+  ],
+  "results_metrics": [
+    "opened_rate",
+    "clicked_rate",
+    "converted_rate",
+    "unsubscribed_rate"
+  ],
+  "primary_metric": "opened_rate",
+  "report_requirements": [
+    "a ## Recommendation section containing ship or hold",
+    "the observed absolute opened-rate lift formatted as X.XX percentage points",
+    "the required per-arm sample size"
+  ]
+}

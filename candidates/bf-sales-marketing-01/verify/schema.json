@@ -1,0 +1,10 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-sales-marketing-01",
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "declared reference output does not exist yet: output/randomization_assignment.csv",
+    "declared reference output does not exist yet: output/experiment_results.tsv",
+    "declared reference output does not exist yet: output/experiment_report.md"
+  ]
+}

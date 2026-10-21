@@ -1,0 +1,5 @@
+entity,current_tax_usd,deferred_tax_expense_usd,total_tax_expense_usd,effective_tax_rate_pct,deferred_tax_balance_usd
+Arcadia,277080.00,-17040.00,260040.00,23.18,118960.00
+Bluewater,92505.00,9240.00,101745.00,21.38,169240.00
+Crestline,177120.00,9840.00,186960.00,24.76,81840.00
+Duneshore,604750.00,-11500.00,593250.00,24.13,69500.00

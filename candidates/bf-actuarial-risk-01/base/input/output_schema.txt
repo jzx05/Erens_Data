@@ -1,0 +1,36 @@
+Output layout examples (illustrative values only; they are not ledger entries)
+
+1) classified_events.csv
+   Header fields, in this exact order, comma-separated:
+   Event_ID
+   Loss_Event_Category
+   Business_Line
+   Loss_Amount_CNY
+   Example data rows:
+   EX0001,EL4,BL7,1234567
+   EX0002,EL6,BL5,7654321
+
+   The header must match character for character. Every ledger Event_ID must appear
+   exactly once. Category codes are EL1 through EL7. Business line codes are BL1
+   through BL8. Loss amounts are the unchanged integers from the ledger.
+
+2) capital_calculation.json
+   {
+     "alpha": 0.15,
+     "gross_income_years": {
+       "2019": 0.00,
+       "2020": 0.00
+     },
+     "positive_year_count": 0,
+     "positive_gi_sum_cny": 0.00,
+     "average_positive_gi_cny": 0.00,
+     "or_capital_cny": 0.00
+   }
+
+   All six keys are required and no other keys may be added. The years in
+   gross_income_years must be exactly the years present in gross_income.csv.
+
+3) execution_log.txt
+   Free text. It must not be empty. A short paragraph naming the EL/BL
+   classification method and the BIA averaging, alpha application and rounding
+   steps is sufficient.

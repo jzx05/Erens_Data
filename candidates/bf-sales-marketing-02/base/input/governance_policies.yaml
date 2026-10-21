@@ -1,0 +1,21 @@
+policies:
+  - name: PII Restriction
+    description: No personally identifiable information in external activation exports.
+    restricted_fields:
+      - age
+      - gender
+      - city
+      - state
+  - name: Opt-Out Compliance
+    description: Only customers with the channel opt-in flag set are eligible for that channel.
+    rules:
+      - channel: sms
+        exclude_condition: sms_opt_in = 0
+      - channel: push
+        exclude_condition: push_opt_in = 0
+  - name: Minimum Audience Size
+    description: Audiences must contain at least 50 members for statistical validity.
+    min_size: 50
+  - name: Suppression List
+    description: Customers with active support tickets must be suppressed from all outbound campaigns.
+    suppress_condition: support_tickets_90d > 0

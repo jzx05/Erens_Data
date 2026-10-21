@@ -1,0 +1,28 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-hr-pm-01",
+  "score": 1.0,
+  "passed": true,
+  "returncode": 0,
+  "evaluator": {
+    "score": 1.0,
+    "files": [
+      {
+        "file": "department_attrition.csv",
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "file": "attrition_report.json",
+        "passed": true,
+        "reason": ""
+      }
+    ],
+    "required_outputs": [
+      "department_attrition.csv",
+      "attrition_report.json"
+    ],
+    "tolerance": 1e-06
+  },
+  "stdout_tail": "{\n  \"score\": 1.0,\n  \"files\": [\n    {\n      \"file\": \"department_attrition.csv\",\n      \"passed\": true,\n      \"reason\": \"\"\n    },\n    {\n      \"file\": \"attrition_report.json\",\n      \"passed\": true,\n      \"reason\": \"\"\n    }\n  ],\n  \"required_outputs\": [\n    \"department_attrition.csv\",\n    \"attrition_report.json\"\n  ],\n  \"tolerance\": 1e-06\n}\n",
+  "stderr_tail": ""
+}

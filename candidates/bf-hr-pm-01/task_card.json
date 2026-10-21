@@ -1,0 +1,92 @@
+{
+  "taskId": "business_finance/employee_attrition_headcount_01",
+  "title": "Employee Attrition and Headcount Analysis",
+  "summary": "Analyze a synthetic 150-employee roster for calendar year 2025: compute department-level average headcount, terminations, attrition rate, regrettable terminations, and replacement cost, plus an overall attrition report with engagement-risk counts.",
+  "category": "business_finance",
+  "software": [
+    "Python 3.12"
+  ],
+  "taskPrompt": "You are an HR analyst. Work only from the staged inputs under `base/input` and write the two required outputs under `base/output`.\n\n## Inputs\n\n- `base/input/employees.csv`: one row per employee with columns `employee_id`, `department`, `hire_date` (YYYY-MM-DD), `termination_date` (YYYY-MM-DD, empty for active employees), `annual_salary_usd`, `performance_rating` (1-5), `engagement_score` (0-1), `manager_id`.\n- `base/input/hr_policy.md`: analysis period, headcount definitions, metric formulas, sorting, tie-breaks, and rounding rules.\n- `base/input/output_contract.json`: the required output files.\n\n## Analysis Period\n\nCalendar year 2025: 2025-01-01 through 2025-12-31 inclusive. Only a `termination_date` inside this range counts as a termination in 2025; terminations dated before 2025-01-01 or after 2025-12-31 are excluded from every 2025 metric.\n\n## Headcount Definitions\n\n- `start_headcount` (per department): employees with `hire_date <= 2025-01-01` and (`termination_date` empty or `termination_date >= 2025-01-01`).\n- `end_headcount` (per department): employees with `hire_date <= 2025-12-31` and (`termination_date` empty or `termination_date > 2025-12-31`).\n- `average_headcount = (start_headcount + end_headcount) / 2`.\n\n## Metric Definitions\n\n- `attrition_pct = terminations in 2025 / average_headcount * 100` for each department. If `average_headcount == 0`, report `0.00`.\n- A regrettable termination is a 2025 termination with `performance_rating >= 4`.\n- `replacement_cost_usd = annual_salary_usd * 1.5`, charged for every 2025 termination (regrettable or not).\n- Engagement risk: an employee counted in `end_headcount` whose `engagement_score < 0.4`.\n\n## Outputs\n\n`base/output/department_attrition.csv` - columns in this exact order: `department`, `average_headcount`, `terminations`, `attrition_pct`, `regrettable_terminations`, `replacement_cost_usd`. One row per department present in `employees.csv`, sorted by `department` ascending.\n\n`base/output/attrition_report.json` - an object with exactly these six keys:\n\n- `overall_attrition_pct`: `total 2025 terminations / overall average headcount * 100`, where the overall average headcount is `(sum of department start_headcount + sum of department end_headcount) / 2`.\n- `regrettable_terminations`: the total count of 2025 terminations with `performance_rating >= 4`.\n- `total_replacement_cost_usd`: the sum over all 2025 terminations of `annual_salary_usd * 1.5`.\n- `highest_attrition_department`: the department with the highest rounded `attrition_pct`; break ties with the lexicographically smallest department name.\n- `engagement_risk_headcount`: the number of employees in `end_headcount` with `engagement_score < 0.4`.\n- `departments`: a list of objects `{\"department\": ..., \"attrition_pct\": ...}` sorted by `attrition_pct` descending, with ties broken by `department` ascending.\n\n## Rounding\n\nRound every percentage and every USD amount to 2 decimals with ROUND_HALF_UP. Compute from unrounded values. Headcounts and termination counts are integers.\n\n## Constraints\n\nUse Python 3.12 and the standard library. Do not modify the inputs. Write only the two contracted files under `base/output`.",
+  "agentMustDo": [
+    "Read employees.csv, hr_policy.md, and output_contract.json.",
+    "Compute start_headcount and end_headcount per department using the exact date boundaries for calendar year 2025.",
+    "Compute average_headcount, terminations in 2025, attrition_pct, regrettable terminations, and replacement cost per department.",
+    "Compute overall attrition, total regrettable terminations, total replacement cost, highest-attrition department, engagement-risk headcount, and the sorted department list.",
+    "Round every percentage and USD amount to 2 decimals with ROUND_HALF_UP and write the two contracted files."
+  ],
+  "inputFiles": [
+    {
+      "name": "employees.csv",
+      "format": "CSV",
+      "path": "input/employees.csv",
+      "description": "Synthetic 150-employee roster with hire dates, termination dates, salaries, performance ratings, engagement scores, and manager ids."
+    },
+    {
+      "name": "hr_policy.md",
+      "format": "Markdown",
+      "path": "input/hr_policy.md",
+      "description": "Analysis period, headcount definitions, metric formulas, sorting, tie-breaks, and rounding rules."
+    },
+    {
+      "name": "task_brief.md",
+      "format": "Markdown",
+      "path": "input/task_brief.md",
+      "description": "Short task overview with the formulas and denominators."
+    },
+    {
+      "name": "output_contract.json",
+      "format": "JSON",
+      "path": "input/output_contract.json",
+      "description": "Required output files, columns, keys, and sorting."
+    },
+    {
+      "name": "pyproject.toml",
+      "format": "TOML",
+      "path": "input/runtime_env/pyproject.toml",
+      "description": "Runtime metadata for Python 3.12 with no third-party dependencies."
+    }
+  ],
+  "referenceFiles": [
+    {
+      "name": "department_attrition.csv",
+      "format": "CSV",
+      "path": "output/department_attrition.csv",
+      "description": "Per-department headcount, terminations, attrition, regrettable terminations, and replacement cost."
+    },
+    {
+      "name": "attrition_report.json",
+      "format": "JSON",
+      "path": "output/attrition_report.json",
+      "description": "Overall attrition metrics, totals, highest-attrition department, engagement-risk headcount, and the sorted department list."
+    }
+  ],
+  "evaluation": "Hard gates: missing or unparsable outputs; wrong CSV columns or row order; any wrong headcount, termination count, attrition percentage, regrettable count, or replacement cost outside tolerance 1e-6; missing or extra report keys; wrong overall attrition, totals, highest-attrition department, engagement-risk headcount, or department list ordering. The score is the fraction of the two required output files that match the gold within tolerance; only a fully correct submission scores 1.0.",
+  "vm": {
+    "machineType": "c4-standard-4",
+    "snapshot": "cpu-free-ubuntu",
+    "timeout": 7200
+  },
+  "taxonomy": {
+    "domain_id": "6",
+    "domain_code": "business_finance",
+    "subdomain_id": "6.5",
+    "subdomain_code": "hr_pm",
+    "subdomain_name": "HR & Project Management",
+    "classifier": {
+      "model": "manual",
+      "classified_at": "2026-10-21T00:00:00Z",
+      "source": {
+        "submission_id": "factory",
+        "fields": [
+          "taskPrompt",
+          "title",
+          "summary",
+          "software"
+        ],
+        "mode": "manual"
+      },
+      "rationale": "The task computes employee attrition, headcount, regrettable attrition, replacement cost, and engagement risk from an HR roster."
+    }
+  },
+  "requiredSystemPackages": []
+}

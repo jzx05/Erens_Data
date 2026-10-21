@@ -1,0 +1,2 @@
+{"claim_id": "q1_{{SLUG}}", "source_id": "src-001", "locator": "{{LOCATOR}}", "exact_quote": "{{EXACT_QUOTE}}", "used_in": ["task_card.json", "base/reference/answer_key.json"]}
+{"claim_id": "q2_{{SLUG}}", "source_id": "src-001", "locator": "{{LOCATOR}}", "exact_quote": "{{EXACT_QUOTE}}", "used_in": ["task_card.json", "base/reference/answer_key.json"]}

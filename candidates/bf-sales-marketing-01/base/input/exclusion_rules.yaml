@@ -1,0 +1,10 @@
+rules:
+  - name: internal_test_accounts
+    field: customer_id
+    pattern: "^CUST-9"
+  - name: undelivered
+    field: delivered
+    equals: 0
+note: >
+  The pre-registered analysis uses the full raw population for SRM and metric rates.
+  These rules are retained for future operational exclusion only.

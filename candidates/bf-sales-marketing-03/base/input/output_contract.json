@@ -1,0 +1,73 @@
+{
+  "required_outputs": [
+    "channel_performance.csv",
+    "budget_recommendation.json"
+  ],
+  "output_directory": "base/output",
+  "rounding": {
+    "decimal_places": 2,
+    "mode": "half-up",
+    "scope": "final reported values only"
+  },
+  "channel_performance": {
+    "format": "CSV",
+    "delimiter": ",",
+    "row_count": 6,
+    "row_order": "roas_rank ascending (1 to 6)",
+    "columns": [
+      "channel",
+      "impressions",
+      "clicks",
+      "leads",
+      "conversions",
+      "spend_usd",
+      "revenue_usd",
+      "ctr_pct",
+      "lead_rate_pct",
+      "cvr_pct",
+      "cpa_usd",
+      "roas",
+      "roas_rank"
+    ],
+    "integer_columns": [
+      "impressions",
+      "clicks",
+      "leads",
+      "conversions",
+      "roas_rank"
+    ],
+    "decimal_columns": [
+      "spend_usd",
+      "revenue_usd",
+      "ctr_pct",
+      "lead_rate_pct",
+      "cvr_pct",
+      "cpa_usd",
+      "roas"
+    ]
+  },
+  "budget_recommendation": {
+    "format": "JSON object",
+    "keys": [
+      "total_spend_usd",
+      "total_revenue_usd",
+      "blended_roas",
+      "lowest_roas_channel",
+      "lowest_roas",
+      "highest_roas_channel",
+      "highest_roas",
+      "reallocation_amount_usd",
+      "reallocation_cap_usd",
+      "recommended_budgets"
+    ],
+    "recommended_budgets": {
+      "type": "list of 6 objects",
+      "order": "roas_rank ascending (1 to 6)",
+      "item_keys": [
+        "channel",
+        "current_spend_usd",
+        "recommended_budget_usd"
+      ]
+    }
+  }
+}

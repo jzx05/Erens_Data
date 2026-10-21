@@ -1,0 +1,7 @@
+{"claim_id": "dataset_generation", "source_id": "src-dataset-manifest", "locator": "generation parameters", "exact_quote": "random_seed=20261022", "used_in": ["task_card.json"]}
+{"claim_id": "target_ltv", "source_id": "src-brief", "locator": "Target Audience", "exact_quote": "- `ltv >= 1500`", "used_in": ["task_card.json"]}
+{"claim_id": "target_recency", "source_id": "src-brief", "locator": "Target Audience", "exact_quote": "- `recency_days >= 45`", "used_in": ["task_card.json"]}
+{"claim_id": "suppression", "source_id": "src-brief", "locator": "Suppression", "exact_quote": "- Exclude customers with `support_tickets_90d > 0` from all outbound campaigns.", "used_in": ["task_card.json"]}
+{"claim_id": "pii", "source_id": "src-brief", "locator": "PII", "exact_quote": "Remove `age`, `gender`, `city`, and `state` from the roster and all external activation exports.", "used_in": ["task_card.json"]}
+{"claim_id": "overlap_formula", "source_id": "src-brief", "locator": "Overlap Analysis", "exact_quote": "- `overlap_pct = overlap_count / total_qualifying * 100`, rounded to 2 decimals.", "used_in": ["task_card.json"]}
+{"claim_id": "minimum_audience", "source_id": "src-brief", "locator": "Governance", "exact_quote": "- Minimum audience size: 50.", "used_in": ["task_card.json"]}

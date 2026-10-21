@@ -1,0 +1,32 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-compliance-02",
+  "mutants": [
+    {
+      "mutation": "drop",
+      "applied": true,
+      "rejected": true,
+      "score": 0.0,
+      "evaluator_notes": [],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "scalar",
+      "applied": true,
+      "rejected": true,
+      "score": 0.6666666666666666,
+      "evaluator_notes": [],
+      "stderr_tail": ""
+    },
+    {
+      "mutation": "structure",
+      "applied": true,
+      "rejected": true,
+      "score": 0.0,
+      "evaluator_notes": [],
+      "stderr_tail": ""
+    }
+  ],
+  "rejected": 3,
+  "required": 3,
+  "passed": true
+}

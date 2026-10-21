@@ -1,0 +1,17 @@
+# Blind-solver tool policy. Keep filesystem/bash tools (needed to read base/input
+# and write base/output), but remove web access and delegation so the solver
+# cannot fetch external answers or spawn a differently-permissioned subagent.
+- id: tool-web
+  disabled: true
+- id: tool-subagent-control
+  disabled: true
+- id: tool-subagent-list-agents
+  disabled: true
+- id: tool-subagent
+  disabled: true
+- id: tool-subagent-fork
+  disabled: true
+- id: tool-workflow
+  disabled: true
+- id: tool-skill
+  disabled: true

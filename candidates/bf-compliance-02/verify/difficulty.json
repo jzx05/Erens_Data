@@ -1,0 +1,52 @@
+{
+  "candidate": "/home/erejin/ale-task-factory/candidates/bf-compliance-02",
+  "anchor": "sse_northbound_programmatic_trading_01",
+  "anchor_subdomain": "compliance",
+  "candidate_stratum": "compliance",
+  "stratum_ok": true,
+  "anchor_distance": 0.0223,
+  "max_distance": 2.0,
+  "nearest_seeds": [
+    {
+      "slug": "sse_northbound_programmatic_trading_01",
+      "distance": 0.0223
+    },
+    {
+      "slug": "legal_ma_consistency_audit_01",
+      "distance": 0.7463
+    },
+    {
+      "slug": "saas_onepager_brand_refresh_instance_1",
+      "distance": 0.9762
+    }
+  ],
+  "candidate_features": {
+    "software_count": 1,
+    "input_file_count": 6,
+    "base_input_file_count": 24,
+    "log_input_bytes": 13.0319,
+    "reference_file_count": 3,
+    "prompt_kchars": 2.508,
+    "must_do_count": 5,
+    "evaluation_kchars": 0.437,
+    "timeout_units": 1.0,
+    "modality_count": 5
+  },
+  "seed_means": {
+    "software_count": 2.5263,
+    "base_input_file_count": 12.2105,
+    "log_input_bytes": 10.5649,
+    "reference_file_count": 13.6316,
+    "timeout_units": 1.0,
+    "modality_count": 3.5263
+  },
+  "seed_stds": {
+    "software_count": 1.4279,
+    "base_input_file_count": 24.9622,
+    "log_input_bytes": 5.2466,
+    "reference_file_count": 44.9212,
+    "timeout_units": 1.0,
+    "modality_count": 2.2093
+  },
+  "passed": true
+}
